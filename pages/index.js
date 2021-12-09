@@ -11,7 +11,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <Header title="Welcome to BeOnMind!" />
+        <img src={'/gif/gif.1'} alt='logogif' />
       </main>
 
       <Footer />
