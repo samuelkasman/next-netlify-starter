@@ -1,24 +1,8 @@
 import styled, { css } from 'styled-components'
 import { typography, colors, breakpoints } from '../../../styles/theme'
+import { Typography } from '../../atomic/Typography'
 
-export const FooterStyled = styled.footer`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  font-size: ${typography.fontSize.bodySmall};
-  line-height: ${typography.lineHeight.bodySmall};
-  font-weight: ${typography.fontWeight.normal};
-  color: ${colors.grey30};
-  width: 100%;
-  padding: 0 40px;
-
-  @media (min-width: ${breakpoints.minDesktop}) {
-    padding: 0 120px;
-  }
-`
-
-export const Row = styled.div`
+export const TopRow = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -32,78 +16,68 @@ export const Row = styled.div`
   }
 `
 
-export const SocialLinks = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 256px;
-  margin-top: 40px;
+export const EmailText = styled(Typography)`
+  font-size: 26px;
+  line-height: 34px;
 
   @media (min-width: ${breakpoints.minDesktop}) {
-    margin-top: 0;
+    font-size: 72px;
+    line-height: 80px;
   }
 `
 
-export const Legal = styled.div`
+export const MainRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 64px 0 20px;
+
+  @media (min-width: ${breakpoints.minDesktop}) {
+    flex-direction: row;
+    padding: 48px 0 40px;
+  }
+`
+
+export const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+`
+
+export const MenuLink = styled(Typography)`
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: 24px;
+
+  @media (min-width: ${breakpoints.minDesktop}) {
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 32px;
+  }
+`
+
+export const Address = styled(Typography)`
+  font-size: 17px;
+  line-height: 28px;
+`
+
+export const AddressP = styled.p`
+  margin: 0;
+`
+
+export const BottomRow = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding: 64px 0 20px;
 
   @media (min-width: ${breakpoints.minDesktop}) {
-    flex-direction: row-reverse;
-    align-items: flex-end;
-    padding: 40px 0;
-  }
-`
-
-export const LegalLinks = styled.ul`
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 0 24px;
-  margin: 0;
-
-  @media (min-width: ${breakpoints.minDesktop}) {
+    padding: 48px 0 40px;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    padding: 0;
-  }
-`
-
-export const LegalLink = styled.li<{ noBullet?: boolean }>`
-  list-style: none;
-  padding: 12px 0;
-
-  @media (min-width: ${breakpoints.minDesktop}) {
-    padding: 0;
-
-    ${({ noBullet }) =>
-      !noBullet &&
-      css`
-        :before {
-          content: '';
-          display: inline-block;
-          position: relative;
-          top: -3px;
-          width: 3px;
-          height: 3px;
-          background-color: ${colors.grey30};
-          border-radius: 50%;
-          margin: 0 16px;
-        }
-      `};
-  }
-`
-
-export const Copyright = styled.div`
-  padding: 24px 0 32px;
-
-  @media (min-width: ${breakpoints.minDesktop}) {
-    padding: 0 24px 0 0;
   }
 `

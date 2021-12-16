@@ -10,7 +10,7 @@ export const Work: FC = (): JSX.Element => {
       <FullWidthSection bgColor={colors.black}>
         <FullWidthInner>
           <Centered>
-            <WorkText type={TypographyType.BodyBig} color={colors.white}>
+            <WorkText type={TypographyType.P1} color={colors.white}>
               Work
             </WorkText>
           </Centered>

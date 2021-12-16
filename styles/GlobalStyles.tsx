@@ -20,8 +20,8 @@ export const GlobalStyles = createGlobalStyle`
     font-feature-settings: "liga", "kern";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    line-height: ${typography.lineHeight.bodyRegular}; 
-    font-size: ${typography.fontSize.bodyRegular}; 
+    line-height: ${typography.lineHeight.p1}; 
+    font-size: ${typography.fontSize.p1}; 
     color: ${colors.black};
     background-color: ${colors.white};
   }

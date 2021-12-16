@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { colors } from '../../../styles/theme'
 import { FullWidthSection, FullWidthInner } from '../../layout/pageLayout'
 import { Centered } from './styled'
 

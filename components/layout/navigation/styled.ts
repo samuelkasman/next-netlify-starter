@@ -8,6 +8,7 @@ import {
 } from '../../../styles/theme'
 
 export const HeaderStyled = styled.header<{ isScrolled?: boolean }>`
+  position: sticky;
   line-height: 0;
   background-color: ${colors.transparent};
   height: ${elements.navigationHeight};
@@ -20,17 +21,8 @@ export const HeaderStyled = styled.header<{ isScrolled?: boolean }>`
   transition: all 0.3s ease-out;
 
   @media (min-width: ${breakpoints.minDesktop}) {
-    padding: 18px 40px;
-
-    position: sticky;
     top: 0;
-
-    ${({ isScrolled }) =>
-      isScrolled &&
-      css`
-        background-color: ${colors.redSoft};
-        box-shadow: ${misc.headerShadow};
-      `};
+    padding: 18px 40px;
   }
 `
 
@@ -46,8 +38,8 @@ export const LinkWrapper = styled.div`
 export const Text = styled.div`
   display: flex;
   align-items: center;
-  font-size: ${typography.fontSize.desktop.bodyLarge};
-  line-height: ${typography.lineHeight.desktop.bodyLarge};
+  font-size: ${typography.fontSize.desktop.p1};
+  line-height: ${typography.lineHeight.desktop.p1};
   font-weight: ${typography.fontWeight.bold};
   margin-right: 24px;
 `

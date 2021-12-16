@@ -4,7 +4,7 @@ type Props = {
   className?: string
 }
 
-export const Boom: FC<Props> = ({ className }) => (
+export const BoomIllustration: FC<Props> = ({ className }) => (
   <svg
     className={className}
     width="332"

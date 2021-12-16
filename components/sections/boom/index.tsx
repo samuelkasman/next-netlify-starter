@@ -8,7 +8,7 @@ import {
   BoomText3,
   Container,
   Container2,
-  Illustration,
+  BoomIllustrationStyled,
   TextWrapper,
 } from './styled'
 
@@ -20,7 +20,7 @@ export const Boom: FC = (): JSX.Element => {
           <Container>
             <TextWrapper>
               <BoomText
-                type={TypographyType.BodyBig}
+                type={TypographyType.P1}
                 color={colors.white}
                 inlineBlock
               >
@@ -29,7 +29,7 @@ export const Boom: FC = (): JSX.Element => {
               </BoomText>
             </TextWrapper>
 
-            <Illustration />
+            <BoomIllustrationStyled />
           </Container>
         </FullWidthInner>
       </FullWidthSection>
@@ -38,7 +38,7 @@ export const Boom: FC = (): JSX.Element => {
         <FullWidthInner>
           <Container2>
             <BoomText2
-              type={TypographyType.BodyBig}
+              type={TypographyType.P1}
               color={colors.black}
               textAlign="center"
               inlineBlock
@@ -49,7 +49,7 @@ export const Boom: FC = (): JSX.Element => {
             <br />
 
             <BoomText3
-              type={TypographyType.BodyBig}
+              type={TypographyType.P1}
               color={colors.black}
               textAlign="center"
               inlineBlock

@@ -1,5 +1,7 @@
 import { useTranslation } from 'next-i18next'
 import React, { FC } from 'react'
+import { colors } from '../../../styles/theme'
+import { BeOnMindLogo } from '../../atomic/logos/BeOnMindLogo'
 import { HeaderStyled, LinkWrapper, Text } from './styled'
 
 export const Navigation: FC = (): JSX.Element => {
@@ -8,7 +10,9 @@ export const Navigation: FC = (): JSX.Element => {
   return (
     <HeaderStyled>
       <LinkWrapper>
-        <Text>{t('header.title')}</Text>
+        <Text>
+          <BeOnMindLogo color={colors.black} />
+        </Text>
       </LinkWrapper>
     </HeaderStyled>
   )

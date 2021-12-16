@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints, colors } from '../../../styles/theme'
-import { Boom } from '../../atomic/illustrations/Boom'
+import { BoomIllustration } from '../../atomic/illustrations/BoomIllustration'
 import { Typography } from '../../atomic/Typography'
 
 export const Container = styled.div`
@@ -38,7 +38,7 @@ export const TextWrapper = styled.div`
   margin: auto 0;
 `
 
-export const Illustration = styled(Boom)`
+export const BoomIllustrationStyled = styled(BoomIllustration)`
   max-width: 100px;
   height: auto;
   margin: 0 auto auto 0;
