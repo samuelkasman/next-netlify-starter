@@ -1,24 +1,30 @@
 import Head from 'next/head'
 import type { NextPage } from 'next'
-import { Header } from '../components/layout/Header'
-import { Footer } from '../components/layout/Footer'
+import { Navigation } from '../components/layout/navigation'
+import { Footer } from '../components/sections/footer'
+import { PageLayout } from '../components/layout/pageLayout'
+import { Hero } from '../components/sections/hero'
+import { Boom } from '../components/sections/boom'
+import { Work } from '../components/sections/work'
 
 const Home: NextPage = () => {
   return (
-    <div className="container">
+    <>
       <Head>
         <title>BeOnMind yeah boiii!</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
+      <PageLayout>
+        <Navigation />
 
-      <main>
-        <img src={'/gif/gif.1'} alt="logogif" />
-      </main>
+        <Hero />
+        <Boom />
+        <Work />
 
-      <Footer />
-    </div>
+        <Footer />
+      </PageLayout>
+    </>
   )
 }
 

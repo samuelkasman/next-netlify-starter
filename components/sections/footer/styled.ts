@@ -1,68 +1,15 @@
 import styled, { css } from 'styled-components'
-import {
-  typography,
-  colors,
-  breakpoints,
-  elements,
-  misc,
-} from '../../styles/theme'
+import { typography, colors, breakpoints } from '../../../styles/theme'
 
-// Header
-export const HeaderStyled = styled.header<{ isScrolled?: boolean }>`
-  line-height: 0;
-  background-color: ${colors.transparent};
-  height: ${elements.navigationHeight};
-  width: 100%;
-  padding: 21px 20px;
-  z-index: 30;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.3s ease-out;
-
-  @media (min-width: ${breakpoints.minDesktop}) {
-    padding: 18px 40px;
-
-    position: sticky;
-    top: 0;
-
-    ${({ isScrolled }) =>
-      isScrolled &&
-      css`
-        background-color: ${colors.orange_bg_light};
-        box-shadow: ${misc.headerShadow};
-      `};
-  }
-`
-
-export const LinkWrapper = styled.div`
-  display: none;
-
-  @media (min-width: ${breakpoints.minDesktop}) {
-    display: flex;
-    flex-direction: row;
-  }
-`
-
-export const Text = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: ${typography.fontSize.desktop.linkPrimary};
-  line-height: ${typography.lineHeight.desktop.linkPrimary};
-  font-weight: ${typography.fontWeight.bold};
-  margin-right: 24px;
-`
-
-// Footer
 export const FooterStyled = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  font-size: ${typography.fontSize.bodyMicro};
-  line-height: ${typography.lineHeight.bodyMicro};
+  font-size: ${typography.fontSize.bodySmall};
+  line-height: ${typography.lineHeight.bodySmall};
   font-weight: ${typography.fontWeight.normal};
-  color: ${colors.gray_3};
+  color: ${colors.grey30};
   width: 100%;
   padding: 0 40px;
 
@@ -145,7 +92,7 @@ export const LegalLink = styled.li<{ noBullet?: boolean }>`
           top: -3px;
           width: 3px;
           height: 3px;
-          background-color: ${colors.gray_3};
+          background-color: ${colors.grey30};
           border-radius: 50%;
           margin: 0 16px;
         }

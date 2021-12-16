@@ -20,16 +20,16 @@ export const GlobalStyles = createGlobalStyle`
     font-feature-settings: "liga", "kern";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    line-height: ${typography.lineHeight.body}; 
-    font-size: ${typography.fontSize.body}; 
+    line-height: ${typography.lineHeight.bodyRegular}; 
+    font-size: ${typography.fontSize.bodyRegular}; 
     color: ${colors.black};
-    background-color: ${colors.orange_bg_light};
+    background-color: ${colors.white};
   }
 
   a {
     color: inherit;
     text-decoration: none;
-    color: ${colors.gray_3};
+    color: ${colors.black70};
     cursor: pointer;
   }
 

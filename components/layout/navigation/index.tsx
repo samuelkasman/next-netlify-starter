@@ -2,7 +2,7 @@ import { useTranslation } from 'next-i18next'
 import React, { FC } from 'react'
 import { HeaderStyled, LinkWrapper, Text } from './styled'
 
-export const Header: FC = (): JSX.Element => {
+export const Navigation: FC = (): JSX.Element => {
   const { t } = useTranslation('common')
 
   return (
