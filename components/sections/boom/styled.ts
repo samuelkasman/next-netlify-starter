@@ -50,12 +50,14 @@ export const BoomIllustrationStyled = styled(BoomIllustration)`
 `
 
 export const BoomText = styled(Typography)`
-  font-size: 40px;
-  line-height: 48px;
+  /* font-size: 40px;
+  line-height: 48px; */
+  font-size: calc(1rem + 3vw);
+  line-height: 1.15em;
 
   @media (min-width: ${breakpoints.minDesktop}) {
-    font-size: 72px;
-    line-height: 80px;
+    /* font-size: 72px; */
+    /* line-height: 80px; */
     max-width: 810px;
   }
 `

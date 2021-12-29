@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { colors } from '../../../styles/theme'
-import { TypographyType } from '../../atomic/Typography'
+import { PixelFont, TypographyType } from '../../atomic/Typography'
 import { FullWidthSection, FullWidthInner } from '../../layout/pageLayout'
 import { Centered, WorkText } from './styled'
 
@@ -11,7 +11,7 @@ export const Work: FC = (): JSX.Element => {
         <FullWidthInner>
           <Centered>
             <WorkText type={TypographyType.P1} color={colors.white}>
-              Work
+              Wor<PixelFont>k</PixelFont>
             </WorkText>
           </Centered>
         </FullWidthInner>

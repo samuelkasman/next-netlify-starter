@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { colors } from '../../../styles/theme'
-import { TypographyType } from '../../atomic/Typography'
+import { PixelFont, TypographyType } from '../../atomic/Typography'
 import { FullWidthSection, FullWidthInner } from '../../layout/pageLayout'
 import {
   BoomText,
@@ -24,8 +24,11 @@ export const Boom: FC = (): JSX.Element => {
                 color={colors.white}
                 inlineBlock
               >
-                Boosting ideas through audio-visual content in the name of
-                modern art
+                Boos<PixelFont>t</PixelFont>ing ideas <PixelFont>t</PixelFont>
+                hrough audio-visual con<PixelFont>te</PixelFont>n
+                <PixelFont>t</PixelFont> in <PixelFont>t</PixelFont>he nam
+                <PixelFont>e</PixelFont> of mode<PixelFont>r</PixelFont>n ar
+                <PixelFont>t</PixelFont>
               </BoomText>
             </TextWrapper>
 
@@ -54,8 +57,11 @@ export const Boom: FC = (): JSX.Element => {
               textAlign="center"
               inlineBlock
             >
-              Každý priestor, v ktorom sme zanechali stopy, bude esenciu našich
-              projektov nasávať ešte dlho
+              Každý pries<PixelFont>t</PixelFont>or, v kto
+              <PixelFont>r</PixelFont>om sme za<PixelFont>n</PixelFont>echali s
+              <PixelFont>t</PixelFont>op<PixelFont>y</PixelFont>, bude ese
+              <PixelFont>n</PixelFont>ciu našich projek<PixelFont>t</PixelFont>
+              ov nasávať eš<PixelFont>t</PixelFont>e dlho
             </BoomText3>
           </Container2>
         </FullWidthInner>
