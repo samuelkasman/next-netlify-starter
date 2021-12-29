@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app'
 import { GlobalStyles } from '../styles'
+import { appWithTranslation } from 'next-i18next'
 
 const Application = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
@@ -11,4 +12,4 @@ const Application = ({ Component, pageProps }: AppProps): JSX.Element => {
   )
 }
 
-export default Application
+export default appWithTranslation(Application)

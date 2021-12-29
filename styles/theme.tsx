@@ -17,7 +17,8 @@ export const colors = {
 
 export const typography = {
   fontFamily: {
-    default: 'MierB, sans-serif',
+    default: 'Lausanne',
+    alternate: 'Pixel',
   },
   fontSize: {
     largest: '96px',
