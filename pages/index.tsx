@@ -6,6 +6,7 @@ import { PageLayout } from '../components/layout/pageLayout'
 import { Hero } from '../components/sections/hero'
 import { Boom } from '../components/sections/boom'
 import { Work } from '../components/sections/work'
+import { Projects } from '../components/sections/projects'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 
@@ -25,6 +26,7 @@ const Home: NextPage = () => {
         <Hero />
         <Boom />
         <Work />
+        <Projects />
 
         <Footer />
       </PageLayout>

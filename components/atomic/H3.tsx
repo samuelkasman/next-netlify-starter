@@ -6,18 +6,27 @@ type H3Props = {
   id?: string
   className?: string
   color?: string
+  mediumFontWeight?: boolean
   marginSize?: string
   textAlign?: 'center' | 'left' | 'right'
 }
 
-const H3Styled = styled.h3<Pick<H3Props, 'color' | 'marginSize' | 'textAlign'>>`
+type H3StyledProps = Pick<
+  H3Props,
+  'color' | 'mediumFontWeight' | 'marginSize' | 'textAlign'
+>
+
+const H3Styled = styled.h3<H3StyledProps>`
   font-size: ${typography.fontSize.h3};
   line-height: ${typography.lineHeight.h3};
   color: ${({ color }) => color};
   text-align: ${({ textAlign }) => textAlign};
-  padding: 0 16px;
+  padding: 0;
   margin: ${({ marginSize }) => (marginSize ? marginSize : 0)} 0;
-  font-weight: ${typography.fontWeight.extraBold};
+  font-weight: ${({ mediumFontWeight }) =>
+    mediumFontWeight
+      ? typography.fontWeight.medium
+      : typography.fontWeight.light};
   z-index: 1;
 
   @media (min-width: ${breakpoints.minDesktop}) {

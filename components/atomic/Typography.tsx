@@ -38,7 +38,7 @@ const P1 = styled.span<StyledTypography>`
   ${commonCss};
   font-size: ${typography.fontSize.p1};
   line-height: ${typography.lineHeight.p1};
-  font-weight: ${typography.fontWeight.normal};
+  font-weight: ${typography.fontWeight.light};
 
   @media (min-width: ${breakpoints.minDesktop}) {
     font-size: ${typography.fontSize.desktop.p1};
@@ -50,7 +50,7 @@ const P2 = styled.span<StyledTypography>`
   ${commonCss};
   font-size: ${typography.fontSize.p2};
   line-height: ${typography.lineHeight.p2};
-  font-weight: ${typography.fontWeight.normal};
+  font-weight: ${typography.fontWeight.light};
 
   @media (min-width: ${breakpoints.minDesktop}) {
     font-size: ${typography.fontSize.desktop.p2};
@@ -62,7 +62,7 @@ const P3 = styled.span<StyledTypography>`
   ${commonCss};
   font-size: ${typography.fontSize.p3};
   line-height: ${typography.lineHeight.p3};
-  font-weight: ${typography.fontWeight.normal};
+  font-weight: ${typography.fontWeight.light};
 
   @media (min-width: ${breakpoints.minDesktop}) {
     font-size: ${typography.fontSize.desktop.p3};
