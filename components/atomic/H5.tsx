@@ -30,12 +30,6 @@ const H5Styled = styled.h5<H5StyledProps>`
   z-index: 1;
 
   @media (min-width: ${breakpoints.minDesktop}) {
-    font-size: 60px;
-    line-height: 66px;
-    padding: 0;
-  }
-
-  @media (min-width: ${breakpoints.bigDesktop}) {
     font-size: ${typography.fontSize.desktop.h5};
     line-height: ${typography.lineHeight.desktop.h5};
   }

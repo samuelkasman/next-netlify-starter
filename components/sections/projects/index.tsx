@@ -20,45 +20,45 @@ export const Projects: FC = (): JSX.Element => {
   return (
     <>
       <FullWidthSection bgColor={colors.black}>
-        <FullWidthInner noPadding>
-          <Container>
-            <FilmPanel onClick={() => setFilmModalVisible(true)}>
-              <PanelTitle color={colors.white}>
-                Fil<PixelFont>m</PixelFont>
-              </PanelTitle>
+        {/* <FullWidthInner noPadding> */}
+        <Container>
+          <FilmPanel onClick={() => setFilmModalVisible(true)}>
+            <PanelTitle color={colors.white}>
+              Fil<PixelFont>m</PixelFont>
+            </PanelTitle>
 
-              <div>
-                <PlusIconStyled />
+            <div>
+              <PlusIconStyled />
 
-                <Typography
-                  type={TypographyType.P1}
-                  color={colors.white}
-                  inlineBlock
-                >
-                  More about film
-                </Typography>
-              </div>
-            </FilmPanel>
+              <Typography
+                type={TypographyType.P1}
+                color={colors.white}
+                inlineBlock
+              >
+                More about film
+              </Typography>
+            </div>
+          </FilmPanel>
 
-            <AdPanel onClick={() => setAdvertisementModalVisible(true)}>
-              <PanelTitle color={colors.white}>
-                Adve<PixelFont>rt</PixelFont>isemen<PixelFont>t</PixelFont>
-              </PanelTitle>
+          <AdPanel onClick={() => setAdvertisementModalVisible(true)}>
+            <PanelTitle color={colors.white}>
+              Adve<PixelFont>rt</PixelFont>isemen<PixelFont>t</PixelFont>
+            </PanelTitle>
 
-              <div>
-                <PlusIconStyled />
+            <div>
+              <PlusIconStyled />
 
-                <Typography
-                  type={TypographyType.P1}
-                  color={colors.white}
-                  inlineBlock
-                >
-                  More about advertisement
-                </Typography>
-              </div>
-            </AdPanel>
-          </Container>
-        </FullWidthInner>
+              <Typography
+                type={TypographyType.P1}
+                color={colors.white}
+                inlineBlock
+              >
+                More about advertisement
+              </Typography>
+            </div>
+          </AdPanel>
+        </Container>
+        {/* </FullWidthInner> */}
       </FullWidthSection>
 
       <Modals

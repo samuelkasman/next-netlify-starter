@@ -30,12 +30,6 @@ const H4Styled = styled.h4<H4StyledProps>`
   z-index: 1;
 
   @media (min-width: ${breakpoints.minDesktop}) {
-    font-size: 60px;
-    line-height: 66px;
-    padding: 0;
-  }
-
-  @media (min-width: ${breakpoints.bigDesktop}) {
     font-size: ${typography.fontSize.desktop.h4};
     line-height: ${typography.lineHeight.desktop.h4};
   }
