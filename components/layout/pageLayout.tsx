@@ -28,4 +28,14 @@ export const FullWidthInner = styled.div<FullWidthInnerProps>`
       : `calc(${breakpoints.innerWidth} + 2 * ${spacing.pagePadding})`};
   padding: 0 ${({ noPadding }) => (noPadding ? '0' : spacing.pagePadding)};
   margin: auto;
+
+  @media (min-width: ${breakpoints.fullWidth}) {
+    padding: 0
+      ${({ noPadding }) => (noPadding ? '0' : spacing.pagePaddingLarge)};
+  }
+
+  @media (min-width: ${breakpoints.wideWidth}) {
+    padding: 0
+      ${({ noPadding }) => (noPadding ? '0' : spacing.pagePaddingExtraLarge)};
+  }
 `

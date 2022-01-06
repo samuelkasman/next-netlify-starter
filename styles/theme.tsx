@@ -91,6 +91,8 @@ export const typography = {
 
 export const spacing = {
   pagePadding: '20px',
+  pagePaddingLarge: '80px',
+  pagePaddingExtraLarge: '120px',
 }
 
 export const breakpoints = {

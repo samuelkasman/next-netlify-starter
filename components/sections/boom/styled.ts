@@ -82,6 +82,10 @@ export const BoomText = styled(Typography)`
     line-height: 1.15em;
     max-width: 810px;
   }
+
+  @media (min-width: ${breakpoints.fullWidth}) {
+    max-width: 100%;
+  }
 `
 
 export const BoomText2 = styled(Typography)`
@@ -95,6 +99,10 @@ export const BoomText2 = styled(Typography)`
     line-height: 1em;
     max-width: 810px;
   }
+
+  @media (min-width: ${breakpoints.fullWidth}) {
+    max-width: 100%;
+  }
 `
 
 export const BoomText3 = styled(Typography)`
@@ -107,5 +115,9 @@ export const BoomText3 = styled(Typography)`
     font-size: calc(1rem + 3vw);
     line-height: 1.15em;
     max-width: 1020px;
+  }
+
+  @media (min-width: ${breakpoints.fullWidth}) {
+    max-width: 100%;
   }
 `
