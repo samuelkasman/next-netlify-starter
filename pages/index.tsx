@@ -10,6 +10,7 @@ import { Projects } from '../components/sections/projects'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import { Founders } from '../components/sections/founders'
+import { Testimonials } from '../components/sections/testimonials'
 
 const Home: NextPage = () => {
   const { t } = useTranslation('common')
@@ -28,6 +29,7 @@ const Home: NextPage = () => {
         <Boom />
         <Work />
         <Projects />
+        <Testimonials />
         <Founders />
 
         <Footer />
