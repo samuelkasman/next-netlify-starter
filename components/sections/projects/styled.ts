@@ -2,7 +2,6 @@ import { PlusIcon } from './../../atomic/icons/PlusIcon'
 import { H1 } from './../../atomic/H1'
 import styled from 'styled-components'
 import { breakpoints, colors } from '../../../styles/theme'
-import { Typography } from '../../atomic/Typography'
 
 export const Container = styled.div`
   display: flex;
@@ -137,4 +136,29 @@ export const ModalListItemNumber = styled.div`
     margin-right: 40px;
     margin-bottom: 0;
   }
+`
+
+//logos
+export const LogosContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 100px 0;
+  margin: 0 auto;
+
+  @media (min-width: ${breakpoints.minDesktop}) {
+    padding: 200px 0 120px;
+  }
+`
+
+export const AllProjectsWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 0 100px 0;
 `
