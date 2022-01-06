@@ -69,19 +69,21 @@ export const Modals: FC<Props> = ({
 
   return (
     <>
-      {filmModalVisible && (
-        <Modal onCloseRequest={() => setFilmModalVisible?.(false)}>
-          <H5>Film</H5>
-          {contentIpsum}
-        </Modal>
-      )}
+      <Modal
+        isVisible={filmModalVisible}
+        onCloseRequest={() => setFilmModalVisible?.(false)}
+      >
+        <H5>Film</H5>
+        {contentIpsum}
+      </Modal>
 
-      {advertisementModalVisible && (
-        <Modal onCloseRequest={() => setAdvertisementModalVisible?.(false)}>
-          <H5>Advertisement</H5>
-          {contentIpsum}
-        </Modal>
-      )}
+      <Modal
+        isVisible={advertisementModalVisible}
+        onCloseRequest={() => setAdvertisementModalVisible?.(false)}
+      >
+        <H5>Advertisement</H5>
+        {contentIpsum}
+      </Modal>
     </>
   )
 }

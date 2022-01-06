@@ -12,6 +12,7 @@ import {
 
 type Props = {
   className?: string
+  isVisible?: boolean
   onCloseRequest: (event?: MouseEvent) => void
   desktopMaxWidth?: number
   noContentPadding?: boolean
@@ -19,6 +20,7 @@ type Props = {
 
 export const Modal: FC<Props> = ({
   className,
+  isVisible = false,
   onCloseRequest,
   desktopMaxWidth = 1000,
   children,
@@ -54,12 +56,13 @@ export const Modal: FC<Props> = ({
   }, [handleKeyUp])
 
   return (
-    <ModalOverlay>
-      <DissmissArea onClick={(e) => onCloseRequest(e)} />
+    <ModalOverlay isVisible={isVisible}>
+      {isVisible && <DissmissArea onClick={(e) => onCloseRequest(e)} />}
 
       <ModalContainer
         className={className}
         ref={modal}
+        isVisible={isVisible}
         desktopMaxWidth={desktopMaxWidth}
       >
         <CloseButton type="button" onClick={(e) => onCloseRequest(e)}>
@@ -70,7 +73,7 @@ export const Modal: FC<Props> = ({
           <ModalContent>{children}</ModalContent>
         </TouchScrollable>
 
-        <ScrollLock />
+        {isVisible && <ScrollLock />}
       </ModalContainer>
     </ModalOverlay>
   )

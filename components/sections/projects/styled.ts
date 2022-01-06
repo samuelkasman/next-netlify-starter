@@ -1,6 +1,6 @@
 import { PlusIcon } from './../../atomic/icons/PlusIcon'
 import { H1 } from './../../atomic/H1'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { breakpoints, colors } from '../../../styles/theme'
 
 export const Container = styled.div`
@@ -15,17 +15,16 @@ export const Container = styled.div`
   }
 `
 
-export const FilmPanel = styled.div`
-  cursor: pointer;
+const PanelCss = css`
+  cursor: url('/img/cursorArrowTopRight.png') 50 50, pointer;
   display: flex;
   flex-direction: column;
   min-height: 300px;
-  background-color: red;
-  background-image: url('/img/film.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   padding: 20px;
+  overflow: hidden;
 
   @media (min-width: ${breakpoints.minDesktop}) {
     width: 50%;
@@ -38,27 +37,14 @@ export const FilmPanel = styled.div`
   }
 `
 
+export const FilmPanel = styled.div`
+  ${PanelCss};
+  background-image: url('/img/film.png');
+`
+
 export const AdPanel = styled.div`
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  min-height: 300px;
-  background-color: blue;
+  ${PanelCss};
   background-image: url('/img/advertisement.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding: 20px;
-
-  @media (min-width: ${breakpoints.minDesktop}) {
-    width: 50%;
-    padding: 40px;
-    transition: width 1s;
-
-    &:hover {
-      width: 80%;
-    }
-  }
 `
 
 export const PanelTitle = styled(H1)`

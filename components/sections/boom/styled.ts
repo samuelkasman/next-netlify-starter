@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { breakpoints, colors } from '../../../styles/theme'
 import { BoomIllustration } from '../../atomic/illustrations/BoomIllustration'
 import { Typography } from '../../atomic/Typography'
@@ -38,10 +38,32 @@ export const TextWrapper = styled.div`
   margin: auto 0;
 `
 
+const heartBeat = keyframes`
+  0% {
+    transform: scale( 1 );
+  }
+  20% {
+    transform: scale( 1.1 );
+  }
+  40% {
+    transform: scale( 1 );
+  }
+  60% {
+    transform: scale( 1.2 );
+  }
+  80% {
+    transform: scale( 1 );
+  }
+  100% {
+    transform: scale( 1 );
+  }
+`
+
 export const BoomIllustrationStyled = styled(BoomIllustration)`
   max-width: 100px;
   height: auto;
   margin: 0 auto auto 0;
+  animation: ${heartBeat} 3s infinite;
 
   @media (min-width: ${breakpoints.minDesktop}) {
     max-width: 300px;
@@ -50,14 +72,14 @@ export const BoomIllustrationStyled = styled(BoomIllustration)`
 `
 
 export const BoomText = styled(Typography)`
-  /* font-size: 40px;
-  line-height: 48px; */
-  font-size: calc(1rem + 3vw);
-  line-height: 1.15em;
+  font-size: 40px;
+  line-height: 48px;
 
   @media (min-width: ${breakpoints.minDesktop}) {
     /* font-size: 72px; */
     /* line-height: 80px; */
+    font-size: calc(1rem + 3vw);
+    line-height: 1.15em;
     max-width: 810px;
   }
 `
@@ -67,8 +89,10 @@ export const BoomText2 = styled(Typography)`
   line-height: 28px;
 
   @media (min-width: ${breakpoints.minDesktop}) {
-    font-size: 24px;
-    line-height: 32px;
+    /* font-size: 24px;
+    line-height: 32px; */
+    font-size: calc(1rem + 1vw);
+    line-height: 1em;
     max-width: 810px;
   }
 `
@@ -78,8 +102,10 @@ export const BoomText3 = styled(Typography)`
   line-height: 48px;
 
   @media (min-width: ${breakpoints.minDesktop}) {
-    font-size: 56px;
-    line-height: 68px;
+    /* font-size: 56px;
+    line-height: 68px; */
+    font-size: calc(1rem + 3vw);
+    line-height: 1.15em;
     max-width: 1020px;
   }
 `

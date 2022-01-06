@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    height: 100vh;
   }
 
   *, *:before, *:after {
@@ -24,6 +25,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: ${typography.fontSize.p1}; 
     color: ${colors.black};
     background-color: ${colors.white};
+    height: 100vh;
   }
 
   a {
