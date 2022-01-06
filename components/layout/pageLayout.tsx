@@ -14,11 +14,28 @@ export const FullWidthSection = styled.section<{ bgColor?: string }>`
   width: 100%;
   background-color: ${({ bgColor }) => bgColor};
 `
+type FullWidthInnerProps = {
+  fullWidth?: boolean
+  noPadding?: boolean
+}
 
-export const FullWidthInner = styled.div`
+export const FullWidthInner = styled.div<FullWidthInnerProps>`
   flex: 1 0 auto;
   width: 100%;
-  max-width: calc(${breakpoints.innerWidth} + 2 * ${spacing.pagePadding});
-  padding: 0 ${spacing.pagePadding};
+  max-width: ${({ fullWidth }) =>
+    fullWidth
+      ? '100%'
+      : `calc(${breakpoints.innerWidth} + 2 * ${spacing.pagePadding})`};
+  padding: 0 ${({ noPadding }) => (noPadding ? '0' : spacing.pagePadding)};
   margin: auto;
+
+  @media (min-width: ${breakpoints.fullWidth}) {
+    padding: 0
+      ${({ noPadding }) => (noPadding ? '0' : spacing.pagePaddingLarge)};
+  }
+
+  @media (min-width: ${breakpoints.wideWidth}) {
+    padding: 0
+      ${({ noPadding }) => (noPadding ? '0' : spacing.pagePaddingExtraLarge)};
+  }
 `

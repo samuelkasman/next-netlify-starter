@@ -6,27 +6,30 @@ type H5Props = {
   id?: string
   className?: string
   color?: string
+  mediumFontWeight?: boolean
   marginSize?: string
   textAlign?: 'center' | 'left' | 'right'
 }
 
-const H5Styled = styled.h5<Pick<H5Props, 'color' | 'marginSize' | 'textAlign'>>`
+type H5StyledProps = Pick<
+  H5Props,
+  'color' | 'mediumFontWeight' | 'marginSize' | 'textAlign'
+>
+
+const H5Styled = styled.h5<H5StyledProps>`
   font-size: ${typography.fontSize.h5};
   line-height: ${typography.lineHeight.h5};
   color: ${({ color }) => color};
   text-align: ${({ textAlign }) => textAlign};
-  padding: 0 16px;
+  padding: 0;
   margin: ${({ marginSize }) => (marginSize ? marginSize : 0)} 0;
-  font-weight: ${typography.fontWeight.extraBold};
+  font-weight: ${({ mediumFontWeight }) =>
+    mediumFontWeight
+      ? typography.fontWeight.medium
+      : typography.fontWeight.light};
   z-index: 1;
 
   @media (min-width: ${breakpoints.minDesktop}) {
-    font-size: 60px;
-    line-height: 66px;
-    padding: 0;
-  }
-
-  @media (min-width: ${breakpoints.bigDesktop}) {
     font-size: ${typography.fontSize.desktop.h5};
     line-height: ${typography.lineHeight.desktop.h5};
   }

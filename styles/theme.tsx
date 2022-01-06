@@ -3,6 +3,7 @@ export const colors = {
   white: '#FFFFFF',
   black: '#000000',
   black70: 'rgba(0, 0, 0, 0.7)',
+  black30: 'rgba(0, 0, 0, 0.3)',
   grey: '#E3E2DF',
   grey70: 'rgba(227, 226, 223, 0.7)',
   grey30: 'rgba(227, 226, 223, 0.3)',
@@ -82,6 +83,7 @@ export const typography = {
     light: '300',
     book: '350',
     normal: '400',
+    medium: '500',
     bold: '700',
     extraBold: '800',
   },
@@ -89,6 +91,8 @@ export const typography = {
 
 export const spacing = {
   pagePadding: '20px',
+  pagePaddingLarge: '80px',
+  pagePaddingExtraLarge: '120px',
 }
 
 export const breakpoints = {

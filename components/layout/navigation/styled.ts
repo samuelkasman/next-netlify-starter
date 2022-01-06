@@ -40,6 +40,6 @@ export const Text = styled.div`
   align-items: center;
   font-size: ${typography.fontSize.desktop.p1};
   line-height: ${typography.lineHeight.desktop.p1};
-  font-weight: ${typography.fontWeight.bold};
+  font-weight: ${typography.fontWeight.light};
   margin-right: 24px;
 `

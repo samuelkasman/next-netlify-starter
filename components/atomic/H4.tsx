@@ -6,27 +6,30 @@ type H4Props = {
   id?: string
   className?: string
   color?: string
+  mediumFontWeight?: boolean
   marginSize?: string
   textAlign?: 'center' | 'left' | 'right'
 }
 
-const H4Styled = styled.h4<Pick<H4Props, 'color' | 'marginSize' | 'textAlign'>>`
+type H4StyledProps = Pick<
+  H4Props,
+  'color' | 'mediumFontWeight' | 'marginSize' | 'textAlign'
+>
+
+const H4Styled = styled.h4<H4StyledProps>`
   font-size: ${typography.fontSize.h4};
   line-height: ${typography.lineHeight.h4};
   color: ${({ color }) => color};
   text-align: ${({ textAlign }) => textAlign};
-  padding: 0 16px;
+  padding: 0;
   margin: ${({ marginSize }) => (marginSize ? marginSize : 0)} 0;
-  font-weight: ${typography.fontWeight.extraBold};
+  font-weight: ${({ mediumFontWeight }) =>
+    mediumFontWeight
+      ? typography.fontWeight.medium
+      : typography.fontWeight.light};
   z-index: 1;
 
   @media (min-width: ${breakpoints.minDesktop}) {
-    font-size: 60px;
-    line-height: 66px;
-    padding: 0;
-  }
-
-  @media (min-width: ${breakpoints.bigDesktop}) {
     font-size: ${typography.fontSize.desktop.h4};
     line-height: ${typography.lineHeight.desktop.h4};
   }
