@@ -19,7 +19,7 @@ export const Footer = (): JSX.Element => {
 
   return (
     <FullWidthSection bgColor={colors.grey}>
-      <FullWidthInner fullWidth>
+      <FullWidthInner>
         <TopRow>
           <EmailText type={TypographyType.P1} color={colors.black}>
             s<PixelFont>t</PixelFont>udio@beo<PixelFont>n</PixelFont>mind.com

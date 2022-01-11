@@ -16,7 +16,7 @@ export const Container = styled.div`
 `
 
 const PanelCss = css`
-  cursor: url('/img/cursorArrowTopRight.png') 50 50, pointer;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   min-height: 300px;
@@ -29,10 +29,10 @@ const PanelCss = css`
   @media (min-width: ${breakpoints.minDesktop}) {
     width: 50%;
     padding: 40px;
-    transition: width 1s;
+    transition: width 2s;
 
     &:hover {
-      width: 80%;
+      width: 55%;
     }
   }
 `
@@ -56,6 +56,7 @@ export const PlusIconStyled = styled(PlusIcon)`
 `
 
 export const ModalContentContainer = styled.div`
+  height: 100%;
   display: flex;
   flex-direction: column;
   padding: 40px 0;
@@ -78,6 +79,7 @@ export const ModalHeadingColumn = styled.div`
 `
 
 export const ModalListColumn = styled.ul`
+  position: relative;
   display: flex;
   flex: 50%;
   flex-direction: column;
@@ -86,6 +88,19 @@ export const ModalListColumn = styled.ul`
   list-style: none;
   padding: 0;
   margin: 40px 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: ${colors.black70};
+    border-radius: 10px;
+  }
 
   @media (min-width: ${breakpoints.minDesktop}) {
     padding: 0 120px 0 0;
@@ -146,5 +161,10 @@ export const AllProjectsWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 0 0 100px 0;
+  padding: 0;
+  margin-bottom: 100px;
+
+  @media (min-width: ${breakpoints.minDesktop}) {
+    margin-bottom: 200px;
+  }
 `

@@ -15,7 +15,7 @@ export const Container = styled.div`
   @media (min-width: ${breakpoints.minDesktop}) {
     flex-direction: row;
     min-height: 800px;
-    padding: 160px 20px;
+    padding: 160px 0;
   }
 `
 
@@ -29,7 +29,7 @@ export const Container2 = styled.div`
 
   @media (min-width: ${breakpoints.minDesktop}) {
     min-height: 800px;
-    padding: 160px 20px;
+    padding: 160px 0;
   }
 `
 
@@ -66,6 +66,7 @@ export const BoomIllustrationStyled = styled(BoomIllustration)`
   animation: ${heartBeat} 3s infinite;
 
   @media (min-width: ${breakpoints.minDesktop}) {
+    flex-shrink: 0;
     max-width: 300px;
     margin: 0 0 auto;
   }
@@ -95,8 +96,8 @@ export const BoomText2 = styled(Typography)`
   @media (min-width: ${breakpoints.minDesktop}) {
     /* font-size: 24px;
     line-height: 32px; */
-    font-size: calc(1rem + 1vw);
-    line-height: 1em;
+    font-size: calc(0.6rem + 1vw);
+    line-height: 3em;
     max-width: 810px;
   }
 

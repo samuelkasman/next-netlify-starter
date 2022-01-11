@@ -29,12 +29,12 @@ export const Projects: FC = (): JSX.Element => {
       <FullWidthSection bgColor={colors.black}>
         <FullWidthInner fullWidth noPadding>
           <Container>
-            <FilmPanel onClick={() => setFilmModalVisible(true)}>
+            <FilmPanel>
               <PanelTitle color={colors.white}>
                 Fil<PixelFont>m</PixelFont>
               </PanelTitle>
 
-              <div>
+              <div onClick={() => setFilmModalVisible(true)}>
                 <PlusIconStyled />
 
                 <Typography
@@ -47,12 +47,12 @@ export const Projects: FC = (): JSX.Element => {
               </div>
             </FilmPanel>
 
-            <AdPanel onClick={() => setAdvertisementModalVisible(true)}>
+            <AdPanel>
               <PanelTitle color={colors.white}>
                 Adve<PixelFont>rt</PixelFont>isemen<PixelFont>t</PixelFont>
               </PanelTitle>
 
-              <div>
+              <div onClick={() => setAdvertisementModalVisible(true)}>
                 <PlusIconStyled />
 
                 <Typography

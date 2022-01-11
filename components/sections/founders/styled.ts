@@ -14,7 +14,7 @@ export const Container = styled.div`
   @media (min-width: ${breakpoints.minDesktop}) {
     flex-direction: row;
     min-height: 800px;
-    padding: 160px 20px;
+    padding: 160px 0;
   }
 `
 
@@ -28,10 +28,6 @@ export const TextColumn = styled.div`
   @media (min-width: ${breakpoints.minDesktop}) {
     padding-right: 120px;
     justify-content: space-between;
-  }
-
-  @media (min-width: ${breakpoints.fullWidth}) {
-    margin: auto 0 auto 200px;
   }
 `
 

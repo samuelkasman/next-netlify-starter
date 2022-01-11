@@ -16,7 +16,7 @@ export const Founders: FC = (): JSX.Element => {
   return (
     <>
       <FullWidthSection bgColor={colors.black}>
-        <FullWidthInner fullWidth>
+        <FullWidthInner>
           <Container>
             <TextColumn>
               <Heading
