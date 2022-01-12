@@ -4,10 +4,12 @@ import styled, { css } from 'styled-components'
 import { breakpoints, colors } from '../../../styles/theme'
 
 export const Container = styled.div`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   width: 100%;
   min-height: 300px;
+  overflow: hidden;
 
   @media (min-width: ${breakpoints.minDesktop}) {
     flex-direction: row;
@@ -15,8 +17,22 @@ export const Container = styled.div`
   }
 `
 
+export const CustomCursorWrapper = styled.div`
+  display: none;
+
+  @media (min-width: ${breakpoints.minDesktop}) {
+    display: block;
+  }
+
+  svg {
+    position: absolute;
+    pointer-events: none;
+    transform: translate3d(0, 0, 0);
+    z-index: 999;
+  }
+`
+
 const PanelCss = css`
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   min-height: 300px;
@@ -32,7 +48,7 @@ const PanelCss = css`
     transition: width 2s;
 
     &:hover {
-      width: 55%;
+      width: 52.5%;
     }
   }
 `
@@ -49,6 +65,10 @@ export const AdPanel = styled.div`
 
 export const PanelTitle = styled(H1)`
   margin-top: auto;
+`
+
+export const PanelModalToggle = styled.div`
+  z-index: 9999;
 `
 
 export const PlusIconStyled = styled(PlusIcon)`
