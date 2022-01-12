@@ -57,14 +57,14 @@ export const Paragraph = styled(Typography)`
   }
 `
 
-export const ImgColumn = styled.div`
+export const VideoColumn = styled.div`
   display: flex;
   flex: 50%;
   justify-content: center;
   align-items: center;
 `
 
-export const ImgStyled = styled.img`
+export const VideoStyled = styled.video`
   width: calc(3rem + 40vw);
   height: auto;
 

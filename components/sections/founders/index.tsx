@@ -6,8 +6,8 @@ import { PlusIconStyled } from '../projects/styled'
 import {
   Container,
   Heading,
-  ImgColumn,
-  ImgStyled,
+  VideoColumn,
+  VideoStyled,
   Paragraph,
   TextColumn,
 } from './styled'
@@ -59,9 +59,11 @@ export const Founders: FC = (): JSX.Element => {
               </div>
             </TextColumn>
 
-            <ImgColumn>
-              <ImgStyled src={'/img/balls.png'} alt="balls" />
-            </ImgColumn>
+            <VideoColumn>
+              <VideoStyled autoPlay muted loop>
+                <source src="/video/founders.mp4" type="video/mp4" />
+              </VideoStyled>
+            </VideoColumn>
           </Container>
         </FullWidthInner>
       </FullWidthSection>

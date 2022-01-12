@@ -8,7 +8,7 @@ import {
 } from '../../../styles/theme'
 
 export const HeaderStyled = styled.header<{ isScrolled?: boolean }>`
-  position: sticky;
+  position: absolute;
   line-height: 0;
   background-color: ${colors.transparent};
   height: ${elements.navigationHeight};
