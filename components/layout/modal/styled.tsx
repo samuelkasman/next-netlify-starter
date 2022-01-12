@@ -70,7 +70,7 @@ export const ModalContainer = styled.div<ModalContainerProps>`
           animation-name: ${fadeOutAnimation};
         `}
 
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-iteration-count: 1;
 `
 

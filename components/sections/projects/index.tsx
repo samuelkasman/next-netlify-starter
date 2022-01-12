@@ -89,7 +89,7 @@ export const Projects: FC = (): JSX.Element => {
       }
 
       // @ts-ignore
-      secondaryCursorRef.current.style.transform = `translate3d(${destinationX}px, ${destinationY}px, 0)`
+      secondaryCursorRef!.current!.style.transform = `translate3d(${destinationX}px, ${destinationY}px, 0)`
     }
 
     followMouse()
