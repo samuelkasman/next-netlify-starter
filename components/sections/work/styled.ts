@@ -11,7 +11,7 @@ export const Centered = styled.div<{ inView?: boolean }>`
 
   opacity: ${({ inView }) => (inView ? '1' : '0')};
   transform: ${({ inView }) => (inView ? 'translateY(0)' : 'translateY(5%)')};
-  transition: all 1s ease-in-out;
+  transition: all 1s ease-out;
 
   @media (min-width: ${breakpoints.minDesktop}) {
     min-height: 600px;

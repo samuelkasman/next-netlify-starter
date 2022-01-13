@@ -116,6 +116,23 @@ export const Overlay = styled.div<{ open: boolean }>`
   z-index: 50;
 `
 
+export const Intro = styled.div<{ open: boolean }>`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: ${colors.white};
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: -100vh;
+  transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-110vh)')};
+  transition: transform 1s ease-out;
+  overflow: hidden;
+  z-index: 200;
+`
+
 export const MenuList = styled.ul<{ open: boolean }>`
   list-style: none;
   position: fixed;
@@ -126,14 +143,14 @@ export const MenuList = styled.ul<{ open: boolean }>`
   right: 0;
   width: 100%;
   height: 100vh;
+  line-height: 24px;
   background-color: ${colors.grey};
   padding: ${elements.navigationHeight} 20px;
   margin: 0;
   transform-origin: top center;
   transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-100vh)')};
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-out;
   overflow: hidden;
-  line-height: 24px;
   z-index: 100;
 
   @media (min-width: ${breakpoints.minDesktop}) {

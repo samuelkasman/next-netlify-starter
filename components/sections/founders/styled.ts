@@ -27,7 +27,7 @@ export const TextColumn = styled.div<{ inView?: boolean }>`
 
   opacity: ${({ inView }) => (inView ? '1' : '0')};
   transform: ${({ inView }) => (inView ? 'translateX(0)' : 'translateX(-10%)')};
-  transition: all 1s ease-in-out;
+  transition: all 1s ease-out;
 
   @media (min-width: ${breakpoints.minDesktop}) {
     padding-right: 120px;
@@ -69,7 +69,7 @@ export const VideoColumn = styled.div<{ inView?: boolean }>`
 
   opacity: ${({ inView }) => (inView ? '1' : '0')};
   transform: ${({ inView }) => (inView ? 'translateX(0)' : 'translateX(10%)')};
-  transition: all 1s ease-in;
+  transition: all 1s ease-out;
 `
 
 export const VideoStyled = styled.video`

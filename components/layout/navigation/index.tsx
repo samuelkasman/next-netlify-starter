@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next'
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import ScrollLock from 'react-scrolllock'
 import { colors } from '../../../styles/theme'
 import { BeOnMindLogo } from '../../atomic/logos/BeOnMindLogo'
@@ -8,6 +8,7 @@ import { EmailText, MenuLink } from '../../sections/footer/styled'
 import { Burger } from './Burger'
 import {
   HeaderStyled,
+  Intro,
   LinkWrapper,
   MenuItem,
   MenuList,
@@ -16,8 +17,17 @@ import {
 } from './styled'
 
 export const Navigation: FC = (): JSX.Element => {
+  const [openIntro, setOpenIntro] = useState(true)
   const [open, setOpen] = useState(false)
   const { t } = useTranslation('common')
+
+  useEffect(() => {
+    let timer1 = setTimeout(() => setOpenIntro(false), 5000)
+
+    return () => {
+      clearTimeout(timer1)
+    }
+  }, [])
 
   return (
     <HeaderStyled>
@@ -61,7 +71,11 @@ export const Navigation: FC = (): JSX.Element => {
 
       <Overlay open={open} />
 
-      {open && <ScrollLock />}
+      <Intro open={openIntro}>
+        <img src="/gif/gif.1" alt="BeOnMind" />
+      </Intro>
+
+      {(open || openIntro) && <ScrollLock />}
 
       <Burger open={open} setOpen={setOpen} />
     </HeaderStyled>
