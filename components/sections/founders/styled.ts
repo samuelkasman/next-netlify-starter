@@ -18,12 +18,16 @@ export const Container = styled.div`
   }
 `
 
-export const TextColumn = styled.div`
+export const TextColumn = styled.div<{ inView?: boolean }>`
   display: flex;
   flex: 50%;
   flex-direction: column;
   align-items: flex-start;
   margin: auto 0;
+
+  opacity: ${({ inView }) => (inView ? '1' : '0')};
+  transform: ${({ inView }) => (inView ? 'translateX(0)' : 'translateX(-10%)')};
+  transition: all 1s ease-in-out;
 
   @media (min-width: ${breakpoints.minDesktop}) {
     padding-right: 120px;
@@ -57,11 +61,15 @@ export const Paragraph = styled(Typography)`
   }
 `
 
-export const VideoColumn = styled.div`
+export const VideoColumn = styled.div<{ inView?: boolean }>`
   display: flex;
   flex: 50%;
   justify-content: center;
   align-items: center;
+
+  opacity: ${({ inView }) => (inView ? '1' : '0')};
+  transform: ${({ inView }) => (inView ? 'translateX(0)' : 'translateX(10%)')};
+  transition: all 1s ease-in;
 `
 
 export const VideoStyled = styled.video`

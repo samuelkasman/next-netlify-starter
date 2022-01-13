@@ -160,7 +160,7 @@ export const ModalListItemNumber = styled.div`
 `
 
 //logos
-export const LogosContainer = styled.div`
+export const LogosContainer = styled.div<{ inView?: boolean }>`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -170,12 +170,15 @@ export const LogosContainer = styled.div`
   padding: 100px 0;
   margin: 0 auto;
 
+  opacity: ${({ inView }) => (inView ? '1' : '0')};
+  transition: all 1s ease-in-out;
+
   @media (min-width: ${breakpoints.minDesktop}) {
     padding: 200px 0 120px;
   }
 `
 
-export const AllProjectsWrapper = styled.div`
+export const AllProjectsWrapper = styled.div<{ inView?: boolean }>`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -183,6 +186,10 @@ export const AllProjectsWrapper = styled.div`
   width: 100%;
   padding: 0;
   margin-bottom: 100px;
+
+  opacity: ${({ inView }) => (inView ? '1' : '0')};
+  transform: ${({ inView }) => (inView ? 'translateX(0)' : 'translateX(-10%)')};
+  transition: all 1s ease-in;
 
   @media (min-width: ${breakpoints.minDesktop}) {
     margin-bottom: 200px;

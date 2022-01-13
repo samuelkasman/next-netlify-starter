@@ -312,7 +312,9 @@ export const CarouselWrapper = styled.div`
   }
 `
 
-export const CarouselWrapperStyled = styled(CarouselWrapper)`
+export const CarouselWrapperStyled = styled(CarouselWrapper)<{
+  inView?: boolean
+}>`
   .carousel .control-dots {
     position: static;
     margin: 0;
@@ -321,6 +323,10 @@ export const CarouselWrapperStyled = styled(CarouselWrapper)`
   .carousel .slide {
     background: none;
   }
+
+  opacity: ${({ inView }) => (inView ? '1' : '0')};
+  transform: ${({ inView }) => (inView ? 'translateY(0)' : 'translateY(5%)')};
+  transition: all 1s ease-in-out;
 `
 
 export const RenderIndicatorWrapper = styled.div`

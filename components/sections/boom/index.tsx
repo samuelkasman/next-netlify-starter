@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { useInView } from 'react-intersection-observer'
 import { colors } from '../../../styles/theme'
 import { PixelFont, TypographyType } from '../../atomic/Typography'
 import { FullWidthSection, FullWidthInner } from '../../layout/pageLayout'
@@ -13,12 +14,22 @@ import {
 } from './styled'
 
 export const Boom: FC = (): JSX.Element => {
+  const THRESHOLD_VALLUE = 0.5
+
+  const { ref, inView } = useInView({
+    threshold: THRESHOLD_VALLUE,
+  })
+
+  const { ref: ref3, inView: inView3 } = useInView({
+    threshold: THRESHOLD_VALLUE,
+  })
+
   return (
     <>
       <FullWidthSection bgColor={colors.black}>
         <FullWidthInner>
           <Container>
-            <TextWrapper>
+            <TextWrapper ref={ref} inView={inView}>
               <BoomText
                 type={TypographyType.P1}
                 color={colors.white}
@@ -39,7 +50,7 @@ export const Boom: FC = (): JSX.Element => {
 
       <FullWidthSection bgColor={colors.grey}>
         <FullWidthInner>
-          <Container2>
+          <Container2 ref={ref3} inView={inView3}>
             <BoomText2
               type={TypographyType.P1}
               color={colors.black}

@@ -137,7 +137,7 @@ export const MenuList = styled.ul<{ open: boolean }>`
   z-index: 100;
 
   @media (min-width: ${breakpoints.minDesktop}) {
-    padding: ${elements.navigationHeight} 40px;
+    padding: 200px 40px;
   }
 `
 

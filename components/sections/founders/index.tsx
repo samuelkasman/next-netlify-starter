@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { useInView } from 'react-intersection-observer'
 import { colors } from '../../../styles/theme'
 import { PixelFont, Typography, TypographyType } from '../../atomic/Typography'
 import { FullWidthSection, FullWidthInner } from '../../layout/pageLayout'
@@ -13,12 +14,22 @@ import {
 } from './styled'
 
 export const Founders: FC = (): JSX.Element => {
+  const THRESHOLD_VALLUE = 0.5
+
+  const { ref, inView } = useInView({
+    threshold: THRESHOLD_VALLUE,
+  })
+
+  const { ref: ref2, inView: inView2 } = useInView({
+    threshold: THRESHOLD_VALLUE,
+  })
+
   return (
     <>
       <FullWidthSection bgColor={colors.black}>
         <FullWidthInner>
           <Container>
-            <TextColumn>
+            <TextColumn ref={ref} inView={inView}>
               <Heading
                 type={TypographyType.P1}
                 color={colors.white}
@@ -59,7 +70,7 @@ export const Founders: FC = (): JSX.Element => {
               </div>
             </TextColumn>
 
-            <VideoColumn>
+            <VideoColumn ref={ref2} inView={inView2}>
               <VideoStyled autoPlay muted loop>
                 <source src="/video/founders.mp4" type="video/mp4" />
               </VideoStyled>

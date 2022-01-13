@@ -16,14 +16,21 @@ import { colors } from '../../../styles/theme'
 import { Typography, TypographyType } from '../../atomic/Typography'
 import { FullWidthInner } from '../../layout/pageLayout'
 import { Carousel as ReactCarousel } from 'react-responsive-carousel'
+import { useInView } from 'react-intersection-observer'
 
 export const Testimonials: FC = () => {
+  const THRESHOLD_VALLUE = 0.5
+
+  const { ref, inView } = useInView({
+    threshold: THRESHOLD_VALLUE,
+  })
+
   const { selectedItem, setSelectedItem, items } = useTestimonials()
 
   return (
     <Wrapper>
       <FullWidthInner>
-        <CarouselWrapperStyled>
+        <CarouselWrapperStyled ref={ref} inView={inView}>
           <ReactCarousel
             onChange={(index) => setSelectedItem(index)}
             preventMovementUntilSwipeScrollTolerance

@@ -19,7 +19,7 @@ export const Container = styled.div`
   }
 `
 
-export const Container2 = styled.div`
+export const Container2 = styled.div<{ inView?: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,15 +27,23 @@ export const Container2 = styled.div`
   min-height: 500px;
   width: 100%;
 
+  opacity: ${({ inView }) => (inView ? '1' : '0')};
+  transform: ${({ inView }) => (inView ? 'translateY(0)' : 'translateY(5%)')};
+  transition: all 1s ease-in-out;
+
   @media (min-width: ${breakpoints.minDesktop}) {
     min-height: 800px;
     padding: 160px 0;
   }
 `
 
-export const TextWrapper = styled.div`
+export const TextWrapper = styled.div<{ inView?: boolean }>`
   color: ${colors.white};
   margin: auto 0;
+
+  opacity: ${({ inView }) => (inView ? '1' : '0')};
+  transform: ${({ inView }) => (inView ? 'translateX(0)' : 'translateX(-10%)')};
+  transition: all 1s ease-in;
 `
 
 const heartBeat = keyframes`

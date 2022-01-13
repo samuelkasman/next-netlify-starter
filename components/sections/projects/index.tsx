@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useRef, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 import { colors } from '../../../styles/theme'
 import { ArrowTopRightIcon } from '../../atomic/icons/ArrowTopRightIcon'
 import { AudiLogo } from '../../atomic/logos/AudiLogo'
@@ -23,6 +24,16 @@ import {
 } from './styled'
 
 export const Projects: FC = (): JSX.Element => {
+  const THRESHOLD_VALLUE = 0.9
+
+  const { ref, inView } = useInView({
+    threshold: THRESHOLD_VALLUE,
+  })
+
+  const { ref: ref2, inView: inView2 } = useInView({
+    threshold: THRESHOLD_VALLUE,
+  })
+
   const [filmModalVisible, setFilmModalVisible] = useState(false)
   const [advertisementModalVisible, setAdvertisementModalVisible] =
     useState(false)
@@ -147,7 +158,7 @@ export const Projects: FC = (): JSX.Element => {
 
       <FullWidthSection bgColor={colors.black}>
         <FullWidthInner>
-          <LogosContainer>
+          <LogosContainer ref={ref} inView={inView}>
             <RtvsLogo />
             <BratislavaLogo />
             <VWLogo />
@@ -156,7 +167,7 @@ export const Projects: FC = (): JSX.Element => {
             <IIHFLogo />
           </LogosContainer>
 
-          <AllProjectsWrapper>
+          <AllProjectsWrapper ref={ref2} inView={inView2}>
             <PlusIconStyled />
 
             <Typography

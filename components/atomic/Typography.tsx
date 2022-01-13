@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, MutableRefObject } from 'react'
 import styled, { css } from 'styled-components'
 import { breakpoints, colors, typography } from '../../styles/theme'
 
@@ -24,6 +24,7 @@ type TypographyProps = {
   wordBreak?: 'normal' | 'break-word'
   inlineBlock?: boolean
   pixelFont?: boolean
+  ref?: MutableRefObject<null>
 }
 
 type StyledTypography = Pick<
