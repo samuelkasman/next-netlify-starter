@@ -4,10 +4,12 @@ import styled, { css } from 'styled-components'
 import { breakpoints, colors } from '../../../styles/theme'
 
 export const Container = styled.div`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   width: 100%;
   min-height: 300px;
+  overflow: hidden;
 
   @media (min-width: ${breakpoints.minDesktop}) {
     flex-direction: row;
@@ -15,8 +17,22 @@ export const Container = styled.div`
   }
 `
 
+export const CustomCursorWrapper = styled.div`
+  display: none;
+
+  @media (min-width: ${breakpoints.minDesktop}) {
+    display: block;
+  }
+
+  svg {
+    position: absolute;
+    pointer-events: none;
+    transform: translate3d(0, 0, 0);
+    z-index: 999;
+  }
+`
+
 const PanelCss = css`
-  cursor: url('/img/cursorArrowTopRight.png') 50 50, pointer;
   display: flex;
   flex-direction: column;
   min-height: 300px;
@@ -29,10 +45,10 @@ const PanelCss = css`
   @media (min-width: ${breakpoints.minDesktop}) {
     width: 50%;
     padding: 40px;
-    transition: width 1s;
+    transition: width 2s;
 
     &:hover {
-      width: 80%;
+      width: 52.5%;
     }
   }
 `
@@ -51,11 +67,16 @@ export const PanelTitle = styled(H1)`
   margin-top: auto;
 `
 
+export const PanelModalToggle = styled.div`
+  z-index: 9999;
+`
+
 export const PlusIconStyled = styled(PlusIcon)`
   margin-right: 12px;
 `
 
 export const ModalContentContainer = styled.div`
+  height: 100%;
   display: flex;
   flex-direction: column;
   padding: 40px 0;
@@ -78,6 +99,7 @@ export const ModalHeadingColumn = styled.div`
 `
 
 export const ModalListColumn = styled.ul`
+  position: relative;
   display: flex;
   flex: 50%;
   flex-direction: column;
@@ -86,6 +108,19 @@ export const ModalListColumn = styled.ul`
   list-style: none;
   padding: 0;
   margin: 40px 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: ${colors.black70};
+    border-radius: 10px;
+  }
 
   @media (min-width: ${breakpoints.minDesktop}) {
     padding: 0 120px 0 0;
@@ -125,7 +160,7 @@ export const ModalListItemNumber = styled.div`
 `
 
 //logos
-export const LogosContainer = styled.div`
+export const LogosContainer = styled.div<{ inView?: boolean }>`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -135,16 +170,28 @@ export const LogosContainer = styled.div`
   padding: 100px 0;
   margin: 0 auto;
 
+  opacity: ${({ inView }) => (inView ? '1' : '0')};
+  transition: all 1s ease-out;
+
   @media (min-width: ${breakpoints.minDesktop}) {
     padding: 200px 0 120px;
   }
 `
 
-export const AllProjectsWrapper = styled.div`
+export const AllProjectsWrapper = styled.div<{ inView?: boolean }>`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 0 0 100px 0;
+  padding: 0;
+  margin-bottom: 100px;
+
+  opacity: ${({ inView }) => (inView ? '1' : '0')};
+  transform: ${({ inView }) => (inView ? 'translateX(0)' : 'translateX(-10%)')};
+  transition: all 1s ease-out;
+
+  @media (min-width: ${breakpoints.minDesktop}) {
+    margin-bottom: 200px;
+  }
 `

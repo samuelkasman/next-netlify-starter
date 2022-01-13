@@ -3,8 +3,9 @@ import {
   CarouselWrapperStyled,
   Item,
   ItemInner,
-  RenderIndicator,
-  RenderIndicatorWrapper,
+  PersonData,
+  PersonImg,
+  PersonWrapper,
   TestimonialDate,
   TestimonialName,
   TestimonialText,
@@ -12,23 +13,30 @@ import {
 } from './styled'
 import { FC } from 'react'
 import { colors } from '../../../styles/theme'
-import { TypographyType } from '../../atomic/Typography'
+import { Typography, TypographyType } from '../../atomic/Typography'
 import { FullWidthInner } from '../../layout/pageLayout'
 import { Carousel as ReactCarousel } from 'react-responsive-carousel'
+import { useInView } from 'react-intersection-observer'
 
 export const Testimonials: FC = () => {
+  const THRESHOLD_VALLUE = 0.5
+
+  const { ref, inView } = useInView({
+    threshold: THRESHOLD_VALLUE,
+  })
+
   const { selectedItem, setSelectedItem, items } = useTestimonials()
 
   return (
     <Wrapper>
       <FullWidthInner>
-        <CarouselWrapperStyled>
+        <CarouselWrapperStyled ref={ref} inView={inView}>
           <ReactCarousel
             onChange={(index) => setSelectedItem(index)}
             preventMovementUntilSwipeScrollTolerance
             showStatus={false}
             showIndicators={false}
-            showThumbs={true}
+            showThumbs={false}
             infiniteLoop
             showArrows={true}
           >
@@ -37,54 +45,49 @@ export const Testimonials: FC = () => {
                 <Item key={`carousel-${index}`}>
                   <ItemInner>
                     <TestimonialDate
-                      type={TypographyType.P2}
+                      type={TypographyType.P1}
                       color={colors.grey70}
                       inlineBlock
+                      pixelFont
                     >
                       {`${index + 1}/${items.length}`}
                     </TestimonialDate>
 
                     <TestimonialText
-                      type={TypographyType.P1}
+                      type={TypographyType.H4}
                       color={colors.white}
                       inlineBlock
                     >
                       {item.text}
                     </TestimonialText>
 
-                    <TestimonialName
-                      type={TypographyType.P1}
-                      color={colors.white}
-                      inlineBlock
-                    >
-                      {item.name}
-                    </TestimonialName>
+                    <PersonWrapper>
+                      <PersonImg src={'/img/person.png'} alt="peson" />
 
-                    <TestimonialDate
-                      type={TypographyType.P2}
-                      color={colors.grey70}
-                      inlineBlock
-                    >
-                      {item.date}
-                    </TestimonialDate>
+                      <PersonData>
+                        <TestimonialName
+                          type={TypographyType.P1}
+                          color={colors.white}
+                          inlineBlock
+                        >
+                          {item.name}
+                        </TestimonialName>
+
+                        <Typography
+                          type={TypographyType.P2}
+                          color={colors.grey70}
+                          inlineBlock
+                        >
+                          {item.date}
+                        </Typography>
+                      </PersonData>
+                    </PersonWrapper>
                   </ItemInner>
                 </Item>
               )
             })}
           </ReactCarousel>
         </CarouselWrapperStyled>
-
-        {/* <RenderIndicatorWrapper>
-          {items.map((_, index) => {
-            return (
-              <RenderIndicator
-                key={`dot-${index}`}
-                isSmall={index === items.length - 1 || index === 0}
-                isSelected={index === selectedItem}
-              />
-            )
-          })}
-        </RenderIndicatorWrapper> */}
       </FullWidthInner>
     </Wrapper>
   )

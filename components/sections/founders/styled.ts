@@ -14,24 +14,24 @@ export const Container = styled.div`
   @media (min-width: ${breakpoints.minDesktop}) {
     flex-direction: row;
     min-height: 800px;
-    padding: 160px 20px;
+    padding: 160px 0;
   }
 `
 
-export const TextColumn = styled.div`
+export const TextColumn = styled.div<{ inView?: boolean }>`
   display: flex;
   flex: 50%;
   flex-direction: column;
   align-items: flex-start;
   margin: auto 0;
 
+  opacity: ${({ inView }) => (inView ? '1' : '0')};
+  transform: ${({ inView }) => (inView ? 'translateX(0)' : 'translateX(-10%)')};
+  transition: all 1s ease-out;
+
   @media (min-width: ${breakpoints.minDesktop}) {
     padding-right: 120px;
     justify-content: space-between;
-  }
-
-  @media (min-width: ${breakpoints.fullWidth}) {
-    margin: auto 0 auto 200px;
   }
 `
 
@@ -61,14 +61,18 @@ export const Paragraph = styled(Typography)`
   }
 `
 
-export const ImgColumn = styled.div`
+export const VideoColumn = styled.div<{ inView?: boolean }>`
   display: flex;
   flex: 50%;
   justify-content: center;
   align-items: center;
+
+  opacity: ${({ inView }) => (inView ? '1' : '0')};
+  transform: ${({ inView }) => (inView ? 'translateX(0)' : 'translateX(10%)')};
+  transition: all 1s ease-out;
 `
 
-export const ImgStyled = styled.img`
+export const VideoStyled = styled.video`
   width: calc(3rem + 40vw);
   height: auto;
 

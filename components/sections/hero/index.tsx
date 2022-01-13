@@ -1,14 +1,16 @@
 import React, { FC } from 'react'
 import { colors } from '../../../styles/theme'
 import { FullWidthSection, FullWidthInner } from '../../layout/pageLayout'
-import { Centered } from './styled'
+import { Centered, Video } from './styled'
 
 export const Hero: FC = (): JSX.Element => {
   return (
     <FullWidthSection>
-      <FullWidthInner>
+      <FullWidthInner fullWidth noPadding>
         <Centered>
-          <img src={'/gif/gif.1'} alt="logogif" />
+          <Video autoPlay muted loop>
+            <source src="/video/hero.mp4" type="video/mp4" />
+          </Video>
         </Centered>
       </FullWidthInner>
     </FullWidthSection>

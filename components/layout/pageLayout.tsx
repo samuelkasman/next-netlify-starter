@@ -30,11 +30,19 @@ export const FullWidthInner = styled.div<FullWidthInnerProps>`
   margin: auto;
 
   @media (min-width: ${breakpoints.fullWidth}) {
+    max-width: ${({ fullWidth }) =>
+      fullWidth
+        ? '100%'
+        : `calc(${breakpoints.innerWidthFull} + 2 * ${spacing.pagePadding})`};
     padding: 0
       ${({ noPadding }) => (noPadding ? '0' : spacing.pagePaddingLarge)};
   }
 
   @media (min-width: ${breakpoints.wideWidth}) {
+    max-width: ${({ fullWidth }) =>
+      fullWidth
+        ? '100%'
+        : `calc(${breakpoints.innerWidthUltra} + 2 * ${spacing.pagePadding})`};
     padding: 0
       ${({ noPadding }) => (noPadding ? '0' : spacing.pagePaddingExtraLarge)};
   }

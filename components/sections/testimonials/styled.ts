@@ -34,10 +34,32 @@ export const ItemInner = styled.div`
   width: 100%;
   padding: 48px;
   border: 1px solid ${colors.grey30};
+
+  @media (min-width: ${breakpoints.minDesktop}) {
+    max-width: 810px;
+    padding: 56px 104px 72px;
+    margin: 0 auto;
+  }
+`
+
+export const PersonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
+export const PersonImg = styled.img`
+  height: 56px !important;
+  width: 56px !important;
+  margin-right: 24px;
+`
+
+export const PersonData = styled.div`
+  display: flex;
+  flex-direction: column;
 `
 
 export const TestimonialText = styled(Typography)`
-  margin-bottom: 6px;
+  margin-bottom: 48px;
   z-index: 2;
 `
 
@@ -46,6 +68,7 @@ export const TestimonialName = styled(Typography)`
 `
 
 export const TestimonialDate = styled(Typography)`
+  margin-bottom: 24px;
   z-index: 2;
 `
 
@@ -289,7 +312,9 @@ export const CarouselWrapper = styled.div`
   }
 `
 
-export const CarouselWrapperStyled = styled(CarouselWrapper)`
+export const CarouselWrapperStyled = styled(CarouselWrapper)<{
+  inView?: boolean
+}>`
   .carousel .control-dots {
     position: static;
     margin: 0;
@@ -298,6 +323,10 @@ export const CarouselWrapperStyled = styled(CarouselWrapper)`
   .carousel .slide {
     background: none;
   }
+
+  opacity: ${({ inView }) => (inView ? '1' : '0')};
+  transform: ${({ inView }) => (inView ? 'translateY(0)' : 'translateY(5%)')};
+  transition: all 1s ease-in-out;
 `
 
 export const RenderIndicatorWrapper = styled.div`

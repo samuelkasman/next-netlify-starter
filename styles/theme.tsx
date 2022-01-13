@@ -97,6 +97,8 @@ export const spacing = {
 
 export const breakpoints = {
   innerWidth: '1440px',
+  innerWidthFull: '1800px',
+  innerWidthUltra: '2400px',
 
   midMobile: '425px',
   midMobileNum: 425,

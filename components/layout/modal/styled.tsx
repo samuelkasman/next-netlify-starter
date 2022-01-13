@@ -39,13 +39,13 @@ export const DissmissArea = styled.div`
 `
 
 const fadeInAnimation = keyframes`
- 0% { transform: scale(1.5);  opacity: 0; }
- 100% { transform: scale(1);  opacity: 1; }
+ 0% { top: 50px; opacity: 0; }
+ 100% { top: 0; opacity: 1; }
 `
 
 const fadeOutAnimation = keyframes`
- 100% { transform: scale(1);  opacity: 1; }
- 0% { transform: scale(1.5);  opacity: 0; }
+ 100% { top: 0; opacity: 1; }
+ 0% { top: 50px; opacity: 0; }
 `
 
 type ModalContainerProps = {
@@ -72,12 +72,6 @@ export const ModalContainer = styled.div<ModalContainerProps>`
 
   animation-duration: 0.5s;
   animation-iteration-count: 1;
-
-  @media (min-width: ${breakpoints.minDesktop}) {
-    height: auto;
-    min-height: 350px;
-    max-width: 1920px;
-  }
 `
 
 export const ModalContent = styled.div`
@@ -87,19 +81,6 @@ export const ModalContent = styled.div`
   line-height: ${typography.lineHeight.p1};
   height: 100%;
   padding: 24px;
-  overflow-x: hidden;
-  overflow-y: auto;
-
-  /* width */
-  ::-webkit-scrollbar {
-    width: 9px;
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: ${colors.black70};
-    border-radius: 10px;
-  }
 
   @media (min-width: ${breakpoints.minDesktop}) {
     padding: 48px 64px;

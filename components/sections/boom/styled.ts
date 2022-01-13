@@ -15,11 +15,11 @@ export const Container = styled.div`
   @media (min-width: ${breakpoints.minDesktop}) {
     flex-direction: row;
     min-height: 800px;
-    padding: 160px 20px;
+    padding: 160px 0;
   }
 `
 
-export const Container2 = styled.div`
+export const Container2 = styled.div<{ inView?: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,15 +27,23 @@ export const Container2 = styled.div`
   min-height: 500px;
   width: 100%;
 
+  opacity: ${({ inView }) => (inView ? '1' : '0')};
+  transform: ${({ inView }) => (inView ? 'translateY(0)' : 'translateY(5%)')};
+  transition: all 1s ease-out;
+
   @media (min-width: ${breakpoints.minDesktop}) {
     min-height: 800px;
-    padding: 160px 20px;
+    padding: 160px 0;
   }
 `
 
-export const TextWrapper = styled.div`
+export const TextWrapper = styled.div<{ inView?: boolean }>`
   color: ${colors.white};
   margin: auto 0;
+
+  opacity: ${({ inView }) => (inView ? '1' : '0')};
+  transform: ${({ inView }) => (inView ? 'translateX(0)' : 'translateX(-10%)')};
+  transition: all 1s ease-out;
 `
 
 const heartBeat = keyframes`
@@ -66,6 +74,7 @@ export const BoomIllustrationStyled = styled(BoomIllustration)`
   animation: ${heartBeat} 3s infinite;
 
   @media (min-width: ${breakpoints.minDesktop}) {
+    flex-shrink: 0;
     max-width: 300px;
     margin: 0 0 auto;
   }
@@ -95,8 +104,8 @@ export const BoomText2 = styled(Typography)`
   @media (min-width: ${breakpoints.minDesktop}) {
     /* font-size: 24px;
     line-height: 32px; */
-    font-size: calc(1rem + 1vw);
-    line-height: 1em;
+    font-size: calc(0.6rem + 1vw);
+    line-height: 3em;
     max-width: 810px;
   }
 
