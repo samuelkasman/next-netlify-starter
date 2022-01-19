@@ -8,6 +8,7 @@ import { MenuLink } from '../../sections/footer/styled'
 import { PixelFont } from '../../sections/styled'
 import { Burger } from './Burger'
 import {
+  HeaderInner,
   HeaderStyled,
   Intro,
   LinkWrapper,
@@ -32,43 +33,47 @@ export const Navigation: FC = (): JSX.Element => {
 
   return (
     <HeaderStyled>
-      <LinkWrapper>
-        <Text>
-          <BeOnMindLogo color={open ? colors.black : colors.white} />
-        </Text>
-      </LinkWrapper>
+      <HeaderInner>
+        <LinkWrapper>
+          <Text>
+            <BeOnMindLogo color={open ? colors.black : colors.white} />
+          </Text>
+        </LinkWrapper>
 
-      <MenuList open={open}>
-        <MenuItem>
-          <Typography type={TypographyType.P1} color={colors.black}>
-            s<PixelFont>t</PixelFont>udio@beo<PixelFont>n</PixelFont>mind.com
-          </Typography>
-        </MenuItem>
+        <MenuList open={open}>
+          <MenuItem>
+            <Typography type={TypographyType.P1} color={colors.black}>
+              s<PixelFont>t</PixelFont>udio@beo<PixelFont>n</PixelFont>mind.com
+            </Typography>
+          </MenuItem>
 
-        <MenuItem>
-          <MenuLink type={TypographyType.P1} color={colors.black}>
-            Ho<PixelFont>m</PixelFont>e
-          </MenuLink>
-        </MenuItem>
+          <MenuItem>
+            <MenuLink type={TypographyType.P1} color={colors.black}>
+              Ho<PixelFont>m</PixelFont>e
+            </MenuLink>
+          </MenuItem>
 
-        <MenuItem>
-          <MenuLink type={TypographyType.P1} color={colors.black}>
-            Wor<PixelFont>k</PixelFont>
-          </MenuLink>
-        </MenuItem>
+          <MenuItem>
+            <MenuLink type={TypographyType.P1} color={colors.black}>
+              Wor<PixelFont>k</PixelFont>
+            </MenuLink>
+          </MenuItem>
 
-        <MenuItem>
-          <MenuLink type={TypographyType.P1} color={colors.black}>
-            Par<PixelFont>t</PixelFont>ne<PixelFont>r</PixelFont>
-          </MenuLink>
-        </MenuItem>
+          <MenuItem>
+            <MenuLink type={TypographyType.P1} color={colors.black}>
+              Par<PixelFont>t</PixelFont>ne<PixelFont>r</PixelFont>
+            </MenuLink>
+          </MenuItem>
 
-        <MenuItem>
-          <MenuLink type={TypographyType.P1} color={colors.black}>
-            Con<PixelFont>t</PixelFont>act
-          </MenuLink>
-        </MenuItem>
-      </MenuList>
+          <MenuItem>
+            <MenuLink type={TypographyType.P1} color={colors.black}>
+              Con<PixelFont>t</PixelFont>act
+            </MenuLink>
+          </MenuItem>
+        </MenuList>
+
+        <Burger open={open} setOpen={setOpen} />
+      </HeaderInner>
 
       <Overlay open={open} />
 
@@ -77,8 +82,6 @@ export const Navigation: FC = (): JSX.Element => {
       </Intro>
 
       {(open || openIntro) && <ScrollLock />}
-
-      <Burger open={open} setOpen={setOpen} />
     </HeaderStyled>
   )
 }

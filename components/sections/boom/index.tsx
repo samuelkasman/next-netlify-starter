@@ -45,7 +45,9 @@ export const Boom: FC = (): JSX.Element => {
                   <PixelFont data-text="t" animationDelay={1}>
                     t
                   </PixelFont>
-                  hrough audio-visual con
+                  hrough
+                  <br />
+                  audio-visual con
                   <PixelFont data-text="te" animationDelay={7}>
                     te
                   </PixelFont>
@@ -53,7 +55,8 @@ export const Boom: FC = (): JSX.Element => {
                   <PixelFont data-text="t" animationDelay={4}>
                     t
                   </PixelFont>{' '}
-                  in{' '}
+                  in
+                  <br />
                   <PixelFont data-text="t" animationDelay={2}>
                     t
                   </PixelFont>
@@ -98,15 +101,20 @@ export const Boom: FC = (): JSX.Element => {
               textAlign="center"
               inlineBlock
             >
-              <Glitch>
+              <Glitch dark>
                 Každý pries<PixelFont data-text="t">t</PixelFont>or, v kto
-                <PixelFont data-text="r">r</PixelFont>om sme za
-                <PixelFont data-text="n">n</PixelFont>echali s
+                <PixelFont data-text="r">r</PixelFont>om
+                <br />
+                sme za<PixelFont data-text="n">n</PixelFont>echali s
                 <PixelFont data-text="t">t</PixelFont>op
-                <PixelFont data-text="y">y</PixelFont>, bude ese
+                <PixelFont data-text="y">y</PixelFont>, bude
+                <br />
+                ese
                 <PixelFont data-text="n">n</PixelFont>ciu našich projek
                 <PixelFont data-text="t">t</PixelFont>
-                ov nasávať eš<PixelFont data-text="t">t</PixelFont>e dlho
+                ov
+                <br />
+                nasávať eš<PixelFont data-text="t">t</PixelFont>e dlho
               </Glitch>
             </BoomText3>
           </Container2>

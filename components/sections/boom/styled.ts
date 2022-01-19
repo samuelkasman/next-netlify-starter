@@ -24,8 +24,10 @@ export const Container2 = styled.div<{ inView?: boolean }>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  hyphens: none;
   min-height: 500px;
   width: 100%;
+  margin: 0 auto;
 
   opacity: ${({ inView }) => (inView ? '1' : '0')};
   transform: ${({ inView }) => (inView ? 'translateY(0)' : 'translateY(5%)')};

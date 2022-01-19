@@ -4,24 +4,37 @@ import {
   elements,
   breakpoints,
   typography,
+  spacing,
 } from '../../../styles/theme'
 
 export const HeaderStyled = styled.header<{ isScrolled?: boolean }>`
   position: fixed;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   line-height: 0;
   background-color: ${colors.transparent};
   height: ${elements.navigationHeight};
   width: 100%;
-  padding: 21px 20px;
   z-index: 30;
   transition: all 0.3s ease-out;
+`
 
-  @media (min-width: ${breakpoints.minDesktop}) {
-    top: 0;
-    padding: 18px 40px;
+export const HeaderInner = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: calc(${breakpoints.innerWidth} + 2 * ${spacing.pagePadding});
+  padding: 20px ${spacing.pagePadding};
+  margin: auto;
+
+  @media (min-width: ${breakpoints.fullWidth}) {
+    max-width: calc(${breakpoints.innerWidthFull} + 2 * ${spacing.pagePadding});
+    padding: 20px ${spacing.pagePaddingLarge};
+  }
+
+  @media (min-width: ${breakpoints.wideWidth}) {
+    max-width: calc(
+      ${breakpoints.innerWidthUltra} + 2 * ${spacing.pagePadding}
+    );
+    padding: 20px ${spacing.pagePaddingExtraLarge};
   }
 `
 

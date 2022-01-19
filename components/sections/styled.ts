@@ -29,6 +29,34 @@ const fontKeyframes = keyframes`
   }
 `
 
+const fontKeyframesDark = keyframes`
+  0% {
+    font-weight: 100;
+    color: #e0287d;
+    filter: blur(3px);
+  }
+  20% {
+    font-weight: 500;
+    color: #000;
+    filter: blur(0);
+  }
+  50% {
+    font-weight: 300;
+    color: #1bc7fb;
+    filter: blur(2px);
+  }
+  60% {
+    font-weight: 700;
+    color: #000;
+    filter: blur(0);
+  }
+  90% {
+    font-weight: 500;
+    color: #e0287d;
+    filter: blur(6px);
+  }
+`
+
 const opacityKeyframes = keyframes`
   0% {
     opacity: 0.1;
@@ -317,17 +345,18 @@ const pathsKeyframes = keyframes`
   }
 `
 
+export const Nowrap = styled.span`
+  white-space: nowrap;
+`
+
 export const PixelFont = styled.span<{ animationDelay?: number }>`
   display: inline-block;
   position: relative;
   font-family: ${typography.fontFamily.alternate};
   z-index: 5;
-  /* animation-delay: ${({ animationDelay }) =>
-    animationDelay &&
-    `-${animationDelay}s, ${animationDelay}s, -${animationDelay}s, ${animationDelay}s`}; */
 `
 
-export const Glitch = styled.span`
+export const Glitch = styled.span<{ dark?: boolean }>`
   &:hover {
     span {
       animation: ${pathsKeyframes} 5s step-end infinite;
@@ -346,7 +375,8 @@ export const Glitch = styled.span`
         color: #e0287d;
         animation: ${pathsKeyframes} 5s step-end infinite,
           ${opacityKeyframes} 5s step-end infinite,
-          ${fontKeyframes} 8s step-end infinite,
+          ${({ dark }) => (dark ? fontKeyframes : fontKeyframesDark)} 8s
+            step-end infinite,
           ${movementKeyframes} 10s step-end infinite;
       }
 
@@ -356,7 +386,8 @@ export const Glitch = styled.span`
         color: #1bc7fb;
         animation: ${pathsKeyframes} 5s step-end infinite,
           ${opacityKeyframes} 5s step-end infinite,
-          ${fontKeyframes} 7s step-end infinite,
+          ${({ dark }) => (dark ? fontKeyframes : fontKeyframesDark)} 7s
+            step-end infinite,
           ${movementKeyframes} 8s step-end infinite;
       }
     }
