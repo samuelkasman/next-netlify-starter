@@ -1,8 +1,9 @@
 import { useTranslation } from 'next-i18next'
 import React from 'react'
 import { colors } from '../../../styles/theme'
-import { PixelFont, TypographyType } from '../../atomic/Typography'
+import { TypographyType } from '../../atomic/Typography'
 import { FullWidthInner, FullWidthSection } from '../../layout/pageLayout'
+import { PixelFont } from '../styled'
 import {
   Address,
   AddressP,

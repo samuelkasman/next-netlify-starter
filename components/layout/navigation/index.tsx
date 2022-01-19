@@ -3,8 +3,9 @@ import React, { FC, useEffect, useState } from 'react'
 import ScrollLock from 'react-scrolllock'
 import { colors } from '../../../styles/theme'
 import { BeOnMindLogo } from '../../atomic/logos/BeOnMindLogo'
-import { TypographyType, PixelFont, Typography } from '../../atomic/Typography'
-import { EmailText, MenuLink } from '../../sections/footer/styled'
+import { TypographyType, Typography } from '../../atomic/Typography'
+import { MenuLink } from '../../sections/footer/styled'
+import { PixelFont } from '../../sections/styled'
 import { Burger } from './Burger'
 import {
   HeaderStyled,

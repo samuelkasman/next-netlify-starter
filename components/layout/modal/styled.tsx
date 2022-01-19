@@ -22,9 +22,9 @@ export const ModalOverlay = styled.div<ModalOverlayProps>`
   overflow-y: auto;
   z-index: 9999;
 
-  @media (min-width: ${breakpoints.minDesktop}) {
+  /* @media (min-width: ${breakpoints.minDesktop}) {
     padding: 40px 60px 40px 40px;
-  }
+  } */
 `
 
 export const DissmissArea = styled.div`

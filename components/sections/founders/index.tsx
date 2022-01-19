@@ -1,9 +1,10 @@
 import React, { FC } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { colors } from '../../../styles/theme'
-import { PixelFont, Typography, TypographyType } from '../../atomic/Typography'
+import { Typography, TypographyType } from '../../atomic/Typography'
 import { FullWidthSection, FullWidthInner } from '../../layout/pageLayout'
 import { PlusIconStyled } from '../projects/styled'
+import { PixelFont } from '../styled'
 import {
   Container,
   Heading,
@@ -14,14 +15,14 @@ import {
 } from './styled'
 
 export const Founders: FC = (): JSX.Element => {
-  const THRESHOLD_VALLUE = 0.5
+  const THRESHOLD_VALUE = 0.5
 
   const { ref, inView } = useInView({
-    threshold: THRESHOLD_VALLUE,
+    threshold: THRESHOLD_VALUE,
   })
 
   const { ref: ref2, inView: inView2 } = useInView({
-    threshold: THRESHOLD_VALLUE,
+    threshold: THRESHOLD_VALUE,
   })
 
   return (

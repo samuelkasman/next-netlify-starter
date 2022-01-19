@@ -2,10 +2,6 @@ import { FC, MutableRefObject } from 'react'
 import styled, { css } from 'styled-components'
 import { breakpoints, colors, typography } from '../../styles/theme'
 
-export const PixelFont = styled.span`
-  font-family: ${typography.fontFamily.alternate};
-`
-
 export enum TypographyType {
   P1 = 'P1',
   P2 = 'P2',

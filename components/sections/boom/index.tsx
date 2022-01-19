@@ -1,8 +1,9 @@
 import React, { FC } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { colors } from '../../../styles/theme'
-import { PixelFont, TypographyType } from '../../atomic/Typography'
+import { TypographyType } from '../../atomic/Typography'
 import { FullWidthSection, FullWidthInner } from '../../layout/pageLayout'
+import { Glitch, PixelFont } from '../styled'
 import {
   BoomText,
   BoomText2,
@@ -14,14 +15,14 @@ import {
 } from './styled'
 
 export const Boom: FC = (): JSX.Element => {
-  const THRESHOLD_VALLUE = 0.5
+  const THRESHOLD_VALUE = 0.5
 
   const { ref, inView } = useInView({
-    threshold: THRESHOLD_VALLUE,
+    threshold: THRESHOLD_VALUE,
   })
 
   const { ref: ref3, inView: inView3 } = useInView({
-    threshold: THRESHOLD_VALLUE,
+    threshold: THRESHOLD_VALUE,
   })
 
   return (
@@ -35,11 +36,40 @@ export const Boom: FC = (): JSX.Element => {
                 color={colors.white}
                 inlineBlock
               >
-                Boos<PixelFont>t</PixelFont>ing ideas <PixelFont>t</PixelFont>
-                hrough audio-visual con<PixelFont>te</PixelFont>n
-                <PixelFont>t</PixelFont> in <PixelFont>t</PixelFont>he nam
-                <PixelFont>e</PixelFont> of mode<PixelFont>r</PixelFont>n ar
-                <PixelFont>t</PixelFont>
+                <Glitch>
+                  Boos
+                  <PixelFont data-text="t" animationDelay={3}>
+                    t
+                  </PixelFont>
+                  ing ideas{' '}
+                  <PixelFont data-text="t" animationDelay={1}>
+                    t
+                  </PixelFont>
+                  hrough audio-visual con
+                  <PixelFont data-text="te" animationDelay={7}>
+                    te
+                  </PixelFont>
+                  n
+                  <PixelFont data-text="t" animationDelay={4}>
+                    t
+                  </PixelFont>{' '}
+                  in{' '}
+                  <PixelFont data-text="t" animationDelay={2}>
+                    t
+                  </PixelFont>
+                  he nam
+                  <PixelFont data-text="e" animationDelay={6}>
+                    e
+                  </PixelFont>{' '}
+                  of mode
+                  <PixelFont data-text="r" animationDelay={1}>
+                    r
+                  </PixelFont>
+                  n ar
+                  <PixelFont data-text="t" animationDelay={4}>
+                    t
+                  </PixelFont>
+                </Glitch>
               </BoomText>
             </TextWrapper>
 
@@ -68,11 +98,16 @@ export const Boom: FC = (): JSX.Element => {
               textAlign="center"
               inlineBlock
             >
-              Každý pries<PixelFont>t</PixelFont>or, v kto
-              <PixelFont>r</PixelFont>om sme za<PixelFont>n</PixelFont>echali s
-              <PixelFont>t</PixelFont>op<PixelFont>y</PixelFont>, bude ese
-              <PixelFont>n</PixelFont>ciu našich projek<PixelFont>t</PixelFont>
-              ov nasávať eš<PixelFont>t</PixelFont>e dlho
+              <Glitch>
+                Každý pries<PixelFont data-text="t">t</PixelFont>or, v kto
+                <PixelFont data-text="r">r</PixelFont>om sme za
+                <PixelFont data-text="n">n</PixelFont>echali s
+                <PixelFont data-text="t">t</PixelFont>op
+                <PixelFont data-text="y">y</PixelFont>, bude ese
+                <PixelFont data-text="n">n</PixelFont>ciu našich projek
+                <PixelFont data-text="t">t</PixelFont>
+                ov nasávať eš<PixelFont data-text="t">t</PixelFont>e dlho
+              </Glitch>
             </BoomText3>
           </Container2>
         </FullWidthInner>
