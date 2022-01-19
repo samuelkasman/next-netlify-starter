@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { typography } from '../../styles/theme'
 
 const fontKeyframes = keyframes`
@@ -356,7 +356,48 @@ export const PixelFont = styled.span<{ animationDelay?: number }>`
   z-index: 5;
 `
 
-export const Glitch = styled.span<{ dark?: boolean }>`
+type GlitchProps = {
+  dark?: boolean
+  isHeadline?: boolean
+}
+
+export const Glitch = styled.span<GlitchProps>`
+  ${({ isHeadline }) =>
+    isHeadline &&
+    css`
+      span {
+        animation: ${pathsKeyframes} 5s step-end infinite;
+
+        &:before,
+        &:after {
+          content: attr(data-text);
+          position: absolute;
+          width: 110%;
+          z-index: -5;
+        }
+
+        &:before {
+          top: 1px;
+          left: 2px;
+          color: #e0287d;
+          animation: ${pathsKeyframes} 5s step-end infinite,
+            ${opacityKeyframes} 5s step-end infinite,
+            ${fontKeyframesDark} 8s step-end infinite,
+            ${movementKeyframes} 10s step-end infinite;
+        }
+
+        &:after {
+          top: 1px;
+          left: -2px;
+          color: #1bc7fb;
+          animation: ${pathsKeyframes} 5s step-end infinite,
+            ${opacityKeyframes} 5s step-end infinite,
+            ${fontKeyframesDark} 7s step-end infinite,
+            ${movementKeyframes} 8s step-end infinite;
+        }
+      }
+    `}
+
   &:hover {
     span {
       animation: ${pathsKeyframes} 5s step-end infinite;

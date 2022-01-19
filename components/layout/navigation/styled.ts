@@ -14,7 +14,7 @@ export const HeaderStyled = styled.header<{ isScrolled?: boolean }>`
   height: ${elements.navigationHeight};
   width: 100%;
   z-index: 30;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s ease-in-out;
 `
 
 export const HeaderInner = styled.div`
@@ -115,37 +115,6 @@ export const BurgerStyled = styled.button<{ open: boolean }>`
   }
 `
 
-export const Overlay = styled.div<{ open: boolean }>`
-  position: absolute;
-  background: ${colors.transparent};
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin-bottom: -100vh;
-  transition: opacity 0.3s;
-  opacity: ${({ open }) => (open ? 0.8 : 0)};
-  visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
-  z-index: 50;
-`
-
-export const Intro = styled.div<{ open: boolean }>`
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: ${colors.white};
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin-bottom: -100vh;
-  transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-110vh)')};
-  transition: transform 1s ease-out;
-  overflow: hidden;
-  z-index: 200;
-`
-
 export const MenuList = styled.ul<{ open: boolean }>`
   list-style: none;
   position: fixed;
@@ -162,21 +131,12 @@ export const MenuList = styled.ul<{ open: boolean }>`
   margin: 0;
   transform-origin: top center;
   transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-100vh)')};
-  transition: transform 0.5s ease-out;
+  transition: transform 0.5s ease-in-out;
   overflow: hidden;
   z-index: 100;
 
   @media (min-width: ${breakpoints.minDesktop}) {
     padding: 200px 40px;
-  }
-`
-
-const fadein = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 `
 
@@ -186,4 +146,68 @@ export const MenuItem = styled.li`
   width: auto;
   padding: 8px 0;
   margin: 20px 0 10px;
+`
+
+export const Overlay = styled.div<{ open: boolean }>`
+  position: absolute;
+  background: ${colors.transparent};
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: -100vh;
+  transition: opacity 0.3s;
+  opacity: ${({ open }) => (open ? 0.8 : 0)};
+  visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
+  z-index: 50;
+`
+
+type IntroProps = {
+  open: boolean
+  justifyStart?: boolean
+}
+
+export const Intro = styled.div<IntroProps>`
+  position: absolute;
+  display: flex;
+  justify-content: ${({ justifyStart }) =>
+    justifyStart ? 'flex-start' : 'center'};
+  align-items: center;
+  background: ${colors.white};
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: -100vh;
+  transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-110vh)')};
+  transition: transform 0.5s ease-in-out;
+  overflow: hidden;
+  z-index: 200;
+
+  @media (min-width: ${breakpoints.minDesktop}) {
+    padding: 100px;
+  }
+`
+
+export const IntroContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+`
+
+export const IntroRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+`
+
+export const IntroPixel = styled.div<{ visible?: boolean }>`
+  width: 4px;
+  height: 4px;
+  background-color: ${({ visible }) =>
+    visible ? colors.black : colors.transparent};
 `
