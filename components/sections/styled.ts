@@ -356,6 +356,12 @@ export const PixelFont = styled.span<{ animationDelay?: number }>`
   z-index: 5;
 `
 
+export const DefaultFont = styled.span<{ animationDelay?: number }>`
+  display: inline-block;
+  position: relative;
+  z-index: 5;
+`
+
 type GlitchProps = {
   dark?: boolean
   isHeadline?: boolean

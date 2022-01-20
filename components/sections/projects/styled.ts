@@ -68,7 +68,7 @@ export const PanelTitle = styled(H1)`
 `
 
 export const PanelModalToggle = styled.div`
-  z-index: 9999;
+  z-index: 100;
 `
 
 export const PlusIconStyled = styled(PlusIcon)`

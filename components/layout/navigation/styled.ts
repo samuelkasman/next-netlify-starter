@@ -13,7 +13,7 @@ export const HeaderStyled = styled.header<{ isScrolled?: boolean }>`
   background-color: ${colors.transparent};
   height: ${elements.navigationHeight};
   width: 100%;
-  z-index: 30;
+  z-index: 500;
   transition: all 0.3s ease-in-out;
 `
 
@@ -173,6 +173,28 @@ export const Intro = styled.div<IntroProps>`
   justify-content: ${({ justifyStart }) =>
     justifyStart ? 'flex-start' : 'center'};
   align-items: center;
+  top: 0;
+  left: 0;
+  height: 50vh;
+  width: 100%;
+  background: ${colors.black};
+  margin-bottom: -100vh;
+  transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-110vh)')};
+  transition: transform 0.5s ease-in-out;
+  overflow: hidden;
+  z-index: 200;
+
+  @media (min-width: ${breakpoints.minDesktop}) {
+    padding: 100px;
+  }
+`
+
+export const IntroMask = styled.div<IntroProps>`
+  position: absolute;
+  display: flex;
+  justify-content: ${({ justifyStart }) =>
+    justifyStart ? 'flex-start' : 'center'};
+  align-items: center;
   background: ${colors.white};
   top: 0;
   left: 0;
@@ -193,6 +215,7 @@ export const IntroContainer = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 300px;
+  color: ${colors.white};
 `
 
 export const IntroRow = styled.div`
@@ -205,9 +228,18 @@ export const IntroRow = styled.div`
   margin: 10px 0;
 `
 
-export const IntroPixel = styled.div<{ visible?: boolean }>`
+type IntroPixelProps = {
+  visible?: boolean
+  color?: string
+}
+
+export const IntroPixel = styled.div<IntroPixelProps>`
   width: 4px;
   height: 4px;
-  background-color: ${({ visible }) =>
-    visible ? colors.black : colors.transparent};
+  background-color: ${({ visible, color }) =>
+    visible && color ? color : colors.transparent};
+`
+
+export const HeadlineVisibility = styled.span<{ visible?: boolean }>`
+  opacity: ${({ visible }) => (visible ? '1' : '0')};
 `
