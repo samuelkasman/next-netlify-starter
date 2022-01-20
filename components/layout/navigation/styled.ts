@@ -4,24 +4,37 @@ import {
   elements,
   breakpoints,
   typography,
+  spacing,
 } from '../../../styles/theme'
 
 export const HeaderStyled = styled.header<{ isScrolled?: boolean }>`
   position: fixed;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   line-height: 0;
   background-color: ${colors.transparent};
   height: ${elements.navigationHeight};
   width: 100%;
-  padding: 21px 20px;
-  z-index: 30;
-  transition: all 0.3s ease-out;
+  z-index: 500;
+  transition: all 0.3s ease-in-out;
+`
 
-  @media (min-width: ${breakpoints.minDesktop}) {
-    top: 0;
-    padding: 18px 40px;
+export const HeaderInner = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: calc(${breakpoints.innerWidth} + 2 * ${spacing.pagePadding});
+  padding: 20px ${spacing.pagePadding};
+  margin: auto;
+
+  @media (min-width: ${breakpoints.fullWidth}) {
+    max-width: calc(${breakpoints.innerWidthFull} + 2 * ${spacing.pagePadding});
+    padding: 20px ${spacing.pagePaddingLarge};
+  }
+
+  @media (min-width: ${breakpoints.wideWidth}) {
+    max-width: calc(
+      ${breakpoints.innerWidthUltra} + 2 * ${spacing.pagePadding}
+    );
+    padding: 20px ${spacing.pagePaddingExtraLarge};
   }
 `
 
@@ -102,37 +115,6 @@ export const BurgerStyled = styled.button<{ open: boolean }>`
   }
 `
 
-export const Overlay = styled.div<{ open: boolean }>`
-  position: absolute;
-  background: ${colors.transparent};
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin-bottom: -100vh;
-  transition: opacity 0.3s;
-  opacity: ${({ open }) => (open ? 0.8 : 0)};
-  visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
-  z-index: 50;
-`
-
-export const Intro = styled.div<{ open: boolean }>`
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: ${colors.white};
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin-bottom: -100vh;
-  transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-110vh)')};
-  transition: transform 1s ease-out;
-  overflow: hidden;
-  z-index: 200;
-`
-
 export const MenuList = styled.ul<{ open: boolean }>`
   list-style: none;
   position: fixed;
@@ -149,21 +131,12 @@ export const MenuList = styled.ul<{ open: boolean }>`
   margin: 0;
   transform-origin: top center;
   transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-100vh)')};
-  transition: transform 0.5s ease-out;
+  transition: transform 0.5s ease-in-out;
   overflow: hidden;
   z-index: 100;
 
   @media (min-width: ${breakpoints.minDesktop}) {
     padding: 200px 40px;
-  }
-`
-
-const fadein = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 `
 
@@ -173,4 +146,100 @@ export const MenuItem = styled.li`
   width: auto;
   padding: 8px 0;
   margin: 20px 0 10px;
+`
+
+export const Overlay = styled.div<{ open: boolean }>`
+  position: absolute;
+  background: ${colors.transparent};
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: -100vh;
+  transition: opacity 0.3s;
+  opacity: ${({ open }) => (open ? 0.8 : 0)};
+  visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
+  z-index: 50;
+`
+
+type IntroProps = {
+  open: boolean
+  justifyStart?: boolean
+}
+
+export const Intro = styled.div<IntroProps>`
+  position: absolute;
+  display: flex;
+  justify-content: ${({ justifyStart }) =>
+    justifyStart ? 'flex-start' : 'center'};
+  align-items: center;
+  top: 0;
+  left: 0;
+  height: 50vh;
+  width: 100%;
+  background: ${colors.black};
+  margin-bottom: -100vh;
+  transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-110vh)')};
+  transition: transform 0.5s ease-in-out;
+  overflow: hidden;
+  z-index: 200;
+
+  @media (min-width: ${breakpoints.minDesktop}) {
+    padding: 100px;
+  }
+`
+
+export const IntroMask = styled.div<IntroProps>`
+  position: absolute;
+  display: flex;
+  justify-content: ${({ justifyStart }) =>
+    justifyStart ? 'flex-start' : 'center'};
+  align-items: center;
+  background: ${colors.white};
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: -100vh;
+  transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-110vh)')};
+  transition: transform 0.5s ease-in-out;
+  overflow: hidden;
+  z-index: 200;
+
+  @media (min-width: ${breakpoints.minDesktop}) {
+    padding: 100px;
+  }
+`
+
+export const IntroContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  color: ${colors.white};
+`
+
+export const IntroRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+`
+
+type IntroPixelProps = {
+  visible?: boolean
+  color?: string
+}
+
+export const IntroPixel = styled.div<IntroPixelProps>`
+  width: 4px;
+  height: 4px;
+  background-color: ${({ visible, color }) =>
+    visible && color ? color : colors.transparent};
+`
+
+export const HeadlineVisibility = styled.span<{ visible?: boolean }>`
+  opacity: ${({ visible }) => (visible ? '1' : '0')};
 `

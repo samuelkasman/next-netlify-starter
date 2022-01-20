@@ -19,10 +19,10 @@ import { Carousel as ReactCarousel } from 'react-responsive-carousel'
 import { useInView } from 'react-intersection-observer'
 
 export const Testimonials: FC = () => {
-  const THRESHOLD_VALLUE = 0.5
+  const THRESHOLD_VALUE = 0.5
 
   const { ref, inView } = useInView({
-    threshold: THRESHOLD_VALLUE,
+    threshold: THRESHOLD_VALUE,
   })
 
   const { selectedItem, setSelectedItem, items } = useTestimonials()

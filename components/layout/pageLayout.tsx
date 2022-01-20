@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { elements, breakpoints, spacing } from '../../styles/theme'
+import { breakpoints, spacing } from '../../styles/theme'
 
 export const PageLayout = styled.div`
   display: flex;

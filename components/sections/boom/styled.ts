@@ -24,8 +24,10 @@ export const Container2 = styled.div<{ inView?: boolean }>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  hyphens: none;
   min-height: 500px;
   width: 100%;
+  margin: 0 auto;
 
   opacity: ${({ inView }) => (inView ? '1' : '0')};
   transform: ${({ inView }) => (inView ? 'translateY(0)' : 'translateY(5%)')};
@@ -42,7 +44,7 @@ export const TextWrapper = styled.div<{ inView?: boolean }>`
   margin: auto 0;
 
   opacity: ${({ inView }) => (inView ? '1' : '0')};
-  transform: ${({ inView }) => (inView ? 'translateX(0)' : 'translateX(-10%)')};
+  transform: ${({ inView }) => (inView ? 'translateY(0)' : 'translateY(5%)')};
   transition: all 1s ease-out;
 `
 
@@ -71,7 +73,7 @@ export const BoomIllustrationStyled = styled(BoomIllustration)`
   max-width: 100px;
   height: auto;
   margin: 0 auto auto 0;
-  animation: ${heartBeat} 3s infinite;
+  /* animation: ${heartBeat} 3s infinite; */
 
   @media (min-width: ${breakpoints.minDesktop}) {
     flex-shrink: 0;

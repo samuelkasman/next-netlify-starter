@@ -8,8 +8,9 @@ import { IIHFLogo } from '../../atomic/logos/IIHFLogo'
 import { RtvsLogo } from '../../atomic/logos/RtvsLogo'
 import { TescoLogo } from '../../atomic/logos/TescoLogo'
 import { VWLogo } from '../../atomic/logos/VWLogo'
-import { PixelFont, Typography, TypographyType } from '../../atomic/Typography'
+import { Typography, TypographyType } from '../../atomic/Typography'
 import { FullWidthSection, FullWidthInner } from '../../layout/pageLayout'
+import { PixelFont } from '../styled'
 import { Modals } from './modals'
 import {
   Container,
@@ -24,14 +25,14 @@ import {
 } from './styled'
 
 export const Projects: FC = (): JSX.Element => {
-  const THRESHOLD_VALLUE = 0.9
+  const THRESHOLD_VALUE = 0.9
 
   const { ref, inView } = useInView({
-    threshold: THRESHOLD_VALLUE,
+    threshold: THRESHOLD_VALUE,
   })
 
   const { ref: ref2, inView: inView2 } = useInView({
-    threshold: THRESHOLD_VALLUE,
+    threshold: THRESHOLD_VALUE,
   })
 
   const [filmModalVisible, setFilmModalVisible] = useState(false)

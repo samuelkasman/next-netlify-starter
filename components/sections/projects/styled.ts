@@ -68,7 +68,7 @@ export const PanelTitle = styled(H1)`
 `
 
 export const PanelModalToggle = styled.div`
-  z-index: 9999;
+  z-index: 100;
 `
 
 export const PlusIconStyled = styled(PlusIcon)`
@@ -188,7 +188,7 @@ export const AllProjectsWrapper = styled.div<{ inView?: boolean }>`
   margin-bottom: 100px;
 
   opacity: ${({ inView }) => (inView ? '1' : '0')};
-  transform: ${({ inView }) => (inView ? 'translateX(0)' : 'translateX(-10%)')};
+  transform: ${({ inView }) => (inView ? 'translateY(0)' : 'translateY(5%)')};
   transition: all 1s ease-out;
 
   @media (min-width: ${breakpoints.minDesktop}) {
