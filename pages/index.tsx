@@ -11,6 +11,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import { Founders } from '../components/sections/founders'
 import { Testimonials } from '../components/sections/testimonials'
+import { MediaQueryJS } from '../components/layout/MediaQueryJS'
 
 const Home: NextPage = () => {
   const { t } = useTranslation('common')
@@ -25,14 +26,21 @@ const Home: NextPage = () => {
       <PageLayout>
         <Navigation />
 
-        <Hero />
-        <Boom />
-        <Work />
-        <Projects />
-        <Testimonials />
-        <Founders />
-
-        <Footer />
+        <MediaQueryJS>
+          {(isMobileScreen: boolean) => (
+            <div data-scroll-section={!isMobileScreen}>
+              {/* <PageLayout> */}
+              <Hero />
+              <Boom />
+              <Work />
+              <Projects />
+              <Testimonials />
+              <Founders />
+              <Footer />
+              {/* </PageLayout> */}
+            </div>
+          )}
+        </MediaQueryJS>
       </PageLayout>
     </>
   )

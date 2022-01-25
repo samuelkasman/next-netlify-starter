@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer'
 import { colors } from '../../../styles/theme'
 import { TypographyType } from '../../atomic/Typography'
 import { FullWidthSection, FullWidthInner } from '../../layout/pageLayout'
-import { Glitch, PixelFont } from '../styled'
+import { Glitch, PixelFont, PixelFont1s } from '../styled'
 import {
   BoomText,
   BoomText2,
@@ -38,13 +38,13 @@ export const Boom: FC = (): JSX.Element => {
               >
                 <Glitch>
                   Boos
-                  <PixelFont data-text="t" animationDelay={3}>
+                  <PixelFont data-text="t" data-animation-delay="-1s">
                     t
                   </PixelFont>
                   ing ideas{' '}
-                  <PixelFont data-text="t" animationDelay={1}>
+                  <PixelFont1s data-text="t" animationDelay={1}>
                     t
-                  </PixelFont>
+                  </PixelFont1s>
                   hrough
                   <br />
                   audio-visual con

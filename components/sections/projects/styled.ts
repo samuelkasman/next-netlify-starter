@@ -45,11 +45,11 @@ const PanelCss = css`
   @media (min-width: ${breakpoints.minDesktop}) {
     width: 50%;
     padding: 40px;
-    transition: width 2s;
+    /* transition: width 2s; */
 
-    &:hover {
+    /* &:hover {
       width: 52.5%;
-    }
+    } */
   }
 `
 

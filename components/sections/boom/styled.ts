@@ -73,7 +73,6 @@ export const BoomIllustrationStyled = styled(BoomIllustration)`
   max-width: 100px;
   height: auto;
   margin: 0 auto auto 0;
-  /* animation: ${heartBeat} 3s infinite; */
 
   @media (min-width: ${breakpoints.minDesktop}) {
     flex-shrink: 0;

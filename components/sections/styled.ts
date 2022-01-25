@@ -4,7 +4,8 @@ import { typography } from '../../styles/theme'
 const fontKeyframes = keyframes`
   0% {
     font-weight: 100;
-    color: #e0287d;
+    /* color: #e0287d; // pink */
+    color: #c8c8c8; // grey
     filter: blur(3px);
   }
   20% {
@@ -14,7 +15,8 @@ const fontKeyframes = keyframes`
   }
   50% {
     font-weight: 300;
-    color: #1bc7fb;
+    /* color: #1bc7fb; // blue */
+    color: #ebebeb; // light grey
     filter: blur(2px);
   }
   60% {
@@ -24,7 +26,8 @@ const fontKeyframes = keyframes`
   }
   90% {
     font-weight: 500;
-    color: #e0287d;
+    /* color: #e0287d; // pink */
+    color: #c8c8c8; // grey
     filter: blur(6px);
   }
 `
@@ -32,7 +35,8 @@ const fontKeyframes = keyframes`
 const fontKeyframesDark = keyframes`
   0% {
     font-weight: 100;
-    color: #e0287d;
+    /* color: #e0287d; // pink */
+    color: #c8c8c8; // grey
     filter: blur(3px);
   }
   20% {
@@ -42,7 +46,8 @@ const fontKeyframesDark = keyframes`
   }
   50% {
     font-weight: 300;
-    color: #1bc7fb;
+    /* color: #1bc7fb; // blue */
+    color: #585858; // dark grey
     filter: blur(2px);
   }
   60% {
@@ -52,7 +57,8 @@ const fontKeyframesDark = keyframes`
   }
   90% {
     font-weight: 500;
-    color: #e0287d;
+    /* color: #e0287d; // pink */
+    color: #c8c8c8; // grey
     filter: blur(6px);
   }
 `
@@ -356,6 +362,14 @@ export const PixelFont = styled.span<{ animationDelay?: number }>`
   z-index: 5;
 `
 
+export const PixelFont1s = styled.span<{ animationDelay?: number }>`
+  display: inline-block;
+  position: relative;
+  font-family: ${typography.fontFamily.alternate};
+  z-index: 5;
+  animation-delay: -1s;
+`
+
 export const DefaultFont = styled.span<{ animationDelay?: number }>`
   display: inline-block;
   position: relative;
@@ -373,6 +387,7 @@ export const Glitch = styled.span<GlitchProps>`
     css`
       span {
         animation: ${pathsKeyframes} 5s step-end infinite;
+        animation-delay: attr(data-animation-delay);
 
         &:before,
         &:after {
@@ -390,6 +405,7 @@ export const Glitch = styled.span<GlitchProps>`
             ${opacityKeyframes} 5s step-end infinite,
             ${fontKeyframesDark} 8s step-end infinite,
             ${movementKeyframes} 10s step-end infinite;
+          animation-delay: attr(data-animation-delay);
         }
 
         &:after {
@@ -400,6 +416,7 @@ export const Glitch = styled.span<GlitchProps>`
             ${opacityKeyframes} 5s step-end infinite,
             ${fontKeyframesDark} 7s step-end infinite,
             ${movementKeyframes} 8s step-end infinite;
+          animation-delay: attr(data-animation-delay);
         }
       }
     `}
@@ -407,6 +424,7 @@ export const Glitch = styled.span<GlitchProps>`
   &:hover {
     span {
       animation: ${pathsKeyframes} 5s step-end infinite;
+      animation-delay: attr(data-animation-delay);
 
       &:before,
       &:after {
@@ -425,6 +443,7 @@ export const Glitch = styled.span<GlitchProps>`
           ${({ dark }) => (dark ? fontKeyframes : fontKeyframesDark)} 8s
             step-end infinite,
           ${movementKeyframes} 10s step-end infinite;
+        animation-delay: attr(data-animation-delay);
       }
 
       &:after {
@@ -436,6 +455,7 @@ export const Glitch = styled.span<GlitchProps>`
           ${({ dark }) => (dark ? fontKeyframes : fontKeyframesDark)} 7s
             step-end infinite,
           ${movementKeyframes} 8s step-end infinite;
+        animation-delay: attr(data-animation-delay);
       }
     }
   }

@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled, { css } from 'styled-components'
 import {
   colors,
   elements,
@@ -7,14 +7,33 @@ import {
   spacing,
 } from '../../../styles/theme'
 
-export const HeaderStyled = styled.header<{ isScrolled?: boolean }>`
-  position: fixed;
+type HeaderStyledProps = {
+  visible?: boolean
+  isScrolled?: boolean
+}
+
+export const HeaderStyled = styled.header<HeaderStyledProps>`
+  position: sticky;
+  top: 0;
   line-height: 0;
   background-color: ${colors.transparent};
-  height: ${elements.navigationHeight};
+  height: 120px;
   width: 100%;
+  padding-top: 64px;
+  transform: ${({ visible }) =>
+    visible ? 'translateY(0)' : 'translateY(-50px)'};
+  opacity: ${({ visible }) => (visible ? '1' : '0')};
+  transition: all 1s ease-in-out;
   z-index: 500;
-  transition: all 0.3s ease-in-out;
+
+  @media (min-width: ${breakpoints.minDesktop}) {
+    ${({ isScrolled }) =>
+      isScrolled &&
+      css`
+        height: ${elements.navigationHeight};
+        padding-top: 16px;
+      `};
+  }
 `
 
 export const HeaderInner = styled.div`
@@ -160,86 +179,4 @@ export const Overlay = styled.div<{ open: boolean }>`
   opacity: ${({ open }) => (open ? 0.8 : 0)};
   visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
   z-index: 50;
-`
-
-type IntroProps = {
-  open: boolean
-  justifyStart?: boolean
-}
-
-export const Intro = styled.div<IntroProps>`
-  position: absolute;
-  display: flex;
-  justify-content: ${({ justifyStart }) =>
-    justifyStart ? 'flex-start' : 'center'};
-  align-items: center;
-  top: 0;
-  left: 0;
-  height: 50vh;
-  width: 100%;
-  background: ${colors.black};
-  margin-bottom: -100vh;
-  transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-110vh)')};
-  transition: transform 0.5s ease-in-out;
-  overflow: hidden;
-  z-index: 200;
-
-  @media (min-width: ${breakpoints.minDesktop}) {
-    padding: 100px;
-  }
-`
-
-export const IntroMask = styled.div<IntroProps>`
-  position: absolute;
-  display: flex;
-  justify-content: ${({ justifyStart }) =>
-    justifyStart ? 'flex-start' : 'center'};
-  align-items: center;
-  background: ${colors.white};
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin-bottom: -100vh;
-  transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-110vh)')};
-  transition: transform 0.5s ease-in-out;
-  overflow: hidden;
-  z-index: 200;
-
-  @media (min-width: ${breakpoints.minDesktop}) {
-    padding: 100px;
-  }
-`
-
-export const IntroContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-width: 300px;
-  color: ${colors.white};
-`
-
-export const IntroRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin: 10px 0;
-`
-
-type IntroPixelProps = {
-  visible?: boolean
-  color?: string
-}
-
-export const IntroPixel = styled.div<IntroPixelProps>`
-  width: 4px;
-  height: 4px;
-  background-color: ${({ visible, color }) =>
-    visible && color ? color : colors.transparent};
-`
-
-export const HeadlineVisibility = styled.span<{ visible?: boolean }>`
-  opacity: ${({ visible }) => (visible ? '1' : '0')};
 `
