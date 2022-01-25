@@ -23,6 +23,7 @@ import {
   PanelModalToggle,
   CustomCursorWrapper,
 } from './styled'
+import { useLocomotiveScroll } from 'react-locomotive-scroll'
 
 export const Projects: FC = (): JSX.Element => {
   const THRESHOLD_VALUE = 0.9
@@ -49,6 +50,16 @@ export const Projects: FC = (): JSX.Element => {
     distanceY: 0,
     key: -1,
   })
+
+  const { scroll } = useLocomotiveScroll()
+
+  useEffect(() => {
+    scroll?.stop()
+
+    if (!filmModalVisible && !advertisementModalVisible) {
+      scroll?.start()
+    }
+  }, [filmModalVisible, advertisementModalVisible])
 
   useEffect(() => {
     document
