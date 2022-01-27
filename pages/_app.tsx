@@ -11,6 +11,7 @@ const Application = ({ Component, pageProps }: AppProps): JSX.Element => {
     <LocomotiveScrollProvider
       options={{
         smooth: true,
+        lerp: 0.2,
         // ... all available Locomotive Scroll instance options
       }}
       watch={

@@ -134,37 +134,78 @@ export const BurgerStyled = styled.button<{ open: boolean }>`
   }
 `
 
-export const MenuList = styled.ul<{ open: boolean }>`
-  list-style: none;
+export const MenuContainer = styled.div<{ open: boolean }>`
   position: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   top: 0;
-  right: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
-  line-height: 24px;
   background-color: ${colors.grey};
-  padding: ${elements.navigationHeight} 20px;
+  padding: ${elements.navigationHeight} 0;
   margin: 0;
   transform-origin: top center;
   transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-100vh)')};
   transition: transform 0.5s ease-in-out;
   overflow: hidden;
   z-index: 100;
+`
 
-  @media (min-width: ${breakpoints.minDesktop}) {
-    padding: 200px 40px;
+export const MenuWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 15vh;
+
+  @media (min-width: ${breakpoints.midDesktop}) {
+    flex-direction: row;
+    margin-top: 25vh;
+  }
+`
+
+export const InfoColumn = styled.div<{ open: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 100%;
+  opacity: ${({ open }) => (open ? 1 : 0)};
+  transition: opacity 2s ease-in-out;
+  margin-bottom: 100px;
+
+  @media (min-width: ${breakpoints.midDesktop}) {
+    margin-bottom: 0;
+  }
+`
+
+export const Info = styled.div`
+  display: none;
+
+  @media (min-width: ${breakpoints.midDesktop}) {
+    display: block;
+    margin-top: 150px;
+  }
+`
+
+export const MenuList = styled.ul<{ open: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  opacity: ${({ open }) => (open ? 1 : 0)};
+  transition: opacity 2s ease-in-out;
+
+  @media (min-width: ${breakpoints.midDesktop}) {
+    padding-right: 10vw;
   }
 `
 
 export const MenuItem = styled.li`
-  align-items: center;
-  text-align: center;
-  width: auto;
-  padding: 8px 0;
-  margin: 20px 0 10px;
+  padding: 0;
+  margin: 0 0 50px;
 `
 
 export const Overlay = styled.div<{ open: boolean }>`

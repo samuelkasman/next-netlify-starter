@@ -38,6 +38,11 @@ export const Hero: FC = (): JSX.Element => {
     false,
     false,
     false,
+    false,
+    false,
+    false,
+    false,
+    false,
   ]
   const finalPixelsVisibilityValues = [
     true,
@@ -59,6 +64,11 @@ export const Hero: FC = (): JSX.Element => {
     false,
     false,
     false,
+    true,
+    true,
+    true,
+    true,
+    true,
   ]
   const [pixelsVisibilityState, setPixelsVisibilityState] = useState(
     initialPixelsVisibilityValues
@@ -123,8 +133,15 @@ export const Hero: FC = (): JSX.Element => {
         timeout = setTimeout(() => {
           setHeadlineText(
             <>
-              W<PixelFont>e</PixelFont> ca<PixelFont>t</PixelFont>ch your se
-              <PixelFont>n</PixelFont>ses
+              {/* <HeadlineVisibility visible={pixelsVisibilityState[18]}> */}W
+              <PixelFont>e</PixelFont> {/* </HeadlineVisibility>{' '} */}
+              {/* <HeadlineVisibility visible={pixelsVisibilityState[19]}> */}
+              ca<PixelFont>t</PixelFont>ch {/* </HeadlineVisibility>{' '} */}
+              {/* <HeadlineVisibility visible={pixelsVisibilityState[20]}> */}
+              your {/* </HeadlineVisibility>{' '} */}
+              {/* <HeadlineVisibility visible={pixelsVisibilityState[21]}> */}
+              se<PixelFont>n</PixelFont>ses
+              {/* </HeadlineVisibility> */}
             </>
           )
           setPixelsVisibilityState(finalPixelsVisibilityValues)
