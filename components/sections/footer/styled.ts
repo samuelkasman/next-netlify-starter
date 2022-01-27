@@ -64,7 +64,8 @@ export const Address = styled(Typography)`
   line-height: 28px;
 `
 
-export const AddressP = styled.p`
+export const AddressP = styled.p<{ black?: boolean }>`
+  color: ${({ black }) => (black ? colors.black : colors.black70)};
   margin: 0;
 `
 
