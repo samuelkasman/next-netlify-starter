@@ -13,7 +13,7 @@ type HeaderStyledProps = {
 }
 
 export const HeaderStyled = styled.header<HeaderStyledProps>`
-  position: sticky;
+  position: fixed;
   top: 0;
   line-height: 0;
   background-color: ${colors.transparent};

@@ -184,14 +184,13 @@ export const AllProjectsWrapper = styled.div<{ inView?: boolean }>`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 0;
-  margin-bottom: 100px;
+  padding-bottom: 0 0 100px;
 
   opacity: ${({ inView }) => (inView ? '1' : '0')};
   transform: ${({ inView }) => (inView ? 'translateY(0)' : 'translateY(5%)')};
   transition: all 1s ease-out;
 
   @media (min-width: ${breakpoints.minDesktop}) {
-    margin-bottom: 200px;
+    padding-bottom: 200px;
   }
 `
