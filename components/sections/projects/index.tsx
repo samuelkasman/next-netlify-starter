@@ -1,4 +1,11 @@
-import React, { FC, useEffect, useRef, useState } from 'react'
+import React, {
+  Dispatch,
+  FC,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import { useInView } from 'react-intersection-observer'
 import { colors } from '../../../styles/theme'
 import { ArrowTopRightIcon } from '../../atomic/icons/ArrowTopRightIcon'
@@ -11,7 +18,6 @@ import { VWLogo } from '../../atomic/logos/VWLogo'
 import { Typography, TypographyType } from '../../atomic/Typography'
 import { FullWidthSection, FullWidthInner } from '../../layout/pageLayout'
 import { PixelFont } from '../styled'
-import { Modals } from './modals'
 import {
   Container,
   AdPanel,
@@ -25,7 +31,19 @@ import {
 } from './styled'
 import { useLocomotiveScroll } from 'react-locomotive-scroll'
 
-export const Projects: FC = (): JSX.Element => {
+type Props = {
+  filmModalVisible: boolean
+  advertisementModalVisible: boolean
+  setFilmModalVisible: Dispatch<SetStateAction<boolean>>
+  setAdvertisementModalVisible: Dispatch<SetStateAction<boolean>>
+}
+
+export const Projects: FC<Props> = ({
+  filmModalVisible,
+  advertisementModalVisible,
+  setFilmModalVisible,
+  setAdvertisementModalVisible,
+}): JSX.Element => {
   const THRESHOLD_VALUE = 0.9
 
   const { ref, inView } = useInView({
@@ -35,10 +53,6 @@ export const Projects: FC = (): JSX.Element => {
   const { ref: ref2, inView: inView2 } = useInView({
     threshold: THRESHOLD_VALUE,
   })
-
-  const [filmModalVisible, setFilmModalVisible] = useState(false)
-  const [advertisementModalVisible, setAdvertisementModalVisible] =
-    useState(false)
 
   const secondaryCursorRef = useRef(null)
   const positionRef = useRef({
@@ -192,13 +206,6 @@ export const Projects: FC = (): JSX.Element => {
           </AllProjectsWrapper>
         </FullWidthInner>
       </FullWidthSection>
-
-      <Modals
-        filmModalVisible={filmModalVisible}
-        setFilmModalVisible={setFilmModalVisible}
-        advertisementModalVisible={advertisementModalVisible}
-        setAdvertisementModalVisible={setAdvertisementModalVisible}
-      />
     </>
   )
 }

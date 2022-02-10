@@ -17,6 +17,8 @@ import { Founders } from '../components/sections/founders'
 import { Testimonials } from '../components/sections/testimonials'
 import { MediaQueryJS } from '../components/layout/MediaQueryJS'
 import styled from 'styled-components'
+import { useState } from 'react'
+import { Modals } from '../components/layout/modal/modals'
 
 export const Centered = styled.div`
   position: relative;
@@ -53,6 +55,11 @@ const VideoBackground = styled.div`
 
 const Home: NextPage = () => {
   const { t } = useTranslation('common')
+
+  const [filmModalVisible, setFilmModalVisible] = useState(false)
+  const [advertisementModalVisible, setAdvertisementModalVisible] =
+    useState(false)
+
   return (
     <>
       <Head>
@@ -82,13 +89,25 @@ const Home: NextPage = () => {
               <Hero />
               <Boom />
               <Work />
-              <Projects />
+              <Projects
+                filmModalVisible={filmModalVisible}
+                setFilmModalVisible={setFilmModalVisible}
+                advertisementModalVisible={advertisementModalVisible}
+                setAdvertisementModalVisible={setAdvertisementModalVisible}
+              />
               <Testimonials />
               <Founders />
               <Footer />
             </div>
           )}
         </MediaQueryJS>
+
+        <Modals
+          filmModalVisible={filmModalVisible}
+          setFilmModalVisible={setFilmModalVisible}
+          advertisementModalVisible={advertisementModalVisible}
+          setAdvertisementModalVisible={setAdvertisementModalVisible}
+        />
       </PageLayout>
     </>
   )
