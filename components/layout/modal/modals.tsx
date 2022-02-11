@@ -3,7 +3,7 @@ import { colors } from '../../../styles/theme'
 import { H2 } from '../../atomic/H2'
 import { H5 } from '../../atomic/H5'
 import { Typography, TypographyType } from '../../atomic/Typography'
-import { Modal } from '../../layout/modal/Modal'
+import { Modal } from './Modal'
 import {
   ModalContentContainer,
   ModalHeadingColumn,

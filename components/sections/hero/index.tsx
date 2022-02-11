@@ -4,14 +4,13 @@ import { H1 } from '../../atomic/H1'
 import { FullWidthSection, FullWidthInner } from '../../layout/pageLayout'
 import { DefaultFont, Glitch, PixelFont } from '../styled'
 import {
-  Centered,
+  VideoParallax,
   HeadlineVisibility,
   Intro,
   IntroContainer,
   IntroMask,
   IntroPixel,
   IntroRow,
-  Video,
 } from './styled'
 import { useLocomotiveScroll } from 'react-locomotive-scroll'
 
@@ -160,7 +159,7 @@ export const Hero: FC = (): JSX.Element => {
 
   return (
     <>
-      <FullWidthSection>
+      <FullWidthSection bgColor={colors.black}>
         <FullWidthInner>
           <Intro>
             <IntroContainer textLeft={headlineTextLeft}>
@@ -269,15 +268,7 @@ export const Hero: FC = (): JSX.Element => {
         </FullWidthInner>
       </FullWidthSection>
 
-      <FullWidthSection>
-        <FullWidthInner fullWidth noPadding>
-          <Centered>
-            <Video autoPlay muted loop>
-              <source src="/video/hero.mp4" type="video/mp4" />
-            </Video>
-          </Centered>
-        </FullWidthInner>
-      </FullWidthSection>
+      <VideoParallax />
     </>
   )
 }

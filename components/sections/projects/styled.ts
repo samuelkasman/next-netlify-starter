@@ -75,90 +75,6 @@ export const PlusIconStyled = styled(PlusIcon)`
   margin-right: 12px;
 `
 
-export const ModalContentContainer = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 40px 0;
-
-  @media (min-width: ${breakpoints.minDesktop}) {
-    flex-direction: row;
-    padding: 120px 0;
-  }
-`
-
-export const ModalHeadingColumn = styled.div`
-  display: flex;
-  flex: 50%;
-  justify-content: flex-start;
-  align-items: center;
-
-  @media (min-width: ${breakpoints.minDesktop}) {
-    padding: 0 120px 0 0;
-  }
-`
-
-export const ModalListColumn = styled.ul`
-  position: relative;
-  display: flex;
-  flex: 50%;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  list-style: none;
-  padding: 0;
-  margin: 40px 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-
-  /* width */
-  ::-webkit-scrollbar {
-    width: 9px;
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: ${colors.black70};
-    border-radius: 10px;
-  }
-
-  @media (min-width: ${breakpoints.minDesktop}) {
-    padding: 0 120px 0 0;
-  }
-`
-
-export const ModalListItem = styled.li`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 0;
-  margin: 16px 0;
-
-  @media (min-width: ${breakpoints.minDesktop}) {
-    flex-direction: row;
-    align-items: center;
-    margin: 24px 0;
-  }
-`
-
-export const ModalListItemNumber = styled.div`
-  display: flex;
-  flex-shrink: 0;
-  justify-content: center;
-  align-items: center;
-  line-height: 1px;
-  width: 56px;
-  height: 56px;
-  border: 1px solid ${colors.black30};
-  margin-bottom: 16px;
-
-  @media (min-width: ${breakpoints.minDesktop}) {
-    margin-right: 40px;
-    margin-bottom: 0;
-  }
-`
-
 //logos
 export const LogosContainer = styled.div<{ inView?: boolean }>`
   display: flex;
@@ -184,14 +100,13 @@ export const AllProjectsWrapper = styled.div<{ inView?: boolean }>`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 0;
-  margin-bottom: 100px;
+  padding-bottom: 0 0 100px;
 
   opacity: ${({ inView }) => (inView ? '1' : '0')};
   transform: ${({ inView }) => (inView ? 'translateY(0)' : 'translateY(5%)')};
   transition: all 1s ease-out;
 
   @media (min-width: ${breakpoints.minDesktop}) {
-    margin-bottom: 200px;
+    padding-bottom: 200px;
   }
 `
