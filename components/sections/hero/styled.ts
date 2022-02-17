@@ -81,6 +81,6 @@ export const HeadlineVisibility = styled.span<{ visible?: boolean }>`
 export const VideoParallax = styled(FullWidthSection)`
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 123vh;
   background-color: transparent;
 `

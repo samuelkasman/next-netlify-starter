@@ -25,9 +25,10 @@ export const Centered = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 123vh;
   width: 100%;
   overflow: hidden;
+  margin: 99vh 0 0 0;
 `
 
 export const Video = styled.video`
@@ -71,8 +72,13 @@ const Home: NextPage = () => {
       <PageLayout>
         <VideoBackground>
           <FullWidthSection>
-            <FullWidthInner fullWidth noPadding>
-              <Centered>
+            <FullWidthInner
+              fullWidth
+              noPadding
+              data-scroll-section
+              data-scroll-section-inview
+            >
+              <Centered data-scroll data-scroll-speed="-4">
                 <Video autoPlay muted loop>
                   <source src="/video/hero.mp4" type="video/mp4" />
                 </Video>
