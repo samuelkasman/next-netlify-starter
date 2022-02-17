@@ -6,7 +6,6 @@ type H1Props = {
   id?: string
   className?: string
   color?: string
-  blendDifference?: boolean
   mediumFontWeight?: boolean
   marginSize?: string
   textAlign?: 'center' | 'left' | 'right'
@@ -15,14 +14,13 @@ type H1Props = {
 
 type H1StyledProps = Pick<
   H1Props,
-  'color' | 'blendDifference' | 'mediumFontWeight' | 'marginSize' | 'textAlign'
+  'color' | 'mediumFontWeight' | 'marginSize' | 'textAlign'
 >
 
 const H1Styled = styled.h1<H1StyledProps>`
   font-size: ${typography.fontSize.h1};
   line-height: ${typography.lineHeight.h1};
   color: ${({ color }) => color};
-  mix-blend-mode: ${({ blendDifference }) => blendDifference && 'difference'}
   text-align: ${({ textAlign }) => textAlign};
   padding: 0;
   margin: ${({ marginSize }) => (marginSize ? marginSize : 0)} 0;
@@ -42,7 +40,6 @@ export const H1: FC<H1Props> = ({
   id,
   className,
   color = colors.black,
-  blendDifference,
   marginSize,
   textAlign,
   contentEditable,
@@ -51,7 +48,6 @@ export const H1: FC<H1Props> = ({
   const commonProps = {
     className,
     color,
-    blendDifference,
     marginSize,
     textAlign,
     contentEditable,

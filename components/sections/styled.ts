@@ -389,7 +389,7 @@ export const Glitch = styled.span<GlitchProps>`
         animation: ${pathsKeyframes} 5s step-end infinite;
         animation-delay: attr(data-animation-delay);
 
-        &:before,
+        /* &:before,
         &:after {
           content: attr(data-text);
           position: absolute;
@@ -417,7 +417,7 @@ export const Glitch = styled.span<GlitchProps>`
             ${fontKeyframesDark} 7s step-end infinite,
             ${movementKeyframes} 8s step-end infinite;
           animation-delay: attr(data-animation-delay);
-        }
+        } */
       }
     `}
 
@@ -426,7 +426,7 @@ export const Glitch = styled.span<GlitchProps>`
       animation: ${pathsKeyframes} 5s step-end infinite;
       animation-delay: attr(data-animation-delay);
 
-      &:before,
+      /* &:before,
       &:after {
         content: attr(data-text);
         position: absolute;
@@ -456,7 +456,7 @@ export const Glitch = styled.span<GlitchProps>`
             step-end infinite,
           ${movementKeyframes} 8s step-end infinite;
         animation-delay: attr(data-animation-delay);
-      }
+      } */
     }
   }
 `

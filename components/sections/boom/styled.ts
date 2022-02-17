@@ -14,7 +14,7 @@ export const Container = styled.div`
 
   @media (min-width: ${breakpoints.minDesktop}) {
     flex-direction: row;
-    min-height: 800px;
+    height: 110vh;
     padding: 160px 0;
   }
 `
@@ -34,7 +34,7 @@ export const Container2 = styled.div<{ inView?: boolean }>`
   transition: all 1s ease-out;
 
   @media (min-width: ${breakpoints.minDesktop}) {
-    min-height: 800px;
+    height: 110vh;
     padding: 160px 0;
   }
 `

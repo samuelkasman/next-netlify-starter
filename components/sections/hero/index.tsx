@@ -11,6 +11,7 @@ import {
   IntroMask,
   IntroPixel,
   IntroRow,
+  IntroHeadline,
 } from './styled'
 import { useLocomotiveScroll } from 'react-locomotive-scroll'
 
@@ -89,7 +90,7 @@ export const Hero: FC = (): JSX.Element => {
   useEffect(() => {
     let interval = setInterval(
       () => setIndex((i) => (i + 1) % initialPixelsVisibilityValues.length),
-      150
+      120
     )
 
     let newState = [...pixelsVisibilityState]
@@ -105,18 +106,18 @@ export const Hero: FC = (): JSX.Element => {
       clearInterval(interval)
 
       setHeadlineText(
-        <Glitch isHeadline>
+        <>
           <DefaultFont data-text="B">B</DefaultFont>
           <PixelFont data-text="e">e</PixelFont>
           <DefaultFont data-text="OnMi">OnMi</DefaultFont>
           <PixelFont>n</PixelFont>
           <DefaultFont data-text="d">d</DefaultFont>
-        </Glitch>
+        </>
       )
 
       timeout = setTimeout(() => {
         setHeadlineText(
-          <Glitch isHeadline>
+          <>
             <DefaultFont data-text="W">W</DefaultFont>
             <PixelFont data-text="e">e</PixelFont>{' '}
             <DefaultFont data-text="ca">ca</DefaultFont>
@@ -124,7 +125,7 @@ export const Hero: FC = (): JSX.Element => {
             <DefaultFont data-text="ch your se">ch your se</DefaultFont>
             <PixelFont data-text="n">n</PixelFont>
             <DefaultFont data-text="ses">ses</DefaultFont>
-          </Glitch>
+          </>
         )
         setPixelsVisibilityState(finalPixelsVisibilityValues)
         setHeadlineTextLeft(true)
@@ -147,8 +148,8 @@ export const Hero: FC = (): JSX.Element => {
           setHeadlineTextLeft(true)
           setOpenIntro(false)
           scroll?.start()
-        }, 500)
-      }, 1000)
+        }, 250)
+      }, 250)
     }
 
     return () => {
@@ -162,7 +163,9 @@ export const Hero: FC = (): JSX.Element => {
       <FullWidthSection bgColor={colors.black}>
         <FullWidthInner>
           <Intro>
-            <IntroContainer textLeft={headlineTextLeft}>
+            <IntroContainer textLeft={headlineTextLeft} textUp={openIntro}>
+              <IntroMask open={openIntro} />
+
               <IntroRow>
                 <IntroPixel
                   visible={pixelsVisibilityState[0]}
@@ -187,7 +190,7 @@ export const Hero: FC = (): JSX.Element => {
               </IntroRow>
 
               <IntroRow>
-                <H1 color={colors.white} blendDifference>
+                <IntroHeadline color={colors.white}>
                   {headlineText ? (
                     <>{headlineText}</>
                   ) : (
@@ -203,7 +206,7 @@ export const Hero: FC = (): JSX.Element => {
                       </HeadlineVisibility>
                     </>
                   )}
-                </H1>
+                </IntroHeadline>
               </IntroRow>
 
               <IntroRow>
@@ -262,8 +265,6 @@ export const Hero: FC = (): JSX.Element => {
                 />
               </IntroRow>
             </IntroContainer>
-
-            <IntroMask open={openIntro} />
           </Intro>
         </FullWidthInner>
       </FullWidthSection>
