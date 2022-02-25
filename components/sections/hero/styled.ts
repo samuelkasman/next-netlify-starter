@@ -6,7 +6,7 @@ import { H1 } from '../../atomic/H1'
 export const Intro = styled.div`
   display: flex;
   align-items: center;
-  height: 85vh;
+  height: 90vh;
   width: 100%;
   background: ${colors.black};
 `
@@ -83,4 +83,5 @@ export const VideoParallax = styled(FullWidthSection)`
   width: 100vw;
   height: 123vh;
   background-color: transparent;
+  overflow: hidden;
 `

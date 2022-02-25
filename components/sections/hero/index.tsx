@@ -1,8 +1,7 @@
-import React, { FC, ReactElement, useEffect, useState } from 'react'
+import React, { FC, useEffect } from 'react'
 import { colors } from '../../../styles/theme'
-import { H1 } from '../../atomic/H1'
 import { FullWidthSection, FullWidthInner } from '../../layout/pageLayout'
-import { DefaultFont, Glitch, PixelFont } from '../styled'
+import { DefaultFont, PixelFont } from '../styled'
 import {
   VideoParallax,
   HeadlineVisibility,
@@ -13,75 +12,29 @@ import {
   IntroRow,
   IntroHeadline,
 } from './styled'
-import { useLocomotiveScroll } from 'react-locomotive-scroll'
+import { ArrowTopRightIcon } from '../../atomic/icons/ArrowTopRightIcon'
+import { CustomCursorWrapper } from '../projects/styled'
+import { useHero } from './useHero'
+import { useCursor } from './useCursor'
 
 export const Hero: FC = (): JSX.Element => {
-  const [openIntro, setOpenIntro] = useState(true)
+  const {
+    scroll,
+    openIntro,
+    setOpenIntro,
+    initialPixelsVisibilityValues,
+    finalPixelsVisibilityValues,
+    pixelsVisibilityState,
+    setPixelsVisibilityState,
+    index,
+    setIndex,
+    headlineText,
+    setHeadlineText,
+    headlineTextLeft,
+    setHeadlineTextLeft,
+  } = useHero()
 
-  const initialPixelsVisibilityValues = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]
-  const finalPixelsVisibilityValues = [
-    true,
-    false,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    false,
-    false,
-    false,
-    true,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    true,
-    true,
-    true,
-    true,
-    true,
-  ]
-  const [pixelsVisibilityState, setPixelsVisibilityState] = useState(
-    initialPixelsVisibilityValues
-  )
-  const [index, setIndex] = useState(0)
-
-  const initialHeadlineText = null
-  const [headlineText, setHeadlineText] = useState<ReactElement | null>(
-    initialHeadlineText
-  )
-  const [headlineTextLeft, setHeadlineTextLeft] = useState(false)
-
-  const { scroll } = useLocomotiveScroll()
+  const { secondaryCursorRef, isSmall } = useCursor()
 
   useEffect(() => {
     scroll?.stop()
@@ -269,7 +222,11 @@ export const Hero: FC = (): JSX.Element => {
         </FullWidthInner>
       </FullWidthSection>
 
-      <VideoParallax />
+      <VideoParallax id="cursorContainerVideo">
+        <CustomCursorWrapper ref={secondaryCursorRef} isSmall={isSmall}>
+          <ArrowTopRightIcon />
+        </CustomCursorWrapper>
+      </VideoParallax>
     </>
   )
 }
