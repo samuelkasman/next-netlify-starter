@@ -17,7 +17,7 @@ export const Container = styled.div`
   }
 `
 
-export const CustomCursorWrapper = styled.div`
+export const CustomCursorWrapper = styled.div<{ isSmall?: boolean }>`
   display: none;
 
   @media (min-width: ${breakpoints.minDesktop}) {
@@ -29,6 +29,17 @@ export const CustomCursorWrapper = styled.div`
     pointer-events: none;
     transform: translate3d(0, 0, 0);
     z-index: 999;
+
+    ${({ isSmall }) =>
+      isSmall &&
+      css`
+        height: 0;
+        width: 0;
+        margin-left: 72px;
+        margin-top: 72px;
+      `}
+
+    transition: all 0.5s ease-out;
   }
 `
 
