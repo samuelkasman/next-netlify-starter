@@ -11,6 +11,7 @@ import {
   IntroPixel,
   IntroRow,
   IntroHeadline,
+  IntroContainerWrapper,
 } from './styled'
 import { ArrowTopRightIcon } from '../../atomic/icons/ArrowTopRightIcon'
 import { CustomCursorWrapper } from '../projects/styled'
@@ -55,7 +56,7 @@ export const Hero: FC = (): JSX.Element => {
 
     let timeout: NodeJS.Timeout
 
-    if (index > 17) {
+    if (index > 24) {
       clearInterval(interval)
 
       setHeadlineText(
@@ -116,108 +117,110 @@ export const Hero: FC = (): JSX.Element => {
       <FullWidthSection bgColor={colors.black}>
         <FullWidthInner>
           <Intro>
-            <IntroContainer textLeft={headlineTextLeft} textUp={openIntro}>
-              <IntroMask open={openIntro} />
+            <IntroContainerWrapper textLeft={headlineTextLeft}>
+              <IntroContainer textUp={!openIntro}>
+                <IntroMask open={openIntro} />
 
-              <IntroRow>
-                <IntroPixel
-                  visible={pixelsVisibilityState[0]}
-                  color={colors.white}
-                />
-                <IntroPixel
-                  visible={pixelsVisibilityState[1]}
-                  color={colors.white}
-                />
-                <IntroPixel
-                  visible={pixelsVisibilityState[2]}
-                  color={colors.white}
-                />
-                <IntroPixel
-                  visible={pixelsVisibilityState[3]}
-                  color={colors.white}
-                />
-                <IntroPixel
-                  visible={pixelsVisibilityState[4]}
-                  color={colors.white}
-                />
-              </IntroRow>
+                <IntroRow>
+                  <IntroPixel
+                    visible={pixelsVisibilityState[0]}
+                    color={colors.white}
+                  />
+                  <IntroPixel
+                    visible={pixelsVisibilityState[2]}
+                    color={colors.white}
+                  />
+                  <IntroPixel
+                    visible={pixelsVisibilityState[4]}
+                    color={colors.white}
+                  />
+                  <IntroPixel
+                    visible={pixelsVisibilityState[6]}
+                    color={colors.white}
+                  />
+                  <IntroPixel
+                    visible={pixelsVisibilityState[8]}
+                    color={colors.white}
+                  />
+                </IntroRow>
 
-              <IntroRow>
-                <IntroHeadline color={colors.white}>
-                  {headlineText ? (
-                    <>{headlineText}</>
-                  ) : (
-                    <>
-                      <HeadlineVisibility visible={pixelsVisibilityState[7]}>
-                        B<PixelFont data-text="e">e</PixelFont>
-                      </HeadlineVisibility>
-                      <HeadlineVisibility visible={pixelsVisibilityState[5]}>
-                        On
-                      </HeadlineVisibility>
-                      <HeadlineVisibility visible={pixelsVisibilityState[6]}>
-                        Mi<PixelFont>n</PixelFont>d
-                      </HeadlineVisibility>
-                    </>
-                  )}
-                </IntroHeadline>
-              </IntroRow>
+                <IntroRow>
+                  <IntroHeadline color={colors.white}>
+                    {headlineText ? (
+                      <>{headlineText}</>
+                    ) : (
+                      <>
+                        <HeadlineVisibility visible={pixelsVisibilityState[14]}>
+                          B<PixelFont data-text="e">e</PixelFont>
+                        </HeadlineVisibility>
+                        <HeadlineVisibility visible={pixelsVisibilityState[10]}>
+                          On
+                        </HeadlineVisibility>
+                        <HeadlineVisibility visible={pixelsVisibilityState[12]}>
+                          Mi<PixelFont>n</PixelFont>d
+                        </HeadlineVisibility>
+                      </>
+                    )}
+                  </IntroHeadline>
+                </IntroRow>
 
-              <IntroRow>
-                <IntroPixel
-                  visible={pixelsVisibilityState[9]}
-                  color={colors.white}
-                />
-                <IntroPixel
-                  visible={pixelsVisibilityState[11]}
-                  color={colors.white}
-                />
-                <IntroPixel
-                  visible={pixelsVisibilityState[13]}
-                  color={colors.white}
-                />
-                <IntroPixel
-                  visible={pixelsVisibilityState[15]}
-                  color={colors.white}
-                />
-                <IntroPixel
-                  visible={pixelsVisibilityState[17]}
-                  color={colors.white}
-                />
-              </IntroRow>
+                <IntroRow>
+                  <IntroPixel
+                    visible={pixelsVisibilityState[16]}
+                    color={colors.white}
+                  />
+                  <IntroPixel
+                    visible={pixelsVisibilityState[18]}
+                    color={colors.white}
+                  />
+                  <IntroPixel
+                    visible={pixelsVisibilityState[20]}
+                    color={colors.white}
+                  />
+                  <IntroPixel
+                    visible={pixelsVisibilityState[22]}
+                    color={colors.white}
+                  />
+                  <IntroPixel
+                    visible={pixelsVisibilityState[24]}
+                    color={colors.white}
+                  />
+                </IntroRow>
 
-              <IntroRow>
-                <IntroPixel
-                  visible={
-                    !pixelsVisibilityState[9] && pixelsVisibilityState[8]
-                  }
-                  color={colors.white}
-                />
-                <IntroPixel
-                  visible={
-                    !pixelsVisibilityState[11] && pixelsVisibilityState[10]
-                  }
-                  color={colors.white}
-                />
-                <IntroPixel
-                  visible={
-                    !pixelsVisibilityState[13] && pixelsVisibilityState[12]
-                  }
-                  color={colors.white}
-                />
-                <IntroPixel
-                  visible={
-                    !pixelsVisibilityState[15] && pixelsVisibilityState[14]
-                  }
-                  color={colors.white}
-                />
-                <IntroPixel
-                  visible={
-                    !pixelsVisibilityState[17] && pixelsVisibilityState[16]
-                  }
-                  color={colors.white}
-                />
-              </IntroRow>
-            </IntroContainer>
+                <IntroRow>
+                  <IntroPixel
+                    visible={
+                      !pixelsVisibilityState[16] && pixelsVisibilityState[15]
+                    }
+                    color={colors.white}
+                  />
+                  <IntroPixel
+                    visible={
+                      !pixelsVisibilityState[18] && pixelsVisibilityState[17]
+                    }
+                    color={colors.white}
+                  />
+                  <IntroPixel
+                    visible={
+                      !pixelsVisibilityState[20] && pixelsVisibilityState[19]
+                    }
+                    color={colors.white}
+                  />
+                  <IntroPixel
+                    visible={
+                      !pixelsVisibilityState[22] && pixelsVisibilityState[21]
+                    }
+                    color={colors.white}
+                  />
+                  <IntroPixel
+                    visible={
+                      !pixelsVisibilityState[24] && pixelsVisibilityState[23]
+                    }
+                    color={colors.white}
+                  />
+                </IntroRow>
+              </IntroContainer>
+            </IntroContainerWrapper>
           </Intro>
         </FullWidthInner>
       </FullWidthSection>

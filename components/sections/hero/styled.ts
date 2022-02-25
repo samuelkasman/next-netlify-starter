@@ -11,23 +11,26 @@ export const Intro = styled.div`
   background: ${colors.black};
 `
 
-type IntroContainerProps = {
-  textLeft?: boolean
-  textUp?: boolean
-}
+export const IntroContainerWrapper = styled.div<{ textLeft?: boolean }>`
+  width: fit-content;
+  transition: all 0.75s ease-in-out;
+  margin: 0;
+  z-index: 300;
 
-export const IntroContainer = styled.div<IntroContainerProps>`
+  @media (min-width: ${breakpoints.minDesktop}) {
+    margin-left: ${({ textLeft }) => (textLeft ? '0' : '30%')};
+  }
+`
+
+export const IntroContainer = styled.div<{ textUp?: boolean }>`
   display: flex;
   flex-direction: column;
   min-width: 300px;
-  z-index: 300;
   margin: 0;
 
   @media (min-width: ${breakpoints.minDesktop}) {
-    /* margin-left: ${({ textLeft }) => (textLeft ? '0' : '20%')}; */
-    margin-top: ${({ textLeft }) => (textLeft ? '0' : '20%')};
-    /* transition: margin-left 0.75s ease-in-out; */
-    transition: margin-top 0.5s ease-in-out 0.6s;
+    margin-top: ${({ textUp }) => (textUp ? '0' : '15%')};
+    transition: all 0.5s ease-in-out 0.5s;
   }
 `
 
