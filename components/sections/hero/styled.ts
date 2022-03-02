@@ -13,7 +13,7 @@ export const Intro = styled.div`
 
 export const IntroContainerWrapper = styled.div<{ textLeft?: boolean }>`
   width: fit-content;
-  transition: all 0.75s ease-in-out;
+  transition: all 0.65s cubic-bezier(0.5, 0.4, 0.3, 0.6);
   margin: 0;
   z-index: 300;
 
@@ -30,7 +30,7 @@ export const IntroContainer = styled.div<{ textUp?: boolean }>`
 
   @media (min-width: ${breakpoints.minDesktop}) {
     margin-top: ${({ textUp }) => (textUp ? '0' : '15%')};
-    transition: all 0.5s ease-in-out 0.5s;
+    transition: all 0.4s ease-out 0.4s;
   }
 `
 
@@ -49,7 +49,7 @@ export const IntroMask = styled.div<{ open?: boolean }>`
   height: calc(120px + 100vh);
   width: 100%;
   transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-101vh)')};
-  transition: transform 1s cubic-bezier(0.75, 0.25, 0.5, 1);
+  transition: transform 1s cubic-bezier(0.75, 0, 0.25, 1); // cubic-bezier(0.75, 0.25, 0.5, 1);
   z-index: 200;
 `
 
