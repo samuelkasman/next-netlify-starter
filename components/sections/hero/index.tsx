@@ -13,7 +13,7 @@ import {
   IntroHeadline,
   IntroContainerWrapper,
 } from './styled'
-import { ArrowTopRightIcon } from '../../atomic/icons/ArrowTopRightIcon'
+import { PlayButtonIcon } from '../../atomic/icons/PlayButtonIcon'
 import { CustomCursorWrapper } from '../projects/styled'
 import { useHero } from './useHero'
 import { useCursor } from './useCursor'
@@ -227,7 +227,7 @@ export const Hero: FC = (): JSX.Element => {
 
       <VideoParallax id="cursorContainerVideo">
         <CustomCursorWrapper ref={secondaryCursorRef} isSmall={isSmall}>
-          <ArrowTopRightIcon />
+          <PlayButtonIcon />
         </CustomCursorWrapper>
       </VideoParallax>
     </>
