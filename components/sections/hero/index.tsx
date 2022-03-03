@@ -53,6 +53,25 @@ export const Hero: FC = (): JSX.Element => {
     item = true
     newState[index] = item
 
+    if (index === 17) {
+      newState[18] = false
+    }
+    if (index === 18) {
+      newState[18] = true
+    }
+    if (index === 20) {
+      newState[18] = false
+    }
+    if (index === 21) {
+      newState[18] = true
+    }
+    if (index === 22) {
+      newState[18] = false
+    }
+    if (index === 23) {
+      newState[18] = true
+    }
+
     setPixelsVisibilityState(newState)
 
     if (index === 0) {
@@ -167,14 +186,14 @@ export const Hero: FC = (): JSX.Element => {
                       <>{headlineText}</>
                     ) : (
                       <>
-                        <HeadlineVisibility visible={pixelsVisibilityState[16]}>
+                        <HeadlineVisibility visible={pixelsVisibilityState[18]}>
                           B<PixelFont data-text="e">e</PixelFont>
                         </HeadlineVisibility>
                         <HeadlineVisibility visible={pixelsVisibilityState[12]}>
                           On
                         </HeadlineVisibility>
                         <HeadlineVisibility visible={pixelsVisibilityState[14]}>
-                          Mi<PixelFont>n</PixelFont>d
+                          Mi<PixelFont data-text="n">n</PixelFont>d
                         </HeadlineVisibility>
                       </>
                     )}

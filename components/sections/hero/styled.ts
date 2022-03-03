@@ -91,7 +91,11 @@ export const IntroPixel = styled.div<IntroPixelProps>`
 export const ChangingText = styled.div`
   text-align: right;
   width: 100%;
-  padding-right: 100px;
+  padding-right: 80px;
+
+  @media (min-width: ${breakpoints.biggerDesktop}) {
+    padding-right: 100px;
+  }
 `
 
 export const HeadlineVisibility = styled.span<{ visible?: boolean }>`
