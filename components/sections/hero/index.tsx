@@ -12,6 +12,7 @@ import {
   IntroRow,
   IntroHeadline,
   IntroContainerWrapper,
+  ChangingText,
 } from './styled'
 import { PlayButtonIcon } from '../../atomic/icons/PlayButtonIcon'
 import { CustomCursorWrapper } from '../projects/styled'
@@ -54,6 +55,22 @@ export const Hero: FC = (): JSX.Element => {
 
     setPixelsVisibilityState(newState)
 
+    if (index === 0) {
+      setHeadlineText(<ChangingText>Idea</ChangingText>)
+    }
+    if (index === 3) {
+      setHeadlineText(<ChangingText>Story</ChangingText>)
+    }
+    if (index === 6) {
+      setHeadlineText(<ChangingText>People</ChangingText>)
+    }
+    if (index === 9) {
+      setHeadlineText(<ChangingText>Emotion</ChangingText>)
+    }
+    if (index === 12) {
+      setHeadlineText(null)
+    }
+
     let timeout: NodeJS.Timeout
 
     if (index > 24) {
@@ -64,7 +81,7 @@ export const Hero: FC = (): JSX.Element => {
           <DefaultFont data-text="B">B</DefaultFont>
           <PixelFont data-text="e">e</PixelFont>
           <DefaultFont data-text="OnMi">OnMi</DefaultFont>
-          <PixelFont>n</PixelFont>
+          <PixelFont data-text="n">n</PixelFont>
           <DefaultFont data-text="d">d</DefaultFont>
         </>
       )
@@ -150,17 +167,23 @@ export const Hero: FC = (): JSX.Element => {
                       <>{headlineText}</>
                     ) : (
                       <>
-                        <HeadlineVisibility visible={pixelsVisibilityState[14]}>
+                        <HeadlineVisibility visible={pixelsVisibilityState[16]}>
                           B<PixelFont data-text="e">e</PixelFont>
                         </HeadlineVisibility>
-                        <HeadlineVisibility visible={pixelsVisibilityState[10]}>
+                        <HeadlineVisibility visible={pixelsVisibilityState[12]}>
                           On
                         </HeadlineVisibility>
-                        <HeadlineVisibility visible={pixelsVisibilityState[12]}>
+                        <HeadlineVisibility visible={pixelsVisibilityState[14]}>
                           Mi<PixelFont>n</PixelFont>d
                         </HeadlineVisibility>
                       </>
                     )}
+                  </IntroHeadline>
+                </IntroRow>
+
+                <IntroRow noHeight>
+                  <IntroHeadline color={colors.transparent}>
+                    BeOnMind
                   </IntroHeadline>
                 </IntroRow>
 

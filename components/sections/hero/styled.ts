@@ -13,7 +13,7 @@ export const Intro = styled.div`
 
 export const IntroContainerWrapper = styled.div<{ textLeft?: boolean }>`
   width: fit-content;
-  transition: all 0.65s cubic-bezier(0.5, 0.4, 0.3, 0.6);
+  transition: all 0.65s cubic-bezier(0.7, 0.5, 0.3, 0.8); //cubic-bezier(0.5, 0.4, 0.3, 0.6);
   margin: 0;
   z-index: 300;
 
@@ -36,7 +36,8 @@ export const IntroContainer = styled.div<{ textUp?: boolean }>`
 
 export const IntroHeadline = styled(H1)`
   font-size: calc(1rem + 4vw);
-  line-height: 1.15em;
+  line-height: calc(0.5rem + 10vw); // 1.5em;
+  width: 100%;
   mix-blend-mode: difference;
   z-index: 250;
 `
@@ -53,14 +54,19 @@ export const IntroMask = styled.div<{ open?: boolean }>`
   z-index: 200;
 `
 
-export const IntroRow = styled.div`
+type IntroRowProps = {
+  noHeight?: boolean
+}
+
+export const IntroRow = styled.div<IntroRowProps>`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: 10px 0;
+  height: ${({ noHeight }) => noHeight && '0'};
+  margin: ${({ noHeight }) => (noHeight ? '0' : '10px')} 0;
 `
 
 type IntroPixelProps = {
@@ -69,12 +75,23 @@ type IntroPixelProps = {
 }
 
 export const IntroPixel = styled.div<IntroPixelProps>`
-  width: 4px;
-  height: 4px;
+  width: 0.5vw;
+  height: 0.5vw;
   background-color: ${({ visible, color }) =>
     visible && color ? color : colors.transparent};
   mix-blend-mode: difference;
   z-index: 250;
+
+  @media (min-width: ${breakpoints.biggerDesktop}) {
+    width: 0.4vw;
+    height: 0.4vw;
+  }
+`
+
+export const ChangingText = styled.div`
+  text-align: right;
+  width: 100%;
+  padding-right: 100px;
 `
 
 export const HeadlineVisibility = styled.span<{ visible?: boolean }>`
