@@ -23,7 +23,7 @@ export const HeaderStyled = styled.header<HeaderStyledProps>`
   transform: ${({ visible }) =>
     visible ? 'translateY(0)' : 'translateY(-50px)'};
   opacity: ${({ visible }) => (visible ? '1' : '0')};
-  transition: all 1s ease-in-out;
+  transition: all 1s cubic-bezier(0.75, 0, 0.25, 1);
   z-index: 500;
 
   @media (min-width: ${breakpoints.minDesktop}) {
@@ -145,7 +145,7 @@ export const MenuContainer = styled.div<{ open: boolean }>`
   margin: 0;
   transform-origin: top center;
   transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-100vh)')};
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.8s cubic-bezier(0.75, 0, 0.25, 1);
   overflow: hidden;
   z-index: 100;
 `
