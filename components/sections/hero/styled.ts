@@ -2,6 +2,7 @@ import { FullWidthSection } from './../../layout/pageLayout'
 import styled from 'styled-components'
 import { breakpoints, colors } from '../../../styles/theme'
 import { H1 } from '../../atomic/H1'
+import { PlayButtonIcon } from '../../atomic/icons/PlayButtonIcon'
 
 export const Intro = styled.div`
   display: flex;
@@ -108,4 +109,9 @@ export const VideoParallax = styled(FullWidthSection)`
   height: 123vh;
   background-color: transparent;
   overflow: hidden;
+`
+
+export const PlayButtonIconStyled = styled(PlayButtonIcon)`
+  width: 72px;
+  height: 72px;
 `

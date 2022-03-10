@@ -13,8 +13,8 @@ import {
   IntroHeadline,
   IntroContainerWrapper,
   ChangingText,
+  PlayButtonIconStyled,
 } from './styled'
-import { PlayButtonIcon } from '../../atomic/icons/PlayButtonIcon'
 import { CustomCursorWrapper } from '../projects/styled'
 import { useHero } from './useHero'
 import { useCursor } from './useCursor'
@@ -54,22 +54,22 @@ export const Hero: FC = (): JSX.Element => {
     newState[index] = item
 
     if (index === 17) {
-      newState[18] = false
+      newState[22] = false
     }
     if (index === 18) {
-      newState[18] = true
+      newState[22] = true
     }
     if (index === 20) {
-      newState[18] = false
+      newState[22] = false
     }
     if (index === 21) {
-      newState[18] = true
+      newState[22] = true
     }
     if (index === 22) {
-      newState[18] = false
+      newState[22] = false
     }
     if (index === 23) {
-      newState[18] = true
+      newState[22] = true
     }
 
     setPixelsVisibilityState(newState)
@@ -77,16 +77,16 @@ export const Hero: FC = (): JSX.Element => {
     if (index === 0) {
       setHeadlineText(<ChangingText>Idea</ChangingText>)
     }
-    if (index === 3) {
+    if (index === 4) {
       setHeadlineText(<ChangingText>Story</ChangingText>)
     }
-    if (index === 6) {
+    if (index === 8) {
       setHeadlineText(<ChangingText>People</ChangingText>)
     }
-    if (index === 9) {
+    if (index === 12) {
       setHeadlineText(<ChangingText>Emotion</ChangingText>)
     }
-    if (index === 12) {
+    if (index === 15) {
       setHeadlineText(null)
     }
 
@@ -186,13 +186,13 @@ export const Hero: FC = (): JSX.Element => {
                       <>{headlineText}</>
                     ) : (
                       <>
-                        <HeadlineVisibility visible={pixelsVisibilityState[18]}>
+                        <HeadlineVisibility visible={pixelsVisibilityState[22]}>
                           B<PixelFont data-text="e">e</PixelFont>
                         </HeadlineVisibility>
-                        <HeadlineVisibility visible={pixelsVisibilityState[12]}>
+                        <HeadlineVisibility visible={pixelsVisibilityState[16]}>
                           On
                         </HeadlineVisibility>
-                        <HeadlineVisibility visible={pixelsVisibilityState[14]}>
+                        <HeadlineVisibility visible={pixelsVisibilityState[19]}>
                           Mi<PixelFont data-text="n">n</PixelFont>d
                         </HeadlineVisibility>
                       </>
@@ -269,7 +269,7 @@ export const Hero: FC = (): JSX.Element => {
 
       <VideoParallax id="cursorContainerVideo">
         <CustomCursorWrapper ref={secondaryCursorRef} isSmall={isSmall}>
-          <PlayButtonIcon />
+          <PlayButtonIconStyled />
         </CustomCursorWrapper>
       </VideoParallax>
     </>
