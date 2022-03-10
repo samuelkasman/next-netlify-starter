@@ -38,8 +38,16 @@ export const useHero = () => {
     false,
     false,
     false,
+    false,
+    false,
+    false,
+    false,
   ]
   const finalPixelsVisibilityValues = [
+    false,
+    false,
+    false,
+    false,
     true,
     true,
     false,

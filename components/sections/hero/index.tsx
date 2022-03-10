@@ -14,6 +14,7 @@ import {
   IntroContainerWrapper,
   ChangingText,
   PlayButtonIconStyled,
+  VideoText,
 } from './styled'
 import { CustomCursorWrapper } from '../projects/styled'
 import { useHero } from './useHero'
@@ -43,7 +44,10 @@ export const Hero: FC = (): JSX.Element => {
   }, [])
 
   useEffect(() => {
-    let interval = setInterval(
+    let timeout: NodeJS.Timeout
+    let interval: NodeJS.Timer
+
+    interval = setInterval(
       () => setIndex((i) => (i + 1) % initialPixelsVisibilityValues.length),
       120
     )
@@ -53,46 +57,44 @@ export const Hero: FC = (): JSX.Element => {
     item = true
     newState[index] = item
 
-    if (index === 17) {
-      newState[22] = false
-    }
-    if (index === 18) {
-      newState[22] = true
-    }
-    if (index === 20) {
-      newState[22] = false
-    }
     if (index === 21) {
-      newState[22] = true
+      newState[26] = false
     }
     if (index === 22) {
-      newState[22] = false
+      newState[26] = true
     }
-    if (index === 23) {
-      newState[22] = true
+    if (index === 24) {
+      newState[26] = false
+    }
+    if (index === 25) {
+      newState[26] = true
+    }
+    if (index === 26) {
+      newState[26] = false
+    }
+    if (index === 27) {
+      newState[26] = true
     }
 
     setPixelsVisibilityState(newState)
 
-    if (index === 0) {
+    if (index === 4) {
       setHeadlineText(<ChangingText>Idea</ChangingText>)
     }
-    if (index === 4) {
+    if (index === 8) {
       setHeadlineText(<ChangingText>Story</ChangingText>)
     }
-    if (index === 8) {
+    if (index === 12) {
       setHeadlineText(<ChangingText>People</ChangingText>)
     }
-    if (index === 12) {
+    if (index === 16) {
       setHeadlineText(<ChangingText>Emotion</ChangingText>)
     }
-    if (index === 15) {
+    if (index === 19) {
       setHeadlineText(null)
     }
 
-    let timeout: NodeJS.Timeout
-
-    if (index > 24) {
+    if (index > 28) {
       clearInterval(interval)
 
       setHeadlineText(
@@ -116,25 +118,12 @@ export const Hero: FC = (): JSX.Element => {
             <PixelFont data-text="n">n</PixelFont>
             <DefaultFont data-text="ses">ses</DefaultFont>
           </>
+          // <PixelFont>We catch your senses</PixelFont>
         )
         setPixelsVisibilityState(finalPixelsVisibilityValues)
         setHeadlineTextLeft(true)
 
         timeout = setTimeout(() => {
-          setHeadlineText(
-            <>
-              {/* <HeadlineVisibility visible={pixelsVisibilityState[18]}> */}W
-              <PixelFont>e</PixelFont> {/* </HeadlineVisibility>{' '} */}
-              {/* <HeadlineVisibility visible={pixelsVisibilityState[19]}> */}
-              ca<PixelFont>t</PixelFont>ch {/* </HeadlineVisibility>{' '} */}
-              {/* <HeadlineVisibility visible={pixelsVisibilityState[20]}> */}
-              your {/* </HeadlineVisibility>{' '} */}
-              {/* <HeadlineVisibility visible={pixelsVisibilityState[21]}> */}
-              se<PixelFont>n</PixelFont>ses
-              {/* </HeadlineVisibility> */}
-            </>
-          )
-          setPixelsVisibilityState(finalPixelsVisibilityValues)
           setHeadlineTextLeft(true)
           setOpenIntro(false)
           scroll?.start()
@@ -146,7 +135,7 @@ export const Hero: FC = (): JSX.Element => {
       clearInterval(interval)
       clearTimeout(timeout)
     }
-  }, [, index])
+  }, [index])
 
   return (
     <>
@@ -159,14 +148,6 @@ export const Hero: FC = (): JSX.Element => {
 
                 <IntroRow>
                   <IntroPixel
-                    visible={pixelsVisibilityState[0]}
-                    color={colors.white}
-                  />
-                  <IntroPixel
-                    visible={pixelsVisibilityState[2]}
-                    color={colors.white}
-                  />
-                  <IntroPixel
                     visible={pixelsVisibilityState[4]}
                     color={colors.white}
                   />
@@ -178,6 +159,14 @@ export const Hero: FC = (): JSX.Element => {
                     visible={pixelsVisibilityState[8]}
                     color={colors.white}
                   />
+                  <IntroPixel
+                    visible={pixelsVisibilityState[10]}
+                    color={colors.white}
+                  />
+                  <IntroPixel
+                    visible={pixelsVisibilityState[12]}
+                    color={colors.white}
+                  />
                 </IntroRow>
 
                 <IntroRow>
@@ -186,13 +175,13 @@ export const Hero: FC = (): JSX.Element => {
                       <>{headlineText}</>
                     ) : (
                       <>
-                        <HeadlineVisibility visible={pixelsVisibilityState[22]}>
+                        <HeadlineVisibility visible={pixelsVisibilityState[26]}>
                           B<PixelFont data-text="e">e</PixelFont>
                         </HeadlineVisibility>
-                        <HeadlineVisibility visible={pixelsVisibilityState[16]}>
+                        <HeadlineVisibility visible={pixelsVisibilityState[20]}>
                           On
                         </HeadlineVisibility>
-                        <HeadlineVisibility visible={pixelsVisibilityState[19]}>
+                        <HeadlineVisibility visible={pixelsVisibilityState[23]}>
                           Mi<PixelFont data-text="n">n</PixelFont>d
                         </HeadlineVisibility>
                       </>
@@ -208,14 +197,6 @@ export const Hero: FC = (): JSX.Element => {
 
                 <IntroRow>
                   <IntroPixel
-                    visible={pixelsVisibilityState[16]}
-                    color={colors.white}
-                  />
-                  <IntroPixel
-                    visible={pixelsVisibilityState[18]}
-                    color={colors.white}
-                  />
-                  <IntroPixel
                     visible={pixelsVisibilityState[20]}
                     color={colors.white}
                   />
@@ -227,21 +208,17 @@ export const Hero: FC = (): JSX.Element => {
                     visible={pixelsVisibilityState[24]}
                     color={colors.white}
                   />
+                  <IntroPixel
+                    visible={pixelsVisibilityState[26]}
+                    color={colors.white}
+                  />
+                  <IntroPixel
+                    visible={pixelsVisibilityState[28]}
+                    color={colors.white}
+                  />
                 </IntroRow>
 
                 <IntroRow>
-                  <IntroPixel
-                    visible={
-                      !pixelsVisibilityState[16] && pixelsVisibilityState[15]
-                    }
-                    color={colors.white}
-                  />
-                  <IntroPixel
-                    visible={
-                      !pixelsVisibilityState[18] && pixelsVisibilityState[17]
-                    }
-                    color={colors.white}
-                  />
                   <IntroPixel
                     visible={
                       !pixelsVisibilityState[20] && pixelsVisibilityState[19]
@@ -260,6 +237,18 @@ export const Hero: FC = (): JSX.Element => {
                     }
                     color={colors.white}
                   />
+                  <IntroPixel
+                    visible={
+                      !pixelsVisibilityState[26] && pixelsVisibilityState[25]
+                    }
+                    color={colors.white}
+                  />
+                  <IntroPixel
+                    visible={
+                      !pixelsVisibilityState[28] && pixelsVisibilityState[27]
+                    }
+                    color={colors.white}
+                  />
                 </IntroRow>
               </IntroContainer>
             </IntroContainerWrapper>
@@ -268,6 +257,10 @@ export const Hero: FC = (): JSX.Element => {
       </FullWidthSection>
 
       <VideoParallax id="cursorContainerVideo">
+        {/* <VideoText>
+          <IntroHeadline color={colors.white}>Play</IntroHeadline>
+        </VideoText> */}
+
         <CustomCursorWrapper ref={secondaryCursorRef} isSmall={isSmall}>
           <PlayButtonIconStyled />
         </CustomCursorWrapper>

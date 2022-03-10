@@ -9,7 +9,6 @@ type H1Props = {
   mediumFontWeight?: boolean
   marginSize?: string
   textAlign?: 'center' | 'left' | 'right'
-  contentEditable?: boolean
 }
 
 type H1StyledProps = Pick<
@@ -42,7 +41,6 @@ export const H1: FC<H1Props> = ({
   color = colors.black,
   marginSize,
   textAlign,
-  contentEditable,
   children,
 }) => {
   const commonProps = {
@@ -50,7 +48,6 @@ export const H1: FC<H1Props> = ({
     color,
     marginSize,
     textAlign,
-    contentEditable,
   }
 
   return (

@@ -73,6 +73,15 @@ export const Boom: FC = (): JSX.Element => {
                     t
                   </PixelFont>
                 </Glitch>
+                {/* <Glitch>
+                  <PixelFont>
+                    Boosting ideas through
+                    <br />
+                    audio-visual content in
+                    <br />
+                    the name of modern art
+                  </PixelFont>
+                </Glitch> */}
               </BoomText>
             </TextWrapper>
 
