@@ -18,7 +18,9 @@ export const Container = styled.div`
 `
 
 export const CustomCursorWrapper = styled.div<{ isSmall?: boolean }>`
+  position: absolute;
   display: none;
+  z-index: 500;
 
   @media (min-width: ${breakpoints.minDesktop}) {
     display: block;

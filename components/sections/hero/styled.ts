@@ -112,6 +112,16 @@ export const VideoParallax = styled(FullWidthSection)`
 `
 
 export const PlayButtonIconStyled = styled(PlayButtonIcon)`
-  width: 72px;
-  height: 72px;
+  width: 108px;
+  height: 108px;
+`
+
+export const VideoText = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  z-index: 400;
 `

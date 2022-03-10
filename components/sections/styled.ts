@@ -358,7 +358,8 @@ export const Nowrap = styled.span`
 export const PixelFont = styled.span<{ animationDelay?: number }>`
   display: inline-block;
   position: relative;
-  font-family: ${typography.fontFamily.alternate};
+  font-family: ${typography.fontFamily.alternate},
+    ${typography.fontFamily.default};
   z-index: 5;
 `
 
