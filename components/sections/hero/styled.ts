@@ -112,6 +112,6 @@ export const VideoParallax = styled(FullWidthSection)`
 `
 
 export const PlayButtonIconStyled = styled(PlayButtonIcon)`
-  width: 72px;
-  height: 72px;
+  width: 108px;
+  height: 108px;
 `

@@ -23,9 +23,9 @@ export const useCursor = () => {
 
         positionRef.current.mouseX =
           // @ts-ignore
-          clientX - 36
+          clientX - 54
 
-        positionRef.current.mouseY = clientY - 36 - rect.top
+        positionRef.current.mouseY = clientY - 54 - rect.top
       })
   }, [])
 
