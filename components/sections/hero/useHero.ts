@@ -6,79 +6,49 @@ export const useHero = () => {
 
   const [openIntro, setOpenIntro] = useState(true)
 
-  const initialPixelsVisibilityValues = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]
+  const initialPixelsVisibilityValues = new Array(40).fill(false)
   const finalPixelsVisibilityValues = [
+    false, // 0
+    false,
+    false,
+    false,
+    true, // 4
+    true, // 5
+    false,
+    true,
+    false, // 8
+    true,
+    true, // 10
+    true,
+    true, // 12
+    true,
+    true,
+    true, // 15
+    true, // 16
+    true,
+    true,
+    false,
+    true, // 20
+    false,
+    true,
+    false,
+    false,
+    false, // 25
+    true,
+    false,
+    false,
+    false,
+    false, // 30
+    false,
+    false,
+    false,
+    false, // 34
     false,
     false,
     false,
     false,
-    true,
-    true,
     false,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    false,
-    false,
-    false,
-    true,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    true,
-    true,
-    true,
-    true,
-    true,
+    false, // 40
   ]
 
   const [pixelsVisibilityState, setPixelsVisibilityState] = useState(

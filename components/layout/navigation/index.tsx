@@ -32,7 +32,7 @@ export const Navigation: FC = (): JSX.Element => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setVisible(true)
-    }, 4500)
+    }, 5500)
 
     return () => {
       clearTimeout(timeout)
