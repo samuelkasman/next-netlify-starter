@@ -43,6 +43,15 @@ export const IntroHeadline = styled(H1)`
   z-index: 250;
 `
 
+export const VideoHeadline = styled(H1)`
+  display: contents;
+  font-size: calc(2rem + 8vw);
+  line-height: calc(0.5rem + 10vw); // 1.5em;
+  width: 100%;
+  mix-blend-mode: difference;
+  z-index: 250;
+`
+
 export const IntroMask = styled.div<{ open?: boolean }>`
   position: absolute;
   background: ${colors.grey};
