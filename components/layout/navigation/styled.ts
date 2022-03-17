@@ -9,6 +9,7 @@ import {
 
 type HeaderStyledProps = {
   visible?: boolean
+  open?: boolean
   isScrolled?: boolean
 }
 
@@ -25,6 +26,7 @@ export const HeaderStyled = styled.header<HeaderStyledProps>`
   opacity: ${({ visible }) => (visible ? '1' : '0')};
   transition: all 1s cubic-bezier(0.75, 0, 0.25, 1);
   z-index: 500;
+  /* mix-blend-mode: ${({ open }) => !open && 'difference'}; */
 
   @media (min-width: ${breakpoints.minDesktop}) {
     ${({ isScrolled }) =>
@@ -72,7 +74,12 @@ export const Text = styled.div`
   margin-right: 24px;
 `
 
-export const BurgerStyled = styled.button<{ open: boolean }>`
+type BurgerStyledProps = {
+  open: boolean
+  isBlack?: boolean
+}
+
+export const BurgerStyled = styled.button<BurgerStyledProps>`
   cursor: pointer;
   display: flex;
   justify-content: space-around;
@@ -131,6 +138,12 @@ export const BurgerStyled = styled.button<{ open: boolean }>`
               opacity: 0;
             }
           `}
+
+    ${({ isBlack }) =>
+      isBlack &&
+      css`
+        background-color: ${colors.black};
+      `}
   }
 `
 

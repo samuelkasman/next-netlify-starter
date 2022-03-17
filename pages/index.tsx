@@ -17,7 +17,7 @@ import { Founders } from '../components/sections/founders'
 import { Testimonials } from '../components/sections/testimonials'
 import { MediaQueryJS } from '../components/layout/MediaQueryJS'
 import styled from 'styled-components'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Modals } from '../components/layout/modal/modals'
 
 export const Centered = styled.div`
@@ -61,6 +61,8 @@ const Home: NextPage = () => {
   const [advertisementModalVisible, setAdvertisementModalVisible] =
     useState(false)
 
+  const [isLogoBlack, setIsLogoBlack] = useState(false)
+
   return (
     <>
       <Head>
@@ -87,14 +89,14 @@ const Home: NextPage = () => {
           </FullWidthSection>
         </VideoBackground>
 
-        <Navigation />
+        <Navigation isLogoBlack={isLogoBlack} />
 
         <MediaQueryJS>
           {(isMobileScreen: boolean) => (
             <div data-scroll-section={!isMobileScreen}>
               <Hero />
-              <Boom />
-              <Work />
+              <Boom setIsLogoBlack={setIsLogoBlack} />
+              <Work setIsLogoBlack={setIsLogoBlack} />
               <Projects
                 filmModalVisible={filmModalVisible}
                 setFilmModalVisible={setFilmModalVisible}

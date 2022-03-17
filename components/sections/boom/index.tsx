@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { colors } from '../../../styles/theme'
 import { TypographyType } from '../../atomic/Typography'
@@ -14,7 +14,11 @@ import {
   TextWrapper,
 } from './styled'
 
-export const Boom: FC = (): JSX.Element => {
+type BoomProps = {
+  setIsLogoBlack: Dispatch<SetStateAction<boolean>>
+}
+
+export const Boom: FC<BoomProps> = ({ setIsLogoBlack }): JSX.Element => {
   const THRESHOLD_VALUE = 0.5
 
   const { ref, inView } = useInView({
@@ -25,9 +29,29 @@ export const Boom: FC = (): JSX.Element => {
     threshold: THRESHOLD_VALUE,
   })
 
+  const { ref: refBlackSection, inView: inViewBlackSection } = useInView({
+    threshold: 0.04,
+  })
+
+  const { ref: refWhiteSection, inView: inViewWhiteSection } = useInView({
+    threshold: 0.9,
+  })
+
+  useEffect(() => {
+    if (inViewWhiteSection) {
+      setIsLogoBlack(true)
+    }
+  }, [inViewWhiteSection])
+
+  useEffect(() => {
+    if (inViewBlackSection) {
+      setIsLogoBlack(false)
+    }
+  }, [inViewBlackSection])
+
   return (
     <>
-      <FullWidthSection bgColor={colors.black}>
+      <FullWidthSection bgColor={colors.black} ref={refBlackSection}>
         <FullWidthInner>
           <Container>
             <TextWrapper ref={ref} inView={inView}>
@@ -90,7 +114,7 @@ export const Boom: FC = (): JSX.Element => {
         </FullWidthInner>
       </FullWidthSection>
 
-      <FullWidthSection bgColor={colors.grey}>
+      <FullWidthSection bgColor={colors.grey} ref={refWhiteSection}>
         <FullWidthInner>
           <Container2 ref={ref3} inView={inView3}>
             <BoomText2
