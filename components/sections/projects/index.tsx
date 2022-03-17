@@ -1,11 +1,4 @@
-import React, {
-  Dispatch,
-  FC,
-  SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import React, { Dispatch, FC, SetStateAction, useEffect, useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { colors } from '../../../styles/theme'
 import { ArrowTopRightIcon } from '../../atomic/icons/ArrowTopRightIcon'

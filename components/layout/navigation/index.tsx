@@ -22,7 +22,13 @@ import {
 import { useLocomotiveScroll } from 'react-locomotive-scroll'
 import { FullWidthInner, FullWidthSection } from '../pageLayout'
 
-export const Navigation: FC = (): JSX.Element => {
+type NavigationProps = {
+  isLogoBlack?: boolean
+}
+
+export const Navigation: FC<NavigationProps> = ({
+  isLogoBlack,
+}): JSX.Element => {
   const [open, setOpen] = useState(false)
   const [visible, setVisible] = useState(false)
 
@@ -60,11 +66,13 @@ export const Navigation: FC = (): JSX.Element => {
 
   return (
     <>
-      <HeaderStyled visible={visible} isScrolled={isScrolled}>
+      <HeaderStyled visible={visible} open={open} isScrolled={isScrolled}>
         <HeaderInner>
           <LinkWrapper>
             <Text>
-              <BeOnMindLogo color={open ? colors.black : colors.white} />
+              <BeOnMindLogo
+                color={open || isLogoBlack ? colors.black : colors.white}
+              />
             </Text>
           </LinkWrapper>
 
@@ -131,7 +139,7 @@ export const Navigation: FC = (): JSX.Element => {
             </FullWidthSection>
           </MenuContainer>
 
-          <Burger open={open} setOpen={setOpen} />
+          <Burger open={open} setOpen={setOpen} isBlack={isLogoBlack} />
         </HeaderInner>
 
         <Overlay open={open} />
