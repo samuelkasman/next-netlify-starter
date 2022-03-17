@@ -21,6 +21,22 @@ export const IntroContainerWrapper = styled.div<{ textLeft?: boolean }>`
   @media (min-width: ${breakpoints.minDesktop}) {
     margin-left: ${({ textLeft }) => (textLeft ? '0' : '30%')};
   }
+
+  @media (min-width: ${breakpoints.midDesktop}) {
+    margin-left: ${({ textLeft }) => (textLeft ? '0' : '35%')};
+  }
+
+  @media (min-width: ${breakpoints.fullWidth}) {
+    margin-left: ${({ textLeft }) => (textLeft ? '0' : '37%')};
+  }
+
+  @media (min-width: 2200px) {
+    margin-left: ${({ textLeft }) => (textLeft ? '0' : '33%')};
+  }
+
+  @media (min-width: 2700px) {
+    margin-left: ${({ textLeft }) => (textLeft ? '0' : '31%')};
+  }
 `
 
 export const IntroContainer = styled.div<{ textUp?: boolean }>`
