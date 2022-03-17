@@ -20,6 +20,7 @@ import {
 import { CustomCursorWrapper } from '../projects/styled'
 import { useHero } from './useHero'
 import { useCursor } from './useCursor'
+import { Scrambler } from './Scrambler'
 
 export const Hero: FC = (): JSX.Element => {
   const {
@@ -252,6 +253,13 @@ export const Hero: FC = (): JSX.Element => {
           </Intro>
         </FullWidthInner>
       </FullWidthSection>
+
+      <Scrambler startText="BeOnMind" endText="We catch your senses" />
+      <Scrambler
+        startText="BeOnMind"
+        endText="We catch your senses"
+        withSizeChange
+      />
 
       <VideoParallax id="cursorContainerVideo">
         <CustomCursorWrapper ref={secondaryCursorRef} isSmall={isSmall}>
