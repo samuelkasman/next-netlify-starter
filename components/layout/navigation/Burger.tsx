@@ -5,17 +5,12 @@ import { BurgerStyled } from './styled'
 type BurgerProps = {
   open: boolean
   setOpen: Dispatch<SetStateAction<boolean>>
-  isBlack?: boolean
 }
 
-export const Burger: FC<BurgerProps> = ({ open, setOpen, isBlack }) => {
+export const Burger: FC<BurgerProps> = ({ open, setOpen }) => {
   return (
     <>
-      <BurgerStyled
-        open={open}
-        onClick={() => setOpen(!open)}
-        isBlack={isBlack}
-      >
+      <BurgerStyled open={open} onClick={() => setOpen(!open)}>
         <div />
         <div />
         <div />

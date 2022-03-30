@@ -9,8 +9,8 @@ import {
 
 type HeaderStyledProps = {
   visible?: boolean
-  open?: boolean
   isScrolled?: boolean
+  mixBlendMode?: boolean
 }
 
 export const HeaderStyled = styled.header<HeaderStyledProps>`
@@ -26,7 +26,7 @@ export const HeaderStyled = styled.header<HeaderStyledProps>`
   opacity: ${({ visible }) => (visible ? '1' : '0')};
   transition: all 1s cubic-bezier(0.75, 0, 0.25, 1);
   z-index: 500;
-  /* mix-blend-mode: ${({ open }) => !open && 'difference'}; */
+  mix-blend-mode: ${({ mixBlendMode }) => mixBlendMode && 'difference'};
 
   @media (min-width: ${breakpoints.minDesktop}) {
     ${({ isScrolled }) =>
@@ -76,7 +76,6 @@ export const Text = styled.div`
 
 type BurgerStyledProps = {
   open: boolean
-  isBlack?: boolean
 }
 
 export const BurgerStyled = styled.button<BurgerStyledProps>`
@@ -138,12 +137,6 @@ export const BurgerStyled = styled.button<BurgerStyledProps>`
               opacity: 0;
             }
           `}
-
-    ${({ isBlack }) =>
-      isBlack &&
-      css`
-        background-color: ${colors.black};
-      `}
   }
 `
 

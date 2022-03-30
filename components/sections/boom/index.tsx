@@ -15,10 +15,10 @@ import {
 } from './styled'
 
 type BoomProps = {
-  setIsLogoBlack: Dispatch<SetStateAction<boolean>>
+  setNavMixBlendMode: Dispatch<SetStateAction<boolean>>
 }
 
-export const Boom: FC<BoomProps> = ({ setIsLogoBlack }): JSX.Element => {
+export const Boom: FC<BoomProps> = ({ setNavMixBlendMode }): JSX.Element => {
   const THRESHOLD_VALUE = 0.5
 
   const { ref, inView } = useInView({
@@ -30,24 +30,18 @@ export const Boom: FC<BoomProps> = ({ setIsLogoBlack }): JSX.Element => {
   })
 
   const { ref: refBlackSection, inView: inViewBlackSection } = useInView({
-    threshold: 0.04,
+    threshold: 0.4,
   })
 
-  const { ref: refWhiteSection, inView: inViewWhiteSection } = useInView({
-    threshold: 0.9,
-  })
+  const { ref: refWhiteSection, inView: inViewWhiteSection } = useInView()
 
   useEffect(() => {
-    if (inViewWhiteSection) {
-      setIsLogoBlack(true)
+    if (!inViewBlackSection && inViewWhiteSection) {
+      setNavMixBlendMode(true)
+    } else {
+      setNavMixBlendMode(false)
     }
-  }, [inViewWhiteSection])
-
-  useEffect(() => {
-    if (inViewBlackSection) {
-      setIsLogoBlack(false)
-    }
-  }, [inViewBlackSection])
+  }, [inViewBlackSection, inViewWhiteSection])
 
   return (
     <>
