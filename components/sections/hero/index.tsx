@@ -254,12 +254,12 @@ export const Hero: FC = (): JSX.Element => {
         </FullWidthInner>
       </FullWidthSection>
 
-      <Scrambler startText="BeOnMind" endText="We catch your senses" />
+      {/* <Scrambler startText="BeOnMind" endText="We catch your senses" />
       <Scrambler
         startText="BeOnMind"
         endText="We catch your senses"
         withSizeChange
-      />
+      /> */}
 
       <VideoParallax id="cursorContainerVideo">
         <CustomCursorWrapper ref={secondaryCursorRef} isSmall={isSmall}>
