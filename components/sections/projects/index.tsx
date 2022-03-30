@@ -131,7 +131,7 @@ export const Projects: FC<Props> = ({
         <FullWidthInner fullWidth noPadding>
           <Container id="cursorContainer">
             <CustomCursorWrapper ref={secondaryCursorRef}>
-              <ArrowTopRightIcon />
+              {/* <ArrowTopRightIcon /> */}
             </CustomCursorWrapper>
 
             <FilmPanel>

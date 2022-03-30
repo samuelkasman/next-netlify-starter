@@ -3,7 +3,7 @@ import ScrollLock from 'react-scrolllock'
 import { colors } from '../../../styles/theme'
 import { BeOnMindLogo } from '../../atomic/logos/BeOnMindLogo'
 import { TypographyType, Typography } from '../../atomic/Typography'
-import { AddressP, MenuLink } from '../../sections/footer/styled'
+import { AddressP } from '../../sections/footer/styled'
 import { PixelFont } from '../../sections/styled'
 import { Burger } from './Burger'
 import {
@@ -23,17 +23,22 @@ import { useLocomotiveScroll } from 'react-locomotive-scroll'
 import { FullWidthInner, FullWidthSection } from '../pageLayout'
 
 type NavigationProps = {
-  isLogoBlack?: boolean
+  mixBlendMode?: boolean
 }
 
 export const Navigation: FC<NavigationProps> = ({
-  isLogoBlack,
+  mixBlendMode,
 }): JSX.Element => {
   const [open, setOpen] = useState(false)
+  const [wasOpen, setWasOpen] = useState(false)
   const [visible, setVisible] = useState(false)
 
   const { scroll } = useLocomotiveScroll()
   const [isScrolled, setIsScrolled] = useState(false)
+
+  const [allowMixBlendMode, setAllowMixBlendMode] = useState(
+    mixBlendMode || false
+  )
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -58,21 +63,53 @@ export const Navigation: FC<NavigationProps> = ({
   useEffect(() => {
     if (open) {
       scroll?.stop()
+      setWasOpen(true)
     }
     if (!open) {
       scroll?.start()
+      const timeout = setTimeout(() => {
+        setWasOpen(false)
+      }, 1000)
+
+      return () => {
+        clearTimeout(timeout)
+      }
     }
   }, [open])
 
+  useEffect(() => {
+    if (open || !mixBlendMode) {
+      setAllowMixBlendMode(false)
+    }
+
+    if (mixBlendMode && !open && !wasOpen) {
+      setAllowMixBlendMode(true)
+    }
+
+    if (mixBlendMode && !open && wasOpen) {
+      const timeout = setTimeout(() => {
+        setAllowMixBlendMode(true)
+      }, 800)
+
+      return () => {
+        clearTimeout(timeout)
+      }
+    }
+
+    console.log(allowMixBlendMode)
+  }, [open, mixBlendMode])
+
   return (
     <>
-      <HeaderStyled visible={visible} open={open} isScrolled={isScrolled}>
+      <HeaderStyled
+        visible={visible}
+        isScrolled={isScrolled}
+        mixBlendMode={allowMixBlendMode}
+      >
         <HeaderInner>
           <LinkWrapper>
             <Text>
-              <BeOnMindLogo
-                color={open || isLogoBlack ? colors.black : colors.white}
-              />
+              <BeOnMindLogo color={open ? colors.black : colors.white} />
             </Text>
           </LinkWrapper>
 
@@ -139,7 +176,7 @@ export const Navigation: FC<NavigationProps> = ({
             </FullWidthSection>
           </MenuContainer>
 
-          <Burger open={open} setOpen={setOpen} isBlack={isLogoBlack} />
+          <Burger open={open} setOpen={setOpen} />
         </HeaderInner>
 
         <Overlay open={open} />

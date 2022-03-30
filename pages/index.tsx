@@ -61,7 +61,7 @@ const Home: NextPage = () => {
   const [advertisementModalVisible, setAdvertisementModalVisible] =
     useState(false)
 
-  const [isLogoBlack, setIsLogoBlack] = useState(false)
+  const [navMixBlendMode, setNavMixBlendMode] = useState(false)
 
   return (
     <>
@@ -89,22 +89,28 @@ const Home: NextPage = () => {
           </FullWidthSection>
         </VideoBackground>
 
-        <Navigation isLogoBlack={isLogoBlack} />
+        <Navigation mixBlendMode={navMixBlendMode} />
 
         <MediaQueryJS>
           {(isMobileScreen: boolean) => (
             <div data-scroll-section={!isMobileScreen}>
               <Hero />
-              <Boom setIsLogoBlack={setIsLogoBlack} />
-              <Work setIsLogoBlack={setIsLogoBlack} />
+
+              <Boom setNavMixBlendMode={setNavMixBlendMode} />
+
+              <Work />
+
               <Projects
                 filmModalVisible={filmModalVisible}
                 setFilmModalVisible={setFilmModalVisible}
                 advertisementModalVisible={advertisementModalVisible}
                 setAdvertisementModalVisible={setAdvertisementModalVisible}
               />
+
               <Testimonials />
+
               <Founders />
+
               <Footer />
             </div>
           )}
