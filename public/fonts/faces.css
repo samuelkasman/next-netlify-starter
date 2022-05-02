@@ -14,11 +14,12 @@
   font-family: 'Pixel';
   src: url('/fonts/NeuePixelGrotesk_Regular.woff');
   font-weight: 300;
+
   /*Apply font only to specific unicode characters*/
-  unicode-range: U+0074; /*t*/
-  unicode-range: U+0072; /*r*/
-  unicode-range: U+006E; /*n*/
-  unicode-range: U+006B; /*k*/
-  unicode-range: U+006D; /*m*/
-  unicode-range: U+0065; /*e*/
+  /*unicode-range: U+0074; /*t*/
+  /*unicode-range: U+0072; /*r*/
+  /*unicode-range: U+006E; /*n*/
+  /*unicode-range: U+006B; /*k*/
+  /*unicode-range: U+006D; /*m*/
+  /*unicode-range: U+0065; /*e*/
 }

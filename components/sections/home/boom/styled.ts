@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components'
-import { breakpoints, colors } from '../../../styles/theme'
-import { BoomIllustration } from '../../atomic/illustrations/BoomIllustration'
-import { Typography } from '../../atomic/Typography'
+import { breakpoints, colors } from '../../../../styles/theme'
+import { BoomIllustration } from '../../../atomic/illustrations/BoomIllustration'
+import { Typography } from '../../../atomic/Typography'
 
 export const Container = styled.div`
   display: flex;

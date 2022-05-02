@@ -1,24 +1,21 @@
 import Head from 'next/head'
 import type { GetStaticProps, NextPage } from 'next'
 import { Navigation } from '../components/layout/navigation'
-import { Footer } from '../components/sections/footer'
+import { Footer } from '../components/layout/footer'
 import {
   FullWidthInner,
   FullWidthSection,
   PageLayout,
 } from '../components/layout/pageLayout'
-import { Hero } from '../components/sections/hero'
-import { Boom } from '../components/sections/boom'
-import { Work } from '../components/sections/work'
-import { Projects } from '../components/sections/projects'
+import { Hero } from '../components/sections/home/hero'
+import { Boom } from '../components/sections/home/boom'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
-import { Founders } from '../components/sections/founders'
-import { Testimonials } from '../components/sections/testimonials'
+import { Testimonials } from '../components/sections/home/testimonials'
 import { MediaQueryJS } from '../components/layout/MediaQueryJS'
 import styled from 'styled-components'
-import { useEffect, useState } from 'react'
-import { Modals } from '../components/layout/modal/modals'
+import { useState } from 'react'
+import { Brands } from '../components/sections/home/brands'
 
 export const Centered = styled.div`
   position: relative;
@@ -57,9 +54,9 @@ const VideoBackground = styled.div`
 const Home: NextPage = () => {
   const { t } = useTranslation('common')
 
-  const [filmModalVisible, setFilmModalVisible] = useState(false)
-  const [advertisementModalVisible, setAdvertisementModalVisible] =
-    useState(false)
+  // const [filmModalVisible, setFilmModalVisible] = useState(false)
+  // const [advertisementModalVisible, setAdvertisementModalVisible] =
+  //   useState(false)
 
   const [navMixBlendMode, setNavMixBlendMode] = useState(false)
 
@@ -89,7 +86,7 @@ const Home: NextPage = () => {
           </FullWidthSection>
         </VideoBackground>
 
-        <Navigation mixBlendMode={navMixBlendMode} />
+        <Navigation mixBlendMode={navMixBlendMode} withTimeout />
 
         <MediaQueryJS>
           {(isMobileScreen: boolean) => (
@@ -98,30 +95,32 @@ const Home: NextPage = () => {
 
               <Boom setNavMixBlendMode={setNavMixBlendMode} />
 
-              <Work />
+              {/* <Work /> */}
 
-              <Projects
+              {/* <Projects
                 filmModalVisible={filmModalVisible}
                 setFilmModalVisible={setFilmModalVisible}
                 advertisementModalVisible={advertisementModalVisible}
                 setAdvertisementModalVisible={setAdvertisementModalVisible}
-              />
+              /> */}
+
+              <Brands />
 
               <Testimonials />
 
-              <Founders />
+              {/* <Founders /> */}
 
               <Footer />
             </div>
           )}
         </MediaQueryJS>
 
-        <Modals
+        {/* <Modals
           filmModalVisible={filmModalVisible}
           setFilmModalVisible={setFilmModalVisible}
           advertisementModalVisible={advertisementModalVisible}
           setAdvertisementModalVisible={setAdvertisementModalVisible}
-        />
+        /> */}
       </PageLayout>
     </>
   )

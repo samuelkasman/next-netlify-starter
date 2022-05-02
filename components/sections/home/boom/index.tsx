@@ -1,9 +1,9 @@
 import React, { Dispatch, FC, SetStateAction, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
-import { colors } from '../../../styles/theme'
-import { TypographyType } from '../../atomic/Typography'
-import { FullWidthSection, FullWidthInner } from '../../layout/pageLayout'
-import { Glitch, PixelFont, PixelFont1s } from '../styled'
+import { colors } from '../../../../styles/theme'
+import { TypographyType } from '../../../atomic/Typography'
+import { FullWidthSection, FullWidthInner } from '../../../layout/pageLayout'
+import { Glitch, PixelFont, PixelFont1s } from '../../styled'
 import {
   BoomText,
   BoomText2,

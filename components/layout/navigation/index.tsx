@@ -3,9 +3,10 @@ import ScrollLock from 'react-scrolllock'
 import { colors } from '../../../styles/theme'
 import { BeOnMindLogo } from '../../atomic/logos/BeOnMindLogo'
 import { TypographyType, Typography } from '../../atomic/Typography'
-import { AddressP } from '../../sections/footer/styled'
+import { AddressP } from '../footer/styled'
 import { PixelFont } from '../../sections/styled'
-import { Burger } from './Burger'
+
+import Link from 'next/link'
 import {
   HeaderInner,
   HeaderStyled,
@@ -24,14 +25,16 @@ import { FullWidthInner, FullWidthSection } from '../pageLayout'
 
 type NavigationProps = {
   mixBlendMode?: boolean
+  withTimeout?: boolean
 }
 
 export const Navigation: FC<NavigationProps> = ({
   mixBlendMode,
+  withTimeout = false,
 }): JSX.Element => {
   const [open, setOpen] = useState(false)
   const [wasOpen, setWasOpen] = useState(false)
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(withTimeout ? false : true)
 
   const { scroll } = useLocomotiveScroll()
   const [isScrolled, setIsScrolled] = useState(false)
@@ -41,12 +44,14 @@ export const Navigation: FC<NavigationProps> = ({
   )
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setVisible(true)
-    }, 5500)
+    if (withTimeout) {
+      const timeout = setTimeout(() => {
+        setVisible(true)
+      }, 5500)
 
-    return () => {
-      clearTimeout(timeout)
+      return () => {
+        clearTimeout(timeout)
+      }
     }
   }, [])
 
@@ -95,8 +100,6 @@ export const Navigation: FC<NavigationProps> = ({
         clearTimeout(timeout)
       }
     }
-
-    console.log(allowMixBlendMode)
   }, [open, mixBlendMode])
 
   return (
@@ -109,9 +112,25 @@ export const Navigation: FC<NavigationProps> = ({
         <HeaderInner>
           <LinkWrapper>
             <Text>
-              <BeOnMindLogo color={open ? colors.black : colors.white} />
+              <Link href="/">
+                <a>
+                  <BeOnMindLogo color={open ? colors.black : colors.white} />
+                </a>
+              </Link>
             </Text>
           </LinkWrapper>
+
+          <Link href="/contact">
+            <a>
+              <Typography
+                type={TypographyType.P1}
+                color={colors.white}
+                inlineBlock
+              >
+                Contact
+              </Typography>
+            </a>
+          </Link>
 
           <MenuContainer open={open}>
             <FullWidthSection>
@@ -176,7 +195,7 @@ export const Navigation: FC<NavigationProps> = ({
             </FullWidthSection>
           </MenuContainer>
 
-          <Burger open={open} setOpen={setOpen} />
+          {/* <Burger open={open} setOpen={setOpen} /> */}
         </HeaderInner>
 
         <Overlay open={open} />
