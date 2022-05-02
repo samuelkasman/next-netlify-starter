@@ -1,4 +1,4 @@
-import React, { FC, MutableRefObject } from 'react'
+import React, { FC } from 'react'
 
 type Props = {
   className?: string

@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import { useInView } from 'react-intersection-observer'
-import { colors } from '../../../styles/theme'
-import { TypographyType } from '../../atomic/Typography'
-import { FullWidthSection, FullWidthInner } from '../../layout/pageLayout'
-import { Glitch, PixelFont } from '../styled'
+import { colors } from '../../../../styles/theme'
+import { TypographyType } from '../../../atomic/Typography'
+import { FullWidthSection, FullWidthInner } from '../../../layout/pageLayout'
+import { Glitch, PixelFont } from '../../styled'
 import { Centered, WorkText } from './styled'
 
 export const Work: FC = (): JSX.Element => {

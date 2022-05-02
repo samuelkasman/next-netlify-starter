@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { breakpoints } from '../../../styles/theme'
-import { Typography } from '../../atomic/Typography'
+import { breakpoints } from '../../../../styles/theme'
+import { Typography } from '../../../atomic/Typography'
 
 export const Centered = styled.div<{ inView?: boolean }>`
   display: flex;

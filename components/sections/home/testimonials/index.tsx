@@ -12,9 +12,9 @@ import {
   Wrapper,
 } from './styled'
 import { FC } from 'react'
-import { colors } from '../../../styles/theme'
-import { Typography, TypographyType } from '../../atomic/Typography'
-import { FullWidthInner } from '../../layout/pageLayout'
+import { colors } from '../../../../styles/theme'
+import { Typography, TypographyType } from '../../../atomic/Typography'
+import { FullWidthInner } from '../../../layout/pageLayout'
 import { Carousel as ReactCarousel } from 'react-responsive-carousel'
 import { useInView } from 'react-intersection-observer'
 

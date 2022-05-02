@@ -1,8 +1,8 @@
-import { FullWidthSection } from './../../layout/pageLayout'
+import { FullWidthSection } from '../../../layout/pageLayout'
 import styled from 'styled-components'
-import { breakpoints, colors } from '../../../styles/theme'
-import { H1 } from '../../atomic/H1'
-import { PlayButtonIcon } from '../../atomic/icons/PlayButtonIcon'
+import { breakpoints, colors } from '../../../../styles/theme'
+import { H1 } from '../../../atomic/H1'
+import { PlayButtonIcon } from '../../../atomic/icons/PlayButtonIcon'
 
 export const Intro = styled.div`
   display: flex;

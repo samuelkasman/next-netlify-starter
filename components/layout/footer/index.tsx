@@ -2,8 +2,8 @@ import { useTranslation } from 'next-i18next'
 import React from 'react'
 import { colors } from '../../../styles/theme'
 import { TypographyType } from '../../atomic/Typography'
-import { FullWidthInner, FullWidthSection } from '../../layout/pageLayout'
-import { PixelFont } from '../styled'
+import { FullWidthInner, FullWidthSection } from '../pageLayout'
+import { PixelFont } from '../../sections/styled'
 import {
   Address,
   AddressP,
@@ -23,7 +23,7 @@ export const Footer = (): JSX.Element => {
       <FullWidthInner>
         <TopRow>
           <EmailText type={TypographyType.P1} color={colors.black}>
-            s<PixelFont>t</PixelFont>udio@beo<PixelFont>n</PixelFont>mind.com
+            s<PixelFont>t</PixelFont>udio@beonmi<PixelFont>n</PixelFont>d.com
           </EmailText>
         </TopRow>
 
@@ -31,14 +31,6 @@ export const Footer = (): JSX.Element => {
           <Column>
             <MenuLink type={TypographyType.P1} color={colors.black}>
               Ho<PixelFont>m</PixelFont>e
-            </MenuLink>
-
-            <MenuLink type={TypographyType.P1} color={colors.black}>
-              Wor<PixelFont>k</PixelFont>
-            </MenuLink>
-
-            <MenuLink type={TypographyType.P1} color={colors.black}>
-              Par<PixelFont>t</PixelFont>ne<PixelFont>r</PixelFont>
             </MenuLink>
 
             <MenuLink type={TypographyType.P1} color={colors.black}>

@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react'
-import { colors } from '../../../styles/theme'
-import { FullWidthSection, FullWidthInner } from '../../layout/pageLayout'
-import { DefaultFont, PixelFont } from '../styled'
+import { colors } from '../../../../styles/theme'
+import { FullWidthSection, FullWidthInner } from '../../../layout/pageLayout'
+import { DefaultFont, PixelFont } from '../../styled'
 import {
   VideoParallax,
   HeadlineVisibility,
@@ -20,7 +20,6 @@ import {
 import { CustomCursorWrapper } from '../projects/styled'
 import { useHero } from './useHero'
 import { useCursor } from './useCursor'
-import { Scrambler } from './Scrambler'
 
 export const Hero: FC = (): JSX.Element => {
   const {

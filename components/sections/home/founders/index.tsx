@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import { useInView } from 'react-intersection-observer'
-import { colors } from '../../../styles/theme'
-import { Typography, TypographyType } from '../../atomic/Typography'
-import { FullWidthSection, FullWidthInner } from '../../layout/pageLayout'
+import { colors } from '../../../../styles/theme'
+import { Typography, TypographyType } from '../../../atomic/Typography'
+import { FullWidthSection, FullWidthInner } from '../../../layout/pageLayout'
 import { PlusIconStyled } from '../projects/styled'
-import { PixelFont } from '../styled'
+import { PixelFont } from '../../styled'
 import {
   Container,
   Heading,
