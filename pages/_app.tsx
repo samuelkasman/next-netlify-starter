@@ -1,11 +1,21 @@
 import { AppProps } from 'next/app'
 import { GlobalStyles } from '../styles'
 import { appWithTranslation } from 'next-i18next'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
+import { Router } from 'next/router'
 
 const Application = ({ Component, pageProps }: AppProps): JSX.Element => {
   const containerRef = useRef(null)
+
+  useEffect(() => {
+    const scrollToTop = () => window.scrollTo(0, 0)
+    Router.events.on('routeChangeComplete', scrollToTop)
+
+    return () => {
+      Router.events.off('routeChangeComplete', scrollToTop)
+    }
+  }, [])
 
   return (
     <LocomotiveScrollProvider

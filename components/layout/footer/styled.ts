@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components'
-import { typography, colors, breakpoints } from '../../../styles/theme'
+import styled from 'styled-components'
+import { colors, breakpoints } from '../../../styles/theme'
 import { Typography } from '../../atomic/Typography'
 
 export const TopRow = styled.div`
@@ -11,7 +11,7 @@ export const TopRow = styled.div`
   padding: 64px 0 20px;
 
   @media (min-width: ${breakpoints.minDesktop}) {
-    padding: 48px 0 40px;
+    padding: 120px 0 40px;
     flex-direction: row;
   }
 `
@@ -21,8 +21,8 @@ export const EmailText = styled(Typography)`
   line-height: 34px;
 
   @media (min-width: ${breakpoints.minDesktop}) {
-    font-size: 72px;
-    line-height: 80px;
+    font-size: 60px;
+    line-height: 72px;
   }
 `
 
@@ -40,11 +40,28 @@ export const MainRow = styled.div`
   }
 `
 
+export const HalfRow = styled.div<{ flexStart?: boolean }>`
+  flex: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: ${({ flexStart }) =>
+    flexStart ? 'flex-start' : 'space-between'};
+  align-items: flex-start;
+`
+
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+`
+
+export const AStyled = styled.a`
+  margin-bottom: 24px;
+
+  @media (min-width: ${breakpoints.minDesktop}) {
+    margin-bottom: 32px;
+  }
 `
 
 export const MenuLink = styled(Typography)`
@@ -81,4 +98,11 @@ export const BottomRow = styled.div`
     padding: 48px 0 40px;
     flex-direction: row;
   }
+`
+
+export const SocialLink = styled.a`
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  margin-right: 30px;
 `
